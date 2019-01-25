@@ -21,4 +21,11 @@
     (venv) $ git init
     ```
 6. Create README.md and .gitignore
-
+7. Create requirements.txt
+    ```bash
+    (venv) $ pip freeze --local > requirements.txt
+    ```
+8. Start a new repository on github and create remotes
+    ```bash
+    $ git remote add origin https://github.com/abonello/project_5.git
+    ```
