@@ -75,6 +75,33 @@ Good to switch between accounts too.
     ```
     commit.
 
+12. Create a heroku app
+    ```bash
+    $ heroku create unique-corn --region eu
+    ```
+    https://unique-corn.herokuapp.com   
+    https://git.heroku.com/unique-corn.git
+
+13. Create a new database on heroku (PostgreSQL)
+    ```bash
+    $ heroku addons:create heroku-postgresql:hobby-dev
+    ```
+    This creates an empty database.  
+
+    ```
+    Database has been created and is available
+    ! This database is empty. If upgrading, you can transfer
+    ! data from another database with pg:copy
+    Created postgresql-closed-64850 as DATABASE_URL
+    Use heroku addons:docs heroku-postgresql to view documentation
+    ```
+
+
+
+
+
+
+
 &nbsp;  
 &nbsp;  
 &nbsp;  
