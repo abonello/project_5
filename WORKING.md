@@ -82,7 +82,8 @@ Good to switch between accounts too.
     https://unique-corn.herokuapp.com   
     https://git.heroku.com/unique-corn.git
 
-13. Create a new database on heroku (PostgreSQL)
+13. Create a new database on heroku (PostgreSQL)  
+    Heroku uses addons to set up databases.
     ```bash
     $ heroku addons:create heroku-postgresql:hobby-dev
     ```
@@ -95,6 +96,18 @@ Good to switch between accounts too.
     Created postgresql-closed-64850 as DATABASE_URL
     Use heroku addons:docs heroku-postgresql to view documentation
     ```
+14. Install dj_database_url  
+    ```bash
+    (venv) $ pip install dj_database_url
+    ```
+    This allows us to parse database urls.
+    This installs dj-database-url 0.5.0
+
+15. Update requirements.txt
+    ```bash
+    (venv) $ pip freeze --local > requirements.txt
+    ```
+    and commit.
 
 
 
