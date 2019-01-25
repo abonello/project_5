@@ -109,6 +109,24 @@ Good to switch between accounts too.
     ```
     and commit.
 
+16. We can view the DATABASE_URL
+    ```bash
+    $ heroku config
+    ```
+    This will show us the url of the database which we need for the next step.  
+    The same url can be found through the heroku dashboard. Go to settings and open the Config Variables.
+
+18. Create a django project
+    ```bash
+    django-admin startproject UniQueCorn
+    ```
+
+
+
+
+17. Connect to the remote database.  
+    Open `settings.py` file and scroll down to the DATABASES section.
+
 
 
 
