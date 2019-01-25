@@ -35,16 +35,53 @@
     $ git remote add origin https://github.com/abonello/project_5.git
     $ git push -u origin master
     ```
+---
+### **Notes** 
 
+I already have heroku toolbelt installed on my computer.
+```bash
+$ heroku
+```
+gives a list of commands available to use together with a short description.
 
+```bash
+$ heroku apps
+```
+Will give us a list of apps. If you are not logged in you will need to enter login details.
 
+Can also login using:
+```bash
+$ heroku login
+```
+Good to switch between accounts too.
 
+---
+9. Install gunicorn
+    ```bash
+    (venv) $ pip install gunicorn
+    ```
+    This installs gunicorn 19.9.0  
+    This will run the application on the server.
 
+10. Install psycopg2
+    ```bash
+    (venv) $ pip install psycopg2
+    ```
+    This installs psycopg2   2.7.7  
+    This allows us to connect to a PostgreSQL database.
+11. Update requirements.txt
+    ```bash
+    (venv) $ pip freeze --local > requirements.txt
+    ```
+    commit.
 
 &nbsp;  
 &nbsp;  
 &nbsp;  
 &nbsp;  
+
+---
+
 .  
 .  
 .  
