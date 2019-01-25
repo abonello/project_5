@@ -116,15 +116,56 @@ Good to switch between accounts too.
     This will show us the url of the database which we need for the next step.  
     The same url can be found through the heroku dashboard. Go to settings and open the Config Variables.
 
-18. Create a django project
+17. Create a django project
     ```bash
     django-admin startproject UniQueCorn
     ```
 
 
+18. Running the django server
+
+    ```bash
+    (venv) $ python manage.py runserver 0.0.0.0:8000
+    ```
+
+    ---
+
+    This is giving me an error. A quick goodle search shows:  
+    this is a problem between Django and Python 3.7. [Django has a fix](https://github.com/django/django/commit/931c60c5216bd71bc11f489e00e063331cf21f40), but that fix hasn’t made it into a new version yet.
+
+    NB
+    line 152 of widgets.py
+    ```python
+    if params:
+        related_url += '?' + '&amp;'.join(
+            '%s=%s' % (k, v) for k, v in params.items(),
+        )
+    ```
+    should be replaced by
+    ```python
+    if params:
+        related_url += '?' + '&amp;'.join('%s=%s' % (k, v) for k, v in params.items())
+    ```
+    Now it works and the server starts properly.
+    ---
+
+19. Add 0.0.0.0 to ALLOWED_HOSTS in settings.py
+
+20. Creating a testing app
 
 
-17. Connect to the remote database.  
+
+
+
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+
+---
+I am going to create a test app before proceeding to database.
+
+-- Connect to the remote database.  
     Open `settings.py` file and scroll down to the DATABASES section.
 
 
