@@ -168,6 +168,11 @@ Good to switch between accounts too.
     ---
 
 19. Add 0.0.0.0 to ALLOWED_HOSTS in settings.py
+    ```python
+    ALLOWED_HOSTS = [
+        "0.0.0.0"
+        ]
+    ```
 
 20. Creating a testing app
     ```bash
