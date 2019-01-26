@@ -174,7 +174,9 @@ Good to switch between accounts too.
         ]
     ```
 
-20. Creating a testing app
+20. Add **\*.sqlite3** and **\_\_pycache\_\_** to `.gitignore`.
+
+21. Creating a testing app
     ```bash
     django-admin startapp testing
     ```
