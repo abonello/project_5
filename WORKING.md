@@ -53,7 +53,9 @@ Can also login using:
 ```bash
 $ heroku login
 ```
-Good to switch between accounts too.
+Good to switch between accounts too.  
+If `heroku login` sends you to the browser,  
+try `heroku login -i`.
 
 ---
 9. Install gunicorn
