@@ -176,10 +176,12 @@ Good to switch between accounts too.
 
 20. Add **\*.sqlite3** and **\_\_pycache\_\_** to `.gitignore`.
 
-21. Creating a testing app
+21. Creating a `testing` app (in the root of the project)
     ```bash
-    django-admin startapp testing
+    $ cd UniQueCorn
+    $ django-admin startapp testing
     ```
+22. Add the new app to the INSTALLED_APPS in `settings.py`.
 
 
 
