@@ -176,12 +176,33 @@ Good to switch between accounts too.
 
 20. Add **\*.sqlite3** and **\_\_pycache\_\_** to `.gitignore`.
 
-21. Creating a `testing` app (in the root of the project)
+21. Creating a `testing` app (in the root of the project) (At same level you have manage.py)
     ```bash
-    $ cd UniQueCorn
     $ django-admin startapp testing
     ```
 22. Add the new app to the INSTALLED_APPS in `settings.py`.
+
+23. Add a testing view and connect to url pattern  
+    in views.py
+    ```python
+    from django.shortcuts import render, HttpResponse
+
+    def say_hello(request):
+        return HttpResponse("Hello World - This is a test")
+    ```
+24. Add a testing url pattern  
+    in urls.py (in root), add
+    ```python
+    from testing.views import say_hello
+
+    urlpatterns = [
+        . . .,
+        url(r'^$', say_hello),
+    ]
+    ```
+
+    NB: Had to move testing app one level down in folder structure.
+
 
 
 
