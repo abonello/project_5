@@ -205,6 +205,26 @@ try `heroku login -i`.
 
     NB: Had to move testing app one level down in folder structure.
 
+25. Create a template  
+    Start by creating a `templates` folder in the app directory and create an html file which will be the test template, `test.html`.
+
+26. In `view.py` create a view that will render the test template.
+    ```python
+    def render_test_template(request):
+        return render(request, “test.html”)
+    ```
+27. Create the url pattern for this new view in `urls.py` (root).
+    ```python
+        from testing.views import . . ., render_test_template
+
+    urlpatterns = [
+        . . .,
+        url(r'^test$', render_test_template)
+    ]
+    ```
+
+
+
 
 
 
