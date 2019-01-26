@@ -117,16 +117,34 @@ Good to switch between accounts too.
     The same url can be found through the heroku dashboard. Go to settings and open the Config Variables.
 
 17. Create a django project
+    Call it `UniQueCorn` and put it at the root level of this directory by using `.`.
     ```bash
-    django-admin startproject UniQueCorn
+    django-admin startproject UniQueCorn .
     ```
-
+    Placing it in the root will become important when we get to deploy on Heroku.
 
 18. Running the django server
 
     ```bash
     (venv) $ python manage.py runserver 0.0.0.0:8000
     ```
+
+    ===========================
+    If I get `Error: That port is already in use.` I can see the servers running
+    ```bash
+    (venv) $ lsof -i :8000
+    ```
+    This will return info about servers running including PID
+    ```bash
+    COMMAND     PID           USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+    python3.7 28335 anthonybonello    6u  IPv4 0x891c88db52932009      0t0  TCP *:irdmi (LISTEN)
+    ```
+    Then use the PID to kill that process:
+    kill -9 <PID>
+    ```bash
+    (venv) $ kill -9 28335
+    ```
+    ===========================
 
     ---
 
