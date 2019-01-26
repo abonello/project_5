@@ -152,7 +152,9 @@ Good to switch between accounts too.
 19. Add 0.0.0.0 to ALLOWED_HOSTS in settings.py
 
 20. Creating a testing app
-
+    ```bash
+    django-admin startapp testing
+    ```
 
 
 
