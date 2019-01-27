@@ -223,26 +223,24 @@ try `heroku login -i`.
     ]
     ```
 
-
-
-
-
-
-
-&nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
-
 ---
-I am going to create a test app before proceeding to database.
+## Connect to the remote database.  
+28. Open `settings.py` file and scroll down to the DATABASES section. Comment out the existing DATABASES dictionary. For the string use `heroku config`. We need to import dj_database_url
 
--- Connect to the remote database.  
-    Open `settings.py` file and scroll down to the DATABASES section.
+    ```python
+    import dj_database_url
 
 
+    DATABASES = {
+        'default': dj_database_url.parse("postgres://tcqoipytozvlke:0317ac04ecd88e9874ad3cb2c06d75ca417acec39c4b7a9a37d11ab023b3e761@ec2-46-137-170-51.eu-west-1.compute.amazonaws.com:5432/d4cl9o887a7f6b")
+    }
+    ```
+    dj_database_url.parse will create a new database connection for us.
 
-
+29. migrate the database
+    ```bash
+    python manage.py migrate
+    ```
 
 
 
