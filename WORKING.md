@@ -241,8 +241,21 @@ try `heroku login -i`.
     ```bash
     python manage.py migrate
     ```
-
-
+30. Push to heroku
+    ```bash
+    git push heroku master
+    ```
+    NB - Heroku is using python 3.6.7
+    This will fail asking us to run teh following code. Then push again
+    ```bash
+    heroku config:set DISABLE_COLLECTSTATIC=1
+    git push heroku master
+    ```
+    Trying to access https://unique-corn.herokuapp.com/ , there is an application error. We need a `Procfile`.
+31. Create a `Procfile`:
+    ```bash
+    echo web: gunicorn UniQueCorn.wsgi:application > Procfile
+    ```
 
 &nbsp;  
 &nbsp;  
