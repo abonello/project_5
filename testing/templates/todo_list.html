@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test ToDo List</title>
+</head>
+<body>
+    <h1>Test - ToDo List</h1>
+    I can display the data in a variety of ways:
+
+    <h2>Display as paragraphs</h2>
+    {% for item in items %}
+        {% if item.done %}
+            <p>
+                <strike>{{ item.name }}</strike>
+            </p>
+        {% else %}
+            <p>
+                {{ item.name }}
+            </p>
+        {% endif %}
+
+        {% empty %}
+        <p>You have nothing to do. Can go fishing.</p>
+    {% endfor %}
+    <hr>
+
+    <h2>Display as list</h2>
+        <ul>
+        {% for item in items %}
+            <li>
+                {% if item.done %}
+                    <strike>{{ item.name }}</strike>
+                {% else %}
+                    {{ item.name }}
+                {% endif %}
+            </li>
+            {% empty %}
+            <li>You have nothing to do. Can go fishing.</li>
+        {% endfor %}
+        </ul>
+            
+
+
+
+
+
+
+    <hr>
+
+    <h2>Display as table</h2>
+
+    <table>
+        {% for item in items %}
+        <tr>
+            {% if item.done %}
+            <td><strike>{{ item.name }}</strike></td>
+            {% else %}
+            <td>{{ item.name }}</td>
+            {% endif %}
+        </tr>
+        {% empty %}
+        <p>You have nothing to do. Can go fishing.</p>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

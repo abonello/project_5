@@ -274,10 +274,60 @@ try `heroku login -i`.
     email: test@admin.com
     password: 1234qwer
 
+    **Can access admin site locally. Pushed to Heroku but cannot access admin there.** 
+    
+    **I need to migrate for the progresql too as well as create the superuser for that database (same credentials).**   
+
+    NB: No styling
+
+
+## Change test app into a simple todo app (like tutorial) 
+34. Within the `testing` app, in `models.py`  create a model for a simple database.  
+    Add a dunder method `__str__` to the class to display the items in a verbose format rather than objects.
+    ```python
+    class Item(models.Model):
+        name = models.Charfield(max_length=30, blank=False)
+        done = models.BooleanField(blank=False, default=False)
+
+        def __str__(self):
+            return self.name
+    ```
+35. Make a migration and migrate this new model.  
+    I am working directly with PostgreSQL
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+36. In order to display this in the admin panel I need to register it in `admin.py` (in app folder). Import and register the model.
+    ```python
+    from django.contrib import admin
+    from .models import Item
+
+    admin.site.register(Item)
+    ```
+
+37. Can display in admin now display in customer side.  
+    Add a view, connect to a template and urlpattern.
+
+    * Create a view in `views.py`. Connect the view with the model by importing it.
+    ```python
+    from .models import Item
+
+    def test_todo_list(request):
+        results = Item.objects.all()
+        return render(request, “<todo_list>.html”, {'items': results})
+    ```
+
+    * Create a `todo_list.html` template
+
+    * Create a urlpattern in `urls.py` (root)
+
+
+
+
 
 
 NB
-Need to create a superuser. 
 Create a simple database and form.
 
 &nbsp;  
