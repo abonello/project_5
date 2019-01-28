@@ -259,9 +259,26 @@ try `heroku login -i`.
     Push both to github and heroku.
 
 32. We need to add the url on heroku to ALLOWED_HOSTS in settings.py
+    ```python
+    ALLOWED_HOSTS = [
+        . . .
+        "unique-corn.herokuapp.com",
+        ]
+    ```
+33. Migrate and Create a superuser
+    ```python
+    python manage.py migrate
+    python manage.py createsuperuser
+    ```
+    username: test-admin  
+    email: test@admin.com
+    password: 1234qwer
 
 
 
+NB
+Need to create a superuser. 
+Create a simple database and form.
 
 &nbsp;  
 &nbsp;  
