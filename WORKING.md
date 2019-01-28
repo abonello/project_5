@@ -317,18 +317,61 @@ try `heroku login -i`.
         results = Item.objects.all()
         return render(request, “<todo_list>.html”, {'items': results})
     ```
-
     * Create a `todo_list.html` template
 
     * Create a urlpattern in `urls.py` (root)
 
+38. Create A view to add items - with a form.
+    * In view.py create a new view. This view need to be able to handle adding a new item to the database and redirect to the todo_list view.
+    ```python
+    from django.shortcuts import . . . redirect
 
+    def test_create_an_item(request):
+        if request.method=="POST":
+            new_item = Item()  # instance of the Item model
+            new_item.name = request.POST.get('name')
+            new_item.done = 'done' in request.POST
+            new_item.save()
+            return redirect(test_todo_list)
+
+        return render(request, 'add_item_form.html')
+    ```
+
+    * Create a new template `add_item_form.html`.
+    Remember to add the csrf_token to the form.
+
+    * Add related urlpattern, remember to import the view
+    ```python
+    url(r'^add$', test_create_an_item),
+    ```
+    ===========================  
+    **I can use `django forms` which will:**  
+        * **Automatically generate a form from a model,**  
+        * **Automatically check for blank fields.**  
+    It needs to inherit from `forms.ModelForm`.  
+    We need to create an inner class called **Meta**.  
+    This provides some additional info to django to tell it what we want.
+
+    We need to create `forms.py` in the app directory.  
+    It will import `froms` and our `model`.
+    ```python
+    from django import forms
+    from .models import Item
+
+    class ItemForm(forms.ModelForm):
+        class Meta:
+            model = Item
+            fields = ('name', 'done')
+    ```
+
+    The view need to be updated. Import form.  
+    
 
 
 
 
 NB
-Create a simple database and form.
+Create a ~~simple database~~ and form.
 
 &nbsp;  
 &nbsp;  

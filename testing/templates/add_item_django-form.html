@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test | Add Item</title>
+</head>
+<body>
+    <h1>Test - Add an item</h1>
+
+    <h2>The following form uses django form.</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {#{ form }#}
+        {{ form.as_p }}
+        {#{ form.as_table }#}
+        {#{ form.as_ul }#}
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
