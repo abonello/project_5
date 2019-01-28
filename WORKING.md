@@ -256,6 +256,12 @@ try `heroku login -i`.
     ```bash
     echo web: gunicorn UniQueCorn.wsgi:application > Procfile
     ```
+    Push both to github and heroku.
+
+32. We need to add the url on heroku to ALLOWED_HOSTS in settings.py
+
+
+
 
 &nbsp;  
 &nbsp;  
