@@ -70,6 +70,12 @@
                 <!-- <a href="#">Edit</a> -->
                 <form method="GET" action="edit/{{ item.id }}"><input type="submit" value="Edit"></form>
             </td>
+            <td>
+                <form method="POST" action="delete/{{ item.id }}">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
         {% empty %}
         <p>You have nothing to do. Can go fishing.</p>

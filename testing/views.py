@@ -56,3 +56,9 @@ def test_toggle_status(request, id):
     item.done = not item.done
     item.save()
     return redirect(test_todo_list)
+
+
+def test_delete_item(request, id):
+    item = get_object_or_404(Item, pk=id)
+    item.delete()
+    return redirect(test_todo_list)

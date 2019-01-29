@@ -414,8 +414,25 @@ try `heroku login -i`.
         item.save()
         return redirect(test_todo_list)
     ```
+    The url pattern for toggle status is
+    ```python
+    url(r'^toggle/(?P<id>\d+)$', test_toggle_status),
+    ```
 
-41. Implement Delete item
+41. Implement Delete item  
+    I want the ability to completely delete an item from the database. Add another column with a form and a submit element in the template.  
+    The view to implement this is 
+    ```python
+    def test_delete_item(request, id):
+        item = get_object_or_404(Item, pk=id)
+        item.delete()
+        return redirect(test_todo_list)
+    ```
+    The url pattern is
+    ```python
+    url(r'^delete/(?P<id>\d+)$', test_delete_item),
+    ```
+
 
 
 
