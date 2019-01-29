@@ -61,6 +61,12 @@
             <td>{{ item.name }}</td>
             {% endif %}
             <td>
+                <form method="POST" action="toggle/{{ item.id }}">
+                    {% csrf_token %}
+                    <input type="submit" value="Toggle Status">
+                </form>
+            </td>
+            <td>
                 <!-- <a href="#">Edit</a> -->
                 <form method="GET" action="edit/{{ item.id }}"><input type="submit" value="Edit"></form>
             </td>

@@ -50,3 +50,9 @@ def test_edit_an_item(request, id):
         form = ItemForm(instance=item)
         
     return render(request, 'add_item_django-form.html', {'form': form})
+
+def test_toggle_status(request, id):
+    item = get_object_or_404(Item, pk=id)
+    item.done = not item.done
+    item.save()
+    return redirect(test_todo_list)

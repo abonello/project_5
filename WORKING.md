@@ -403,8 +403,17 @@ try `heroku login -i`.
         return render(request, 'add_item_django-form.html', {'form': form})
     ```
 
-40. Toggle Status
-
+40. Toggle Status  
+    Directly toggle between done/not done straight from the list instead of having to go to another page.  
+    Implement a toggle button to achieve this. Place it in a column before the edit button. Here we will have a form with a POST method. It will need a csrf token since it uses a POST method.  
+    Create a toggle view.
+    ```python
+    def test_toggle_status(request, id):
+        item = get_object_or_404(Item, pk=id)
+        item.done = not item.done
+        item.save()
+        return redirect(test_todo_list)
+    ```
 
 41. Implement Delete item
 
