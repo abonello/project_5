@@ -14,11 +14,11 @@
     {% for item in items %}
         {% if item.done %}
             <p>
-                <strike>{{ item.name }}</strike>
+                <strike>{{ item.name }}</strike> | <a href="#">Edit</a>
             </p>
         {% else %}
             <p>
-                {{ item.name }}
+                {{ item.name }} | <a href="#">Edit</a>
             </p>
         {% endif %}
 
@@ -32,9 +32,9 @@
         {% for item in items %}
             <li>
                 {% if item.done %}
-                    <strike>{{ item.name }}</strike>
+                    <strike>{{ item.name }}</strike> | <a href="#">Edit</a>
                 {% else %}
-                    {{ item.name }}
+                    {{ item.name }} | <a href="#">Edit</a>
                 {% endif %}
             </li>
             {% empty %}
@@ -60,6 +60,10 @@
             {% else %}
             <td>{{ item.name }}</td>
             {% endif %}
+            <td>
+                <!-- <a href="#">Edit</a> -->
+                <form method="GET" action="edit/{{ item.id }}"><input type="submit" value="Edit"></form>
+            </td>
         </tr>
         {% empty %}
         <p>You have nothing to do. Can go fishing.</p>

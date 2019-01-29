@@ -365,13 +365,59 @@ try `heroku login -i`.
     ```
 
     The view need to be updated. Import form.  
-    
+
+39. Edit an item.  
+    **Using a link**  
+    Add an edit link to each item in `todo_list.html`.
+    If it is a table place this in a new column. If the table is displayed as a paragraph or list, there is no easy way how to align these links.  
+    **Using a form**  
+    Better still to use a form. This form will use the GET method. We will give each button an action of `edit`. This will call a urlpattern. We need to target a specific item and we will use the id of that item to achieve this.
+
+    Create a view that will allow us to edit that specific item. We will use the `get_object_or_404` which has to be imported from `django.shortcuts`. If it cannot find the specific item with the id we are passing in will throw a 404 error. Create a filled form with the return item.  
+    ```python
+    def test_edit_an_item(request, id):
+        item = get_object_or_404(Item, pk=id)
+        form = ItemForm(instance=item)
+
+        return render(request, 'add_item_django-form.html', {'form': form})
+    ```
+    Next, create a urlpattern for this view which has to handle the id value we are passing from the url.  
+    ```python
+    url(r'^edit/(?P<id>\d+)$', test_edit_an_item),
+    ```
+
+    Up to now we can run the code and see that the form is prepopulated with the selected item. We can make changes but nothing will happen when we submit.
+    We need to add the logic as we did for the add an item.
+    ```python
+    def test_edit_an_item(request, id):
+        item = get_object_or_404(Item, pk=id)
+
+        if request.method == 'POST':
+            form = ItemForm(request.POST, instance=item)
+            if form.is_valid():
+                form.save()
+                return redirect(test_todo_list)
+        else:
+            form = ItemForm(instance=item)
+        
+        return render(request, 'add_item_django-form.html', {'form': form})
+    ```
+
+40. Toggle Status
+
+
+41. Implement Delete item
+
 
 
 
 
 NB
-Create a ~~simple database~~ and form.
+Create a ~~simple database~~ and ~~form~~.  
+~~Edit an item~~  
+Toggle Status  
+Delete an item    
+
 
 &nbsp;  
 &nbsp;  

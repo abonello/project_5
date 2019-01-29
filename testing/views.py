@@ -1,6 +1,6 @@
 from .forms import ItemForm
 from .models import Item
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 
 
 def say_hello(request):
@@ -36,4 +36,17 @@ def test_create_an_item_django_form(request):
     else: # Return an empty form
         form = ItemForm()
 
+    return render(request, 'add_item_django-form.html', {'form': form})
+
+def test_edit_an_item(request, id):
+    item = get_object_or_404(Item, pk=id)
+
+    if request.method == 'POST':
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect(test_todo_list)
+    else:
+        form = ItemForm(instance=item)
+        
     return render(request, 'add_item_django-form.html', {'form': form})
