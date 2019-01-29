@@ -27,11 +27,15 @@ SECRET_KEY = '(f^tzbk_6&i^l(k6)-l(59_3r4v*shml^)0r)s(1kxl&0gq31i'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "0.0.0.0",
-    "127.0.0.1",
-    "unique-corn.herokuapp.com",
+    # "localhost",
+    # "0.0.0.0",
+    # "127.0.0.1",
+    # "unique-corn.herokuapp.com",
     ]
+
+host = os.environ.get('SITE_HOST')
+if host:
+    ALLOWED_HOSTS.append(host)
 
 
 # Application definition

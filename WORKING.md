@@ -432,18 +432,41 @@ try `heroku login -i`.
     ```python
     url(r'^delete/(?P<id>\d+)$', test_delete_item),
     ```
+42. Setting up local environment variables  
+    in ~/.bashprofile
+
+    In order to refresh the bash shell run:
+    ```bash
+    . ~/.bash_profile
+    ```
+    NB: either deactivate the virtual environment before you refresh the bash shell or you will have to do it after, deactivate and reactivate.
+    ```bash
+    deactivate
+    . venv/bin/activate
+    ```
+
+    for ALLOWED hosts add
+    ```
+    export SITE_HOST="127.0.0.1"
+    ```
+    This will be loaded in settings.py by using:
+    ```python
+    host = os.environ.get('SITE_HOST')
+    if host:
+        ALLOWED_HOSTS.append(host)
+    ```
+    Use this after defining ALLOWED_HOSTS.
+
+    For heroku add SITE_HOST with value of 
+    unique-corn.herokuapp.com to the Config Vars
 
 
 
 
 
+# NB
 
-NB
-Create a ~~simple database~~ and ~~form~~.  
-~~Edit an item~~  
-Toggle Status  
-Delete an item    
-
+## * Will explore Testing later
 
 &nbsp;  
 &nbsp;  
