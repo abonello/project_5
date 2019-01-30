@@ -485,6 +485,63 @@ try `heroku login -i`.
 
     This will not run locally. We will use sqlite3 instead.
 
+    We need django to recognise if we are working locally as Development or on Heroku as Production.
+
+    Locally (or on Cloud9), we will set an environment variable called `DEVELOPMENT`. 
+    ```
+    export DEVELOPMENT=1
+    ```
+    Remember to deactivate and activate the virtual environment for this to take place
+
+    NB: refresh .bash_profile 
+    ```
+    . ~/bash_profile
+    ```
+    or export the variable for one-time use (in CLI)
+    ```
+    export DEVELOPMENT=1
+    ```
+
+
+
+    
+    In settings we will check if this variable exist and if yes will set a variable `development` to True.
+    ```python
+    if os.environ.get('DEVELOPMENT'):
+        development = True
+    else:
+        development = False
+    ```
+
+    This means that when we are on Heroku, there will be no DEVELOPMENT config var (we do not set one), and we will automatically be in production mode.
+
+    We will use the `development` variable to set the DEBUG state
+    ```python
+    DEBUG = development
+    ```
+    By now, `development` will be **True** or **False** according to where we are.
+
+    We also want the `development` variable to switch databases. We want to use sqlite3 if we are working locally, ie. development, and use PostgreSQL on Heroku.
+    ```python
+    if development:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
+        }
+    else:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    ```
+
+    NB: might need to migrate the database for sqlite3 if not already done.
+    ```bash
+    python manage.py migrate
+    ```
+
+
 
 
 
