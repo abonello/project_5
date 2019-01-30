@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from testing.views import say_hello, render_test_template, test_todo_list, test_create_an_item, test_create_an_item_django_form, test_edit_an_item, test_toggle_status, test_delete_item
+from accounts.views import index, logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +28,6 @@ urlpatterns = [
     url(r'^edit/(?P<id>\d+)$', test_edit_an_item),
     url(r'^toggle/(?P<id>\d+)$', test_toggle_status),
     url(r'^delete/(?P<id>\d+)$', test_delete_item),
+    url(r'^index$', index, name="index"),
+    url(r'^accounts/logout/$', logout, name="logout"),
 ]

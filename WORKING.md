@@ -131,6 +131,15 @@ try `heroku login -i`.
     (venv) $ python manage.py runserver 0.0.0.0:8000
     ```
 
+
+    NB:  
+    I have placed an alias in .bash_profile in ~/
+    ```
+    alias run="python manage.py runserver"
+    ```
+    I am running on MacOSX. 
+
+
     ===========================
     If I get `Error: That port is already in use.` I can see the servers running
     ```bash
@@ -692,6 +701,73 @@ For logging in and out of users
     ```bash
     django-admin startapp accounts
     ```
+47. Update installed apps in settings.py  
+    I already have a superuser  
+
+48. Create a templates folder in accounts app and create index.html.
+
+49. Create a view and urlpattern
+
+    ```python
+    def index(request):
+        """Return the index.html file"""
+        return render(request, "index.html")
+    ```
+
+    ```python
+    from accounts.views import index
+
+    urlpatterns = [
+        . . .
+        url(r'^index$', index),
+    ]
+    ```
+
+50. Link hrefs to urls. Ex:
+    ```html
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    ```
+
+51. Create the logout url and view.  
+    for the view we need to do an import
+
+    ```python
+    def logout(request):
+        """Log the user out"""
+        auth.logout(request)
+        return redirect(reverse('index'))
+    ```
+    ```python
+    url(r'^accounts/logout/$', logout, name="logout"),
+    ```
+
+52. Using Django messages  
+    A package that comes bundled in Django - allows us to provide messages from the backend to the user.  
+    In order to use messages we need to:
+    1. import messages from django.contrib
+        ```python
+        from django.contrib import . . ., messages
+        ```
+    2. include the necessary code in the view
+        ```python
+        messages.success(request, "You have successfully logged out.")
+        ```
+    3. Create an area in the html file to display the message.
+        ```html
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        ```
+    4. Update settings.py file
+        ````python
+        MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+        ````
+
+    
 
 
 
