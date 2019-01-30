@@ -460,6 +460,31 @@ try `heroku login -i`.
     For heroku add SITE_HOST with value of 
     unique-corn.herokuapp.com to the Config Vars
 
+    -------
+    I changed the above to eliminate the use of the if logic.
+
+    I renamed the local environment variable in .bash_profile to HOSTNAME to match the one I am using in Heroku, then simply load it directly in ALLOWED_HOSTS
+    ```python
+    ALLOWED_HOSTS = [
+        os.environ.get('HOSTNAME'),
+        ]
+    ```
+
+    If I was working in C9 I will add
+    ```python
+    os.environ.get('C9_HOSTNAME')
+    ```
+    ___
+    Database connection string
+
+    Use
+    ```python
+    DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+    ```
+    for Heroku. DATABASE_URL was automatically set up when we start the postgresql database.
+
+    This will not run locally. We will use sqlite3 instead.
+
 
 
 
