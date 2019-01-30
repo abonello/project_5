@@ -31,11 +31,12 @@ ALLOWED_HOSTS = [
     # "0.0.0.0",
     # "127.0.0.1",
     # "unique-corn.herokuapp.com",
+    os.environ.get('HOSTNAME')
     ]
 
-host = os.environ.get('SITE_HOST')
-if host:
-    ALLOWED_HOSTS.append(host)
+# host = os.environ.get('SITE_HOST')
+# if host:
+#     ALLOWED_HOSTS.append(host)
 
 
 # Application definition
