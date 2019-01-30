@@ -540,9 +540,24 @@ try `heroku login -i`.
     ```bash
     python manage.py migrate
     ```
+43. Use environment variables to store protected information and avoid pushing such information to github. A good example is the `SECRET_KEY` used by Django. We can store this locally as an environment variable and on heroku as aconfig var. We can also use different variables for different platforms.
+We will get rid of the default key and create new keys, one for development and another for production. We can generate a new Django SECRET_KEY at [MiniWebtools](https://www.miniwebtool.com/django-secret-key-generator/)
 
+Add a secret key to ~/.bash_profile
+```
+export SECRET_KEY="<Replace this with the value of the secret key>"
+```
+On heroku, from the dashboard, set a config var with key = SECRET_KEY and value = <A different secret key>. We can also do this using heroku toolbelt.
+```bash
+heroku config:set SECRET_KEY="<A different secret key>"
+```
 
+The secret key will be used for hashing passwords and other security related things.
 
+Then we can access these variables in setting.py
+```python
+SECRET_KEY = os.environ.get('SECRET_KEY')
+```
 
 
 
