@@ -92,8 +92,11 @@ WSGI_APPLICATION = 'UniQueCorn.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#         'default': dj_database_url.parse("postgres://tcqoipytozvlke:0317ac04ecd88e9874ad3cb2c06d75ca417acec39c4b7a9a37d11ab023b3e761@ec2-46-137-170-51.eu-west-1.compute.amazonaws.com:5432/d4cl9o887a7f6b")
+#     }
 DATABASES = {
-        'default': dj_database_url.parse("postgres://tcqoipytozvlke:0317ac04ecd88e9874ad3cb2c06d75ca417acec39c4b7a9a37d11ab023b3e761@ec2-46-137-170-51.eu-west-1.compute.amazonaws.com:5432/d4cl9o887a7f6b")
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 
