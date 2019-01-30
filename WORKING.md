@@ -688,8 +688,11 @@ For logging in and out of users
 * Authentication - recognises the user  
 * Authorisation - you are allowed to be here  
 
-46. Add an Autentication app  
-    
+46. Add an Accounts app  
+    ```bash
+    django-admin startapp accounts
+    ```
+
 
 
 
