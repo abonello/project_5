@@ -868,6 +868,7 @@ For logging in and out of users
 
 58. Allow logging out only to logged in users. Using `login_required` from `django.contrib.auth.decorators`.
 
+59. Add login_required to todo views.
 
 
 
