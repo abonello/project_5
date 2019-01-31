@@ -848,6 +848,24 @@ For logging in and out of users
     'DIRS': [os.path.join(BASE_DIR, 'templates')],
     ```
 
+56. Check if user is logged in or not and change navigation accordingly.  
+    Display login and register to users who are not logged in and logout and profile to users who are logged in.
+    ```html
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="#">Profile</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="#">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    ```
+
+
+
 
 
 

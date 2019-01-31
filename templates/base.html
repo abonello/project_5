@@ -17,6 +17,19 @@
         </ul>
     </nav>
     <hr>
+    <h2>Conditionally modified navigation</h2>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="#">Profile</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="#">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <hr>
     {% if messages %}
     <div>
         {% for message in messages %}
