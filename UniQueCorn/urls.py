@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', say_hello),
     url(r'^test$', render_test_template),
-    url(r'^todo$', test_todo_list),
+    url(r'^todo$', test_todo_list, name="todo"),
     url(r'^add$', test_create_an_item),
     url(r'^add_django-form$', test_create_an_item_django_form),
     url(r'^edit/(?P<id>\d+)$', test_edit_an_item),
