@@ -1,5 +1,6 @@
 # Project 5
 ## Working
+The purpose of this file is to document the progress of this project step by step.
 
 # **UniQueCorn Issue Tracker**
 
@@ -767,7 +768,75 @@ For logging in and out of users
         MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
         ````
 
-    
+53. Create Login page  
+    1. Create login view
+        ```python
+        def login(request):
+            """Return a login page"""
+            return render(request, 'login.html')
+        ```
+
+    2. Update link in template
+        ```html
+        <li><a href="{% url 'login' %}">Login</a></li>
+        ```
+
+    3. Copy all content of index.html to a login.html. Change heading.
+
+    4. Add new url pattern
+
+54. Add login form    
+    1. Add forms.py in accounts folder. 
+        ```python
+        from django import forms
+
+        class UserLoginForm(forms.Form):
+            """Form to be used to login users."""
+            username = forms.CharField()
+            password = forms.CharField(widget=forms.PasswordInput)
+        ```
+    2. Update login view.  
+        import the new form we created
+        ```python
+        from accounts.forms import UserLoginForm
+
+        def login(request):
+            """Return a login page"""
+            login_form = UserLoginForm()
+            return render(request, 'login.html', {'login_form': login_form})
+        ```
+    3. In login template add the form we are passing from the view wrapped inside a form element. Use POST method.  
+        Add submit button and csrf token
+        ```html
+        <form method="POST">
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        ```
+    4. Add logic to view to handle POST
+        ```python
+        def login(request):
+            """Return a login page"""
+
+            if request.method == 'POST':
+                login_form = UserLoginForm(request.POST)
+
+                if login_form.is_valid():
+                    user = auth.authenticate(
+                            username=request.POST['username'],
+                            password=request.POST['password'])
+                    
+                    if user:
+                        auth.login(user=user, request=request)
+                        messages.success(request, "You have successfully logged in.")
+                    else:
+                        login_form.add_error(None, "Your username or password is incorrect.")
+            else:
+                login_form = UserLoginForm()
+
+            return render(request, 'login.html', {'login_form': login_form})
+        ```
 
 
 

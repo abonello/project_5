@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Django Auth</title>
 </head>
+
 <body>
-    <h1>Accounts - User management</h1>
+    <h1>Accounts - User Login</h1>
     <nav>
         <ul>
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -17,13 +19,21 @@
         </ul>
     </nav>
     <hr>
-    {% if messages %}
-        <div>
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </div>
-    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <button type="submit">Login</button>
+    </form>
     
+    <hr>
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
 </body>
+
 </html>
