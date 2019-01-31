@@ -864,6 +864,10 @@ For logging in and out of users
     </nav>
     ```
 
+57. Redirect logged in users to todo page
+
+58. Allow logging out only to logged in users. Using `login_required` from `django.contrib.auth.decorators`.
+
 
 
 
