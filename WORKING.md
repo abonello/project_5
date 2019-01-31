@@ -838,6 +838,15 @@ For logging in and out of users
             return render(request, 'login.html', {'login_form': login_form})
         ```
 
+55. Apply template inheritance  
+    (Better to start with this earlier on)
+    Inside our root project directory, create a templates directory and create a `base.html` file.  
+    Update the index.html to extend base.html.   
+    We need to tell django to use the template from the new folder.  
+    In settings.py, find the TEMPLATES list and update the DIRS key with a value pointing to the new directory.
+    ```python
+    'DIRS': [os.path.join(BASE_DIR, 'templates')],
+    ```
 
 
 

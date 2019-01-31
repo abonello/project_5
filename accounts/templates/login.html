@@ -1,39 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Django Auth</title>
-</head>
+{% block page_title %}
+Django Auth - Login
+{% endblock %}
 
-<body>
-    <h1>Accounts - User Login</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-    </nav>
-    <hr>
+{% block page_heading %}
+Accounts - User Login
+{% endblock %}
+
+{% block content %}
     <form method="POST">
         {% csrf_token %}
         {{ login_form.as_p }}
         <button type="submit">Login</button>
     </form>
+{% endblock %}
     
-    <hr>
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
-
-</body>
-
-</html>
+   
