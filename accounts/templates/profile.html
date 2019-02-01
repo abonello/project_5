@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+Django Auth | {{ user }}'s Profile
+{% endblock %}
+
+{% block page_heading %}
+Accounts - {{ user }}'s Profile
+{% endblock %}
+
+{% block content %}
+<p>Email: {{ profile.email }}</p>
+<p>Username: {{ profile.username }}</p>
+{% endblock %}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from testing.views import say_hello, render_test_template, test_todo_list, test_create_an_item, test_create_an_item_django_form, test_edit_an_item, test_toggle_status, test_delete_item
-from accounts.views import index, logout, login, registration
+from accounts.views import index, logout, login, registration, user_profile
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,4 +32,5 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout, name="logout"),
     url(r'^accounts/login/$', login, name="login"),
     url(r'^accounts/register/$', registration, name="registration"),
+    url(r'^accounts/profile/$', user_profile, name="profile")
 ]

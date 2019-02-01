@@ -885,6 +885,13 @@ For logging in and out of users
     * Add form validation. Define methods with name starting `clean_`
         django will use that method to clean and validate that field as named after the clean_.
 
+62. Create User Profiles  
+    We want to be able to retrieve a user from  the database.
+    * Create the necessary view
+    * Create a urlpattern
+    * Update link in the base.html nav
+    * Create a profile template
+
 
 
 
