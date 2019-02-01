@@ -892,6 +892,19 @@ For logging in and out of users
     * Update link in the base.html nav
     * Create a profile template
 
+63. Prepare for password reset
+
+    create url_reset.py - allow us to create the reset-specific urls and mapped into views.
+    Add a urls.py inside accounts app  
+    Move all accounts realted urlpatterns inside this new urls.py. This allows us to keep all the accounts specific code inside the accounts app. This means we can import all the urls in one go inside the main project urls.py file.
+
+
+
+
+
+
+80. Reset Password    
+
 
 
 
