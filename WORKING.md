@@ -872,7 +872,15 @@ For logging in and out of users
 
 60. Update tests to pass for login_required views.
 
-61. Registration functionality.
+61. Registration functionality.  
+    * create view
+    * create urlpattern
+    * update url for registration nav link in base.html
+    * create registration template
+    * Add registration form - these need to store information about the user so it need access to the User model provided by django.  
+        We will use UserCreationForm which already has functionality for usernames and emails. We have to extend it to have passwords.  
+        We also need some ValidationError.
+        These are all imported.
 
 
 
