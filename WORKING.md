@@ -898,12 +898,9 @@ For logging in and out of users
     Add a urls.py inside accounts app  
     Move all accounts realted urlpatterns inside this new urls.py. This allows us to keep all the accounts specific code inside the accounts app. This means we can import all the urls in one go inside the main project urls.py file.
 
+64. Reset Password    
 
-
-
-
-
-80. Reset Password    
+65. Send email to console.
 
 
 
