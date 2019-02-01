@@ -11,6 +11,7 @@ def say_hello(request):
 def render_test_template(request):
     return render(request, "test.html")
 
+
 @login_required
 def test_todo_list(request):
     results = Item.objects.all()
@@ -53,12 +54,14 @@ def test_edit_an_item(request, id):
         
     return render(request, 'add_item_django-form.html', {'form': form})
 
+
 @login_required
 def test_toggle_status(request, id):
     item = get_object_or_404(Item, pk=id)
     item.done = not item.done
     item.save()
     return redirect(test_todo_list)
+
 
 @login_required
 def test_delete_item(request, id):

@@ -870,6 +870,10 @@ For logging in and out of users
 
 59. Add login_required to todo views.
 
+60. Update tests to pass for login_required views.
+
+61. Registration functionality.
+
 
 
 
