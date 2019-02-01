@@ -36,7 +36,7 @@ class UserRegistrationForm(UserCreationForm):
 
         # Are any of these passwords empty
         if not password1 or not password2:
-            raise forms.ValidationError("Please confirm your password.")
+            raise ValidationError("Please confirm your password.")
 
         # Are both passwords the same
         if password1 != password2:
