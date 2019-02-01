@@ -11,4 +11,27 @@ Accounts - {{ user }}'s Profile
 {% block content %}
 <p>Email: {{ profile.email }}</p>
 <p>Username: {{ profile.username }}</p>
+<p>First Name: {{ profile.first_name }}</p>
+<p>Last Name: {{ profile.last_name }}</p>
+<p>Groups: {{ profile.groups }}</p>
+<p>Permissions: {{ profile.permissions }}</p>
+{% if profile.is_staff %}
+    <p>This user is STAFF</p>
+{% else %}
+    <p>This user is NOT staff.</p>
+{% endif %}
+{% if profile.is_active %}
+    <p>This user is ACTIVE</p>
+{% else %}
+    <p>This user is NOT active.</p>
+{% endif %}
+{% if profile.is_superuser %}
+    <p>This user is SUPERUSER</p>
+{% else %}
+    <p>This user is NOT superuser.</p>
+{% endif %}
+
+<p>Last login: {{ profile.last_login }}</p>
+<p>Date joined: {{ profile.date_joined }}</p>
+
 {% endblock %}
