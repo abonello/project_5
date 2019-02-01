@@ -902,6 +902,18 @@ For logging in and out of users
 
 65. Send email to console.
 
+66. Add Password reset template.
+    create a registration folder under the main template folder (the one holding base.html).  
+    In this new folder we will place the templates related to resetting password.
+    * password_reset_form.html
+
+
+    In login.html add link saying forgot password
+
+67. Send an actual email using my own email. Notiice that django checks that the there is an account with the entered email, otherwise it will not send the email. A note to this effect is displayed to the user.
+
+
+
 
 
 

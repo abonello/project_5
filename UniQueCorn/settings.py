@@ -150,8 +150,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# This is needed for working on cloud 9 due to a cookie bug
+# We need to override the default message storage
+# https://stackoverflow.com/a/34828308/493553
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # Print emails to console
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Sending an actual email
+# EMAIL_USE_TLS = True # email encryption used by gmail
+# EMAIL_HOST = 'smtp.gmail.com' # Protocol used to send emails
+# EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS_GMAIL")
+# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD_GMAIL")
+# EMAIL_PORT = 587
+
+# Using my email to send emails.
+EMAIL_USE_SSL = True  # email encryption used by gmail
+EMAIL_HOST = os.environ.get("EMAIL_HOST_WEBADMIN")
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS_WEBADMIN")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD_WEBADMIN")
+EMAIL_PORT = os.environ.get("EMAIL_PORT_WEBADMIN")
+DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_ADDRESS_WEBADMIN")
 

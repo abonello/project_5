@@ -14,6 +14,8 @@ Accounts - User Login
         {{ login_form.as_p }}
         <button type="submit">Login</button>
     </form>
+
+    <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
 {% endblock %}
     
    
