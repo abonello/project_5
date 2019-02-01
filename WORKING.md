@@ -882,6 +882,8 @@ For logging in and out of users
         We also need some ValidationError.
         These are all imported.
 
+    * Add form validation. Define methods with name starting `clean_`
+        django will use that method to clean and validate that field as named after the clean_.
 
 
 

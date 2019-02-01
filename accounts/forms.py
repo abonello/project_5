@@ -20,3 +20,29 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2']
+
+    # Add form validation
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        username = self.cleaned_data.get("username")
+        # Do we already have someone in the database with this email address
+        if User.objects.filter(email=email).exclude(username=username):
+            raise forms.ValidationError(u'Email address must be unique.')
+        return email
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        # Are any of these passwords empty
+        if not password1 or not password2:
+            raise forms.ValidationError("Please confirm your password.")
+
+        # Are both passwords the same
+        if password1 != password2:
+            raise ValidationError("Passwords must match.")
+
+        return password2
+
+
+        
