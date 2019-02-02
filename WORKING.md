@@ -912,6 +912,13 @@ For logging in and out of users
 
 67. Send an actual email using my own email. Notiice that django checks that the there is an account with the entered email, otherwise it will not send the email. A note to this effect is displayed to the user.
 
+68. Building a `custom authentication backend` to log in using the email instead of the username.
+    Add an `AUTHENTICATION_BACKENDS` to settings.py. It is a list.
+
+    Then create a `backends.py` file in the accounts app folder. Here we need to create a class EmailAuth that we referred to from settings.py.
+
+    
+
 
 
 
