@@ -964,7 +964,19 @@ Alternatives:
 
 72. Using Custom CSS
 
+    1. Create a static folder at the top level of the project. and create a css folder inside it. In here create a file called styles.css
 
+    2. in base.html link to this stylesheet.
+    ```html
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    ```
+
+    3. At the very top of base.html we need to create a template tag to load static
+    ```html
+    {% load staticfiles %}
+    ```
+
+    4. We need to register our static files in settings.py. Basically we tell django where to find the files.
 
     
 
