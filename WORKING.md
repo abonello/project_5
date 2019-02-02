@@ -924,11 +924,45 @@ For logging in and out of users
 
 70. For navigation bar, add `navbar navbar-default` classes. Add more classes as necessary, ex `nav navbar-nav` to the ul element.
 
+71. Using django forms bootstrap  
+    This is to bootstrap the forms  
+    We can easily change the button by copying some code from the boostrsap page.  
+    For the form itself we need to use a third-party library called `django_forms_boostrap` which will give us a template tag to style the form with bootstrap.
+
+    1. We need to install this.
+        ```bash
+        pip install django_forms_bootstrap
+        ```
+    2. Update requirements.txt
+
+    3. Include it in INSTALLED_APPS in settings.py
+
+    4. Update the form in registration.html to use bootstrap.  
+    
+        a. After extending from base.html add
+        ```html
+        {% load bootstrap_tags %}
+        ```
+        This imports the javascript of the bootstrap.  
+        
+        b. Instead of displaying the form as_p (or anything else) we will pipe it to bootstrap
+        ```html
+        {{ registration_form | as_bootstrap }}
+        ```
+        This takes the form and passes it to the `as_bootstrap` function which will apply the styling.
+
+Alternatives:  
+|   |   |   |  
+|---|---|---|  
+|.form-vertical | `{{ form|as_bootstrap }}` |	Labels over controls (default)|  
+|.form-horizontal |	`{{ form|as_bootstrap_horizontal }}` | Labels on same line as controls |
+|.form-inline |	`{{ form|as_bootstrap_inline }}` | Compact style with inline-block controls |
+  
+    5. Do the same for login.html and password_reset_form.html
 
 
 
-
-
+72. Using Custom CSS
 
 
 
