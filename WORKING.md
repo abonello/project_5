@@ -917,6 +917,21 @@ For logging in and out of users
 
     Then create a `backends.py` file in the accounts app folder. Here we need to create a class EmailAuth that we referred to from settings.py.
 
+## Bootstrap styling and Custom styles
+
+69. For bootstrap, paste bootstrap cdn links for scripts and stylesheets in base.html.  
+    This results in basic bootstrap styling.
+
+70. For navigation bar, add `navbar navbar-default` classes. Add more classes as necessary, ex `nav navbar-nav` to the ul element.
+
+
+
+
+
+
+
+
+
     
 
 
@@ -924,15 +939,8 @@ For logging in and out of users
 
 
 
-    
 
 
-
-
-
-# NB
-
-## * Will explore Testing later
 
 &nbsp;  
 &nbsp;  
