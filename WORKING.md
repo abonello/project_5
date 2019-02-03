@@ -1056,7 +1056,7 @@ but apparently I need to set `STATIC_ROOT` somewhere.
 **STILL UNRESOLVED**
 =================
 
-
+77. Update home page to show an html file. Do the same for about page
 
 
 

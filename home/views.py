@@ -1,7 +1,11 @@
 from django.shortcuts import render, HttpResponse
 
 def index(request):
-    return HttpResponse("This is the new Home page.")
+    """Display the home page."""
+    return render(request, "index_home.html")
+    # return HttpResponse("This is the new Home page.")
 
 def about(request):
-    return HttpResponse("This is the ABOUT page.")
+    """Display the about page."""
+    return render(request, "about.html")
+    # return HttpResponse("This is the ABOUT page.")
