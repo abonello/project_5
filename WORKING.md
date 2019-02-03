@@ -1097,6 +1097,12 @@ And removed `DISABLE_COLLECTSTATIC = 1` from Heroku's config vars.
 
 80. Played around with navbar and styling of add item form and buttons in todo app.
 
+81. Create a products app. 
+    ```bash
+    python manage.py startapp products
+    ```
+    Here I want clients to be able to buy the UniQueCorn software as well as buy coin packets of various sizes in order to pay for new features.
+
 
 
 &nbsp;  
