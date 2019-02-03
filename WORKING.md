@@ -1095,7 +1095,7 @@ And removed `DISABLE_COLLECTSTATIC = 1` from Heroku's config vars.
 
 79. Added names to url patterns and more links in the nav of base.html
 
-80.
+80. Played around with navbar and styling of add item form and buttons in todo app.
 
 
 
