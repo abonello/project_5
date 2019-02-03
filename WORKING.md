@@ -1072,6 +1072,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 **STILL UNRESOLVED**
 
+There is a problem with pushing to github which is resulting in the static folder and the css folder inside it to be seen as `static\css`, ie a single entity.
+
+
 =================
 
 77. Update home page to show an html file. Do the same for about page
