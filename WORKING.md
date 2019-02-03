@@ -1038,10 +1038,27 @@ NB: I will build this app but later I might remove / adapt some of it to tailor 
     url(r'^hello$', say_hello),
     ```
 
+# HEROKU PROBLEM WITH LOADING CSS
 Trying to solve heroku not loading stitic files
 
 Removed
-DISABLE_COLLECTSTATIC = 1 from config vars and will push again.
+DISABLE_COLLECTSTATIC = 1 from config vars and will push again.  
+This does not work.
+
+I did DISABLE_COLLECTSTATIC = 1
+
+I also tried 
+```
+heroku run python manage.py collectstatic
+```
+but apparently I need to set `STATIC_ROOT` somewhere.
+
+**STILL UNRESOLVED**
+=================
+
+
+
+
 
 
 
@@ -1064,6 +1081,8 @@ Apply Caseinsensitive Backend Auth from ecommerce tutorial. See project on Cloud
 Build Blog App
 
 Connect the other password reset templates
+
+Solve Heroku CSS problem.
 
 
 
