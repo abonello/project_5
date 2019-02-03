@@ -978,6 +978,16 @@ Alternatives:
 
     4. We need to register our static files in settings.py. Basically we tell django where to find the files.
 
+73. Add some more password reset related templates:
+    * password_reset_email.html
+    * password_reset_done.html
+    * password_reset_confirm.html
+    * password_reset_complete.html
+
+NOT SURE IF THEY ARE BEING USED.
+Will deal with these later.
+
+
     
 
 
