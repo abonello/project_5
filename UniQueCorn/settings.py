@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'testing',
-    'accounts'
+    'accounts',
+    'home'
 ]
 
 MIDDLEWARE = [

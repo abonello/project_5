@@ -19,10 +19,12 @@ from testing.views import say_hello, render_test_template, test_todo_list, test_
 from accounts import urls as accounts_urls
 from accounts.views import index
 # from accounts.views import index, logout, login, registration, user_profile
+from home import urls as home_urls
 
 urlpatterns = [
+    url(r'^', include(home_urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', say_hello),
+    url(r'^hello$', say_hello),
     url(r'^test$', render_test_template),
     url(r'^todo$', test_todo_list, name="todo"),
     url(r'^add$', test_create_an_item),
@@ -35,5 +37,5 @@ urlpatterns = [
     # url(r'^accounts/login/$', login, name="login"),
     # url(r'^accounts/register/$', registration, name="registration"),
     # url(r'^accounts/profile/$', user_profile, name="profile")
-    url(r'^accounts/', include(accounts_urls))
+    url(r'^accounts/', include(accounts_urls)),
 ]

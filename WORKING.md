@@ -1001,7 +1001,43 @@ NB: I will build this app but later I might remove / adapt some of it to tailor 
     (venv)$ python manage.py startapp home
     ```
     
-75. Add a view to render an html page
+75. Add the Home app to settings.py
+
+76. Add a view to render an html page, and a urls.py.
+    I will change the urls so that the root url will render a new index from this app as well as an about page.
+    view.py
+    ```python
+    from django.shortcuts import render, HttpResponse
+
+    def index(request):
+        return HttpResponse("This is the new Home page.")
+
+    def about(request):
+        return HttpResponse("This is the ABOUT page.")
+    ```
+    urls.py
+    ```python
+    from django.conf.urls import url
+    from .views import index, about
+
+    urlpatterns = [
+        url(r'^$', index, name="index"),
+        url(r'^about/$', about, name="about")
+    ]
+    ```
+    top level urls.py
+    (renamed the url pattern for say_hello)
+    ```python
+    from home import urls as home_urls
+    . . .
+
+    url(r'^', include(home_urls)),
+
+    ...
+
+    url(r'^hello$', say_hello),
+    ```
+
 
 
 
