@@ -1074,12 +1074,28 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 There is a problem with pushing to github which is resulting in the static folder and the css folder inside it to be seen as `static\css`, ie a single entity.
 
+**FINALLY SOLVED**
+Works.
+Things I changed:
+* adding extra dummy folders for js and img  
+* adding an empty `media` folder and the following lines in settings.py
+
+```
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+
+And removed `DISABLE_COLLECTSTATIC = 1` from Heroku's config vars.
 
 =================
 
 77. Update home page to show an html file. Do the same for about page
 
 78. Modify base.html. Move nav to top of page and add some random text as content in both home page and about page.
+
+79. Added names to url patterns and more links in the nav of base.html
+
+80.
 
 
 
