@@ -1069,6 +1069,8 @@ In settings.py file, go to MIDDLEWARE. Add new entry for whitenoise:
 Then with the code relating to the static files, add:
 ```
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+**STILL UNRESOLVED**
 
 =================
 
