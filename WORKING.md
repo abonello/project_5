@@ -1054,6 +1054,22 @@ heroku run python manage.py collectstatic
 but apparently I need to set `STATIC_ROOT` somewhere.
 
 **STILL UNRESOLVED**
+
+Install whitenoise -   
+**whitenoise** - allows us to host our static files correctly on heroku.
+```bash
+pip install whitenoise
+pip freeze > requirements.txt
+```
+
+In settings.py file, go to MIDDLEWARE. Add new entry for whitenoise:
+``` 
+'whitenoise.middleware.WhiteNoiseMiddleware',
+```
+Then with the code relating to the static files, add:
+```
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 =================
 
 77. Update home page to show an html file. Do the same for about page
