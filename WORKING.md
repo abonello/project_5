@@ -1038,7 +1038,10 @@ NB: I will build this app but later I might remove / adapt some of it to tailor 
     url(r'^hello$', say_hello),
     ```
 
+Trying to solve heroku not loading stitic files
 
+Removed
+DISABLE_COLLECTSTATIC = 1 from config vars and will push again.
 
 
 
