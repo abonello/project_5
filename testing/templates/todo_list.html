@@ -53,20 +53,24 @@ UniQueCorn - Test - ToDo List
                 {% else %}
                 <td>{{ item.name }}</td>
                 {% endif %}
-                <td>
+                <td class="btn-list">
                     <form method="POST" action="toggle/{{ item.id }}">
                         {% csrf_token %}
-                        <input type="submit" value="Toggle Status">
+                        <!-- <input type="submit" value="Toggle Status"> -->
+                        <button type="submit" class="btn btn-toggle">Toggle Status</button>
                     </form>
                 </td>
-                <td>
+                <td class="btn-list">
                     <!-- <a href="#">Edit</a> -->
-                    <form method="GET" action="edit/{{ item.id }}"><input type="submit" value="Edit"></form>
+                    <form method="GET" action="edit/{{ item.id }}">
+                        <!-- <input type="submit" value="Edit"></form> -->
+                        <button type="submit" class="btn btn-success">Edit</form>
                 </td>
-                <td>
+                <td class="btn-list">
                     <form method="POST" action="delete/{{ item.id }}">
                         {% csrf_token %}
-                        <input type="submit" value="Delete">
+                        <!-- <input type="submit" value="Delete"> -->
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
