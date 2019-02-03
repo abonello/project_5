@@ -21,7 +21,7 @@
    
 </head>
 <body>
-    <h1>{% block page_heading %}{% endblock %}</h1>
+    
     <!-- <nav>
         <ul>
             <li><a href="{#% url 'login' %#}">Login</a></li>
@@ -31,7 +31,7 @@
         </ul>
     </nav> -->
     <!-- <hr> -->
-    <h2>Conditionally modified navigation</h2>
+    <!-- <h2>Conditionally modified navigation</h2> -->
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
@@ -43,6 +43,7 @@
             {% endif %}
         </ul>
     </nav>
+    <h1>{% block page_heading %}{% endblock %}</h1>
     <hr>
     {% if messages %}
     <div>

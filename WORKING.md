@@ -1058,7 +1058,7 @@ but apparently I need to set `STATIC_ROOT` somewhere.
 
 77. Update home page to show an html file. Do the same for about page
 
-
+78. Modify base.html. Move nav to top of page and add some random text as content in both home page and about page.
 
 
 
