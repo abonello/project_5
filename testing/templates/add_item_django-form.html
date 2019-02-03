@@ -1,3 +1,33 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %}
+UniQueCorn - Test | Add Item
+{% endblock %}
+
+{% block page_heading %}
+UniQueCorn - Test - Add an item
+{% endblock %}
+
+{% block content %}
+    <h2>The following form uses django form.</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {#{ form }#}
+        {#{ form.as_p }#}
+        {#{ form.as_table }#}
+        {#{ form.as_ul }#}
+
+        {{ form | as_bootstrap_horizontal }}
+
+        <br>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+{% endblock %}
+
+
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,4 +50,4 @@
         <button type="submit">Save</button>
     </form>
 </body>
-</html>
+</html> -->
