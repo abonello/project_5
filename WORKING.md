@@ -987,10 +987,44 @@ Alternatives:
 NOT SURE IF THEY ARE BEING USED.
 Will deal with these later.
 
+## Processing payment - Stripe
 
+Need to use:  
+`sessions` to keep track of the state between the site and the user's browser.  
+`Stripe`, a tool for internet commerce, allows for the acceptance of payments.  
+`AWS S3` - Amazon Web Services - provides on demand cloud computing platform. Can be used to serve the static and media files.
+
+NB: I will build this app but later I might remove / adapt some of it to tailor it better to this tracker.
+
+74. Create a Home App - for general pages, like `about` page.
+    ```bash
+    (venv)$ python manage.py startapp home
+    ```
     
+75. Add a view to render an html page
 
 
+
+
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+
+---
+
+.  
+.  
+.  
+.  
+# TODO
+[TOP](#Project-5)
+
+Apply Caseinsensitive Backend Auth from ecommerce tutorial. See project on Cloud9.
+
+Build Blog App
+
+Connect the other password reset templates
 
 
 
