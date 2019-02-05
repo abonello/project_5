@@ -1103,6 +1103,47 @@ And removed `DISABLE_COLLECTSTATIC = 1` from Heroku's config vars.
     ```
     Here I want clients to be able to buy the UniQueCorn software as well as buy coin packets of various sizes in order to pay for new features.
 
+82. Create a model for products to create a database for out products. Register it for admin site in admin.py.
+
+83. Add some tests for our model
+    Run the test
+    ```bash
+    python manage.py test products
+    ```
+
+84. Add the products app to INSTALLED_APPS in settings.py.
+
+85. To allow for the upload of images we need to install `Pillow` and update the requirements.txt
+    ```bash
+    pip install Pillow
+    pip freeze > requirements.txt
+    ```
+
+86. Make migrations and migrate (specify products app)
+    ```bash
+    python manage.py makemigrations products
+    python manage.py migrate products
+    ```
+
+87. Create views for products app.  
+    View to get all products.  
+    Add url.  
+    Add a template.  
+    In the template we make the image a background image so that it fits the
+    size of the div that it is in.  
+    Add media context processor to the templates in settings.py
+    ```python
+    'django.template.context_processors.media',
+    ```
+    If not already present add:
+    ```python
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    ```
+    At top level urls we need to import the urls from products
+
+
+
 
 
 &nbsp;  

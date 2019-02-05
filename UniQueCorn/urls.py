@@ -20,6 +20,11 @@ from accounts import urls as accounts_urls
 from accounts.views import index
 # from accounts.views import index, logout, login, registration, user_profile
 from home import urls as home_urls
+from products import urls as products_urls
+from products.views import all_products
+from django.views import static
+from .settings import MEDIA_ROOT
+
 
 urlpatterns = [
     url(r'^', include(home_urls)),
@@ -38,4 +43,7 @@ urlpatterns = [
     # url(r'^accounts/register/$', registration, name="registration"),
     # url(r'^accounts/profile/$', user_profile, name="profile")
     url(r'^accounts/', include(accounts_urls)),
+    url(r'^products$', all_products, name="products"),
+    url(r'^products/', include(products_urls)),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
