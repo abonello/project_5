@@ -1146,6 +1146,17 @@ And removed `DISABLE_COLLECTSTATIC = 1` from Heroku's config vars.
     ```bash
     python manage.py startapp cart
     ```
+    Add cart to INSTALLED_APPS in settings.py
+
+89. Create a new file in the cart app folder and call it `contexts.py`.  
+Unlike the products app where we created a model which then puts products into our database, here, the cart items will not go into the database. They will be stored in the session when the user is logged in. Users can add products to their cart, but when they log out that cart will be lost.  
+Add this context to `context_processors` under TEMPLATE in settings.py. context_processors is a list of things that are available on every web page.
+```python
+'cart.contexts.cart_contents',
+```
+90. Add urls file in cart app and then create the views for these urls.  
+Notice that there are no migrations to make since there is no model and therefore no database table. The session is stored entirely within the browser's memory.
+
 
 
 
