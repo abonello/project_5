@@ -1142,7 +1142,10 @@ And removed `DISABLE_COLLECTSTATIC = 1` from Heroku's config vars.
     ```
     At top level urls we need to import the urls from products
 
-
+88. Create Cart app
+    ```bash
+    python manage.py startapp cart
+    ```
 
 
 
