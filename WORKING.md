@@ -1167,6 +1167,18 @@ For the quantity, the min number is 0 to be able to delete it from the cart.
 
 
 
+92. Add Search functionality.
+We want to be able to search for products.  
+Create an app called search.
+```bash
+python manage.py startapp search
+```
+We need to import the Product's model into view.py.
+
+Create a view to carry out the searches.  
+We will use the `filter` which is a built in function.
+
+
 &nbsp;  
 &nbsp;  
 &nbsp;  
