@@ -1157,6 +1157,13 @@ Add this context to `context_processors` under TEMPLATE in settings.py. context_
 90. Add urls file in cart app and then create the views for these urls.  
 Notice that there are no migrations to make since there is no model and therefore no database table. The session is stored entirely within the browser's memory.
 
+91. Add template for the cart  
+Create templates folder in the cart app and add cart.html inside it. This extends base.html  
+Use `{% load static from staticfiles %}` which allows us access to anything in our static directory.  
+Also add `{% load bootstrap_tags %}` to be able to style the form.  
+
+
+For the quantity, the min number is 0 to be able to delete it from the cart.
 
 
 
