@@ -1178,6 +1178,44 @@ We need to import the Product's model into view.py.
 Create a view to carry out the searches.  
 We will use the `filter` which is a built in function.
 
+Add form in base.html just above the content block.
+
+Load the font-awesome in the static folder and add some styles for the badge.
+
+## Stripe
+93. Install stripe and update requirements.txt
+```bash
+pip install stripe
+pip freeze > requirements.txt
+```
+Stripe API:  
+Stripe allows us to use credit card payment but we do not have to do all the security behind that. Create an account at `stripe.com`.  
+Stripe does all the security for us with the banks.
+
+Create a Stripe account and get a publishable key and a secret key.  
+Set the necessary variables in settings.py to load in these keys.  
+```python
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
+``` 
+We need to use `import env` at the top of settings.py file.
+
+
+**NB. Do not push these keys to github.**  
+Anyone who gets these keys can hack into our account.  
+I am going to store them in a file called env.py at the top level of our project. which is added to .gitignore.
+
+Use `os.environ.setdefault` to set environment variables locally.
+
+```python
+import os
+
+os.environ.setdefault("STRIPE_PUBLISHABLE", "<_place_the_pk_here_>")
+os.environ.setdefault("STRIPE_SECRET", "<_place_the_sk_here_>")
+```
+
+
+
 
 &nbsp;  
 &nbsp;  
