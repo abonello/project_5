@@ -1214,6 +1214,46 @@ os.environ.setdefault("STRIPE_PUBLISHABLE", "<_place_the_pk_here_>")
 os.environ.setdefault("STRIPE_SECRET", "<_place_the_sk_here_>")
 ```
 
+Will deal with heroku deployment later.
+
+94. Checkout App
+```bash
+python manage.py startapp checkout
+```
+Add checkout to the list of installed apps in settings.py.
+
+95. Create the necessary models in the new app.
+This will hold all the data that we might require from a customer.
+
+Add these models to the admin.py so that we can see them in the admin dashboard.
+Next we need to make miggrations for our new models and then migrate.
+```bash
+python manage.py makemigrations checkout
+python manage.py migrate
+```
+
+96. Create forms for customers to input information.  
+Create `forms.py`  
+We need a payment form and an order form.  
+
+We let stripe deal with the encryption of the credit card details. This is done through stripe's javascript. This means we can use `required=False` in the django forms so that the plain text is not transmitted through the browser. This makes it more secure. It is not visible to people who might be snooping on the web page.  
+Stripe requires an id and although we are adding it to the form, the user will not see this.
+`stripe_id = forms.CharField(widget=forms.HiddenInput)`
+
+97. Checkout Views  
+The view requires the Stripe API keys.
+We want the customer to be actually logged in when they purchase something, go to the checkout to pay.  
+Lots of code.  
+
+
+
+
+
+
+
+
+
+
 
 
 
