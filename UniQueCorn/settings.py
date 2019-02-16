@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
-import env
+# import env
 
 
 if os.environ.get('DEVELOPMENT'):
@@ -32,6 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = '(f^tzbk_6&i^l(k6)-l(59_3r4v*shml^)0r)s(1kxl&0gq31i'
 # The default SECRET_KEY was replaced by environment variables (different for development and production).
 SECRET_KEY = os.environ.get('SECRET_KEY')
+print("From Settings SECRETKEY: {0}".format(SECRET_KEY))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -175,6 +176,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
+print("=============")
+print("Settings: {}".format(STRIPE_PUBLISHABLE))
+print("Settings: {}".format(STRIPE_SECRET))
+print("=============")
 
 
 # This is needed for working on cloud 9 due to a cookie bug

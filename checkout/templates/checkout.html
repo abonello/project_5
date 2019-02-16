@@ -3,18 +3,17 @@
 {% load bootstrap_tags %}
 
 
+<!-- Javascript required by Stripe -->
+<!-- Set Stripe's publishable key -->
 {% block head_js %}
-    <!-- Javascript required by Stripe -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
-        // Set Stripe's publishable key
         //<![CDATA[
         Stripe.publishableKey = '{{ publishable }}';
             //]]>
     </script>
     <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
-
 
 {% block content %}
 <div class="row row-flex">
@@ -38,6 +37,7 @@
     <p>Total</p>
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
 </div>
+
 <form role="form" id="payment-form" action="{% url 'checkout' %}" method="post">
     {% csrf_token %}
     <legend>Payment Details</legend>
@@ -51,7 +51,7 @@
         {{ payment_form|as_bootstrap }}
     </div>
     <div class="form-group col-md-12">
-        <input type="text" class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
     </div>
 </form>
 

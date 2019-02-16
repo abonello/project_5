@@ -11,6 +11,8 @@ import stripe
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
+# stripe.api_key = settings.SECRET_KEY
+print("From view: {}".format(stripe.api_key))
 
 @login_required()
 def checkout(request):
@@ -32,13 +34,14 @@ def checkout(request):
                 order_line_item = OrderLineItem(
                     order = order,
                     product = product,
-                    quantity = quantity,
+                    quantity = quantity
                     )
                 order_line_item.save()
 
             try: 
+                # stripe works with cents or pence
                 customer = stripe.Charge.create(
-                    amount = int(total * 100), # stripe works with cents or pence
+                    amount = int(total * 100),
                     currency = "EUR",
                     description = request.user.email,
                     card = payment_form.cleaned_data['stripe_id'],
@@ -48,7 +51,8 @@ def checkout(request):
 
             if customer.paid:
                 messages.error(request, "You have successfully paid.")
-                request.session['cart'] = {} # Empty cart
+                # Empty cart
+                request.session['cart'] = {}
                 return redirect(reverse('products'))
             else: 
                 messages.error(request, "Unable to take payment.")

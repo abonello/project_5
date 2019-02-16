@@ -443,7 +443,7 @@ try `heroku login -i`.
     url(r'^delete/(?P<id>\d+)$', test_delete_item),
     ```
 42. Setting up local environment variables  
-    in ~/.bashprofile
+    in ~/.bash_profile
 
     In order to refresh the bash shell run:
     ```bash
@@ -1249,7 +1249,28 @@ Lots of code.
 Created urls and template for checkout.  
 Updated base.html to load the necessary javascript files and updated the link in cart.html calling checkout url.
 
-99.
+99. Create javascript for Stripe  
+Create stripe.js in static/js  
+This links our html forms and django forms to Stripe's API which is in javascript. 
+When we submit, the function will transfer the data to Stripe and the latter will deal with all the security side of things. We just pass the information in the forms and let them deal with the banks. They will come back with either "the payment was successfully made" or "the card was declined".  
+
+We are not storing any credit card details on our own database.  
+We also want to ensure that credit card details are not visible during transfer to Stripe.  
+
+This is code that we get from Stripe's API developer site. We have to stick to these ids.
+
+NB: TEST CREDIT CARD DETAILS
+name Test Customer
+credit card number 4242424242424242
+cvv 111
+expiry month 1
+expiry year 2018
+
+
+DO NOT USE REAL CREDIT CARD DETAILS
+
+
+
 
 
 
