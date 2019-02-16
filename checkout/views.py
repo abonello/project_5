@@ -7,6 +7,7 @@ from django.conf import settings
 from django.utils import timezone
 from products.models import Product
 import stripe
+import time
 
 
 # Create your views here.
@@ -73,6 +74,9 @@ def checkout(request):
         # Return a blank form
         payment_form = MakePaymentForm()
         order_form = OrderForm()
+    
+    
+    time.sleep(5)
 
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
 

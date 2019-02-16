@@ -29,9 +29,15 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
     
+        <!-- Javascript required by Stripe -->
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+            Stripe.publishableKey = '{{ publishable }}';
+                    //]]>
+        </script>
     {% block head_js %}
-    <!-- Javascript required by Stripe -->
-    {% endblock %}
+    {% endblock head_js %}
 </head>
 <body>
     <div class="container">
