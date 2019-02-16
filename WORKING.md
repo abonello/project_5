@@ -1245,7 +1245,11 @@ The view requires the Stripe API keys.
 We want the customer to be actually logged in when they purchase something, go to the checkout to pay.  
 Lots of code.  
 
+98. Create Urls for Checkout  
+Created urls and template for checkout.  
+Updated base.html to load the necessary javascript files and updated the link in cart.html calling checkout url.
 
+99.
 
 
 

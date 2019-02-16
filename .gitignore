@@ -6,3 +6,5 @@ __pycache__
 UniQueCorn/__pycache__/*
 fontawesome-free-5.7.1-web.zip
 env.py
+WORKING.pdf
+*.pyc 

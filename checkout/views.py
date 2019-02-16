@@ -30,7 +30,7 @@ def checkout(request):
                 product = get_object_or_404(Product, pk=id)
                 total += quantity * product.price
                 order_line_item = OrderLineItem(
-                    order = order
+                    order = order,
                     product = product,
                     quantity = quantity,
                     )
@@ -44,7 +44,7 @@ def checkout(request):
                     card = payment_form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError:
-                message.error(request, "Your card was declined!")
+                messages.error(request, "Your card was declined!")
 
             if customer.paid:
                 messages.error(request, "You have successfully paid.")
@@ -60,5 +60,5 @@ def checkout(request):
         payment_form = MakePaymentForm()
         order_form = OrderForm()
 
-    return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable_key': settings.STRIPE_PUBLISHABLE})
+    return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
 
