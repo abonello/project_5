@@ -13,23 +13,23 @@ import time
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
 # stripe.api_key = settings.SECRET_KEY
-print("From view: {}".format(stripe.api_key))
+# print("From view: {}".format(stripe.api_key))
 
 @login_required()
 def checkout(request):
     if request.method == "POST":
-        print("View received a POST request")
+        # print("View received a POST request")
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 
-        if order_form.is_valid():
-            print("Order form is valid")
-        else:
-            print("Order form is NOT valid")
-        if payment_form.is_valid():
-            print("Payment form is valid")
-        else:
-            print("Payment form is NOT valid")
+        # if order_form.is_valid():
+        #     print("Order form is valid")
+        # else:
+        #     print("Order form is NOT valid")
+        # if payment_form.is_valid():
+        #     print("Payment form is valid")
+        # else:
+        #     print("Payment form is NOT valid")
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
@@ -76,7 +76,7 @@ def checkout(request):
         order_form = OrderForm()
     
     
-    time.sleep(5)
+    # time.sleep(5)
 
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
 
