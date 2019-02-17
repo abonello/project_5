@@ -169,10 +169,11 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
 
 
-    def test_home_with_HttpResponse(self):
-        page = self.client.get('/')
-        self.assertEqual(page.status_code, 200)
-        self.assertEqual(page.content, b"Hello World - This is a test")
+    # This does not exist anymore
+    # def test_home_with_HttpResponse(self):
+    #     page = self.client.get('/')
+    #     self.assertEqual(page.status_code, 200)
+    #     self.assertEqual(page.content, b"Hello World - This is a test")
 
     
 
