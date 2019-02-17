@@ -1264,12 +1264,64 @@ name Test Customer
 credit card number 4242424242424242
 cvv 111
 expiry month 1
-expiry year 2018
-
+expiry year 2020
+(expiry need to be in the future)
 
 DO NOT USE REAL CREDIT CARD DETAILS
 
+100. Serving static files from the cloud **Amazon AWS**  
+If you do not have an account with Amazon, create one. (Not sure if this is necessary)
 
+ Then go to [Amazon's Web Services](https://aws.amazon.com)  
+ Verify account with phone.  
+ Select Basic/Free plan  
+ Click `Sign In to the Console` button.  
+
+ We are going to use the S3 service - allows us to create a bucket, a small part of a cloud server where we can store files into.  
+ Click `+ Create bucket`. Give it a name [ab-testing-bucket] and select a region [EU (London)]. Click `next` twice to reach **Set permissions**.  
+ Under `Manage system permissions` select **Grant Amazon S3 Log Delivery group write access to this bucket**
+
+ Several other steps - Not sure if it will work because it does not match.
+
+ We need to do bucket policy
+ ```json
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+      "Sid":"PublicReadGetObject",
+        "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::example-bucket/*"
+      ]
+    }
+  ]
+}
+```
+Change `"arn:aws:s3:::example-bucket/*"` with the one provided by AWS for this particular bucket.
+
+Now go back main page of AWS and search for `IAM`. Here we can manage who can access our Amazon AWS services.
+
+1. We need to create a group  
+    * Click on `Create New Group` button.  
+    * Give the group a name. (manage-test)  
+    * Click `next` twice and `create group` buttons.  
+2. Create Policies  
+    * Click `Create policy` button.  
+    * search for S3 - We want to create apolicy for S3 access.
+    Attach policy to our group  
+3. Create User  
+    * go to User and click on `Add User` button.  
+    * Select `programmatic access`.  
+    * Give this user permissions. Use the group permissions.
+
+
+Problems with AWS S3 - Skip for now.
+
+-------------
+
+101. Add some FontAwesome Icons  
+    In base.html I am using a CDN. Can remove code and fonts from static.
 
 
 

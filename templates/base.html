@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'font-awesome/css/fontawesome.min.css' %}">
+    <!-- <link rel="stylesheet" href="{#% static 'font-awesome/css/fontawesome.min.css' %#}"> -->
+    <!-- <link rel="stylesheet" href="{#% static 'css/fontawesome.min.css' %#}"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" >
 
     <!-- JQuery -->
@@ -67,15 +69,22 @@
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'todo' %}">Todo List</a></li>
                         <li><a href="{% url 'add' %}">Add Item</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i> Log Out</a></li>
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                         {% else %}
-                        <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'registration' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
                         {% endif %}
                         <li>
                             <a href="{% url 'view_cart' %}">
-                                <i class="fa fa-shipping-cart"></i>
+                                <i 
+                                {% if product_count < 1 %} 
+                                    class="fa fa-shopping-cart empty-cart"
+                                {% else%}
+                                    class="fa fa-shopping-cart"
+                                {% endif %}
+                                >
+                                </i>
                                 Cart
                                 {% if product_count > 0 %}
                                     <label class="badge badge-warning">{{ product_count }}</label>
@@ -100,7 +109,7 @@
         {% endif %}
 
         <div class="container">
-            <div class="display">
+            <div class="display search">
                 <form action="{% url 'search' %}" method="get">
                     <input type="text" name="q">
                     <button type="submit">Search</button>
