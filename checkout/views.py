@@ -19,8 +19,11 @@ stripe.api_key = settings.STRIPE_SECRET
 def checkout(request):
     if request.method == "POST":
         # print("View received a POST request")
-        order_form = OrderForm(request.POST)
-        payment_form = MakePaymentForm(request.POST)
+        try:
+            order_form = OrderForm(request.POST)
+            payment_form = MakePaymentForm(request.POST)
+        except:
+            print("Error occured")
 
         # if order_form.is_valid():
         #     print("Order form is valid")
@@ -76,7 +79,7 @@ def checkout(request):
         order_form = OrderForm()
     
     
-    time.sleep(25)
+    # time.sleep(25)
 
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
 
