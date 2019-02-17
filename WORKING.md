@@ -1317,6 +1317,9 @@ Now go back main page of AWS and search for `IAM`. Here we can manage who can ac
 
 
 Problems with AWS S3 - Skip for now.
+I will be storing static files directly on Heroku 
+
+Make sure that `DISABLE_COLLECTSTATIC = 1` is removed. This is only used if we serve the static files from AWS S3 or similar.
 
 -------------
 
