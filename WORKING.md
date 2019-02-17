@@ -1323,6 +1323,14 @@ Problems with AWS S3 - Skip for now.
 101. Add some FontAwesome Icons  
     In base.html I am using a CDN. Can remove code and fonts from static.
 
+102. Connect to Travis CI  
+    Connect the github repository with your travis account. 
+    Activate.  
+    Click on the badge which for now says `build|unknown`.  
+    Select the markdown code, copy and paste it in this project's README.md.  
+
+103. At the top level of this project create a `.travis.yml` file. We need to give Travis some information including a dummy secret key.
+
 
 
 
