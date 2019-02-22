@@ -5,13 +5,57 @@
 UniQueCorn - Issue Tracker | Home
 {% endblock %}
 
-{% block page_heading %}
+<!-- {#% block page_heading %#}
 Unique Corn - Issue Tracker
-{% endblock %}
+{#% endblock %#} -->
+
+{% block showcase %}
+    <div class="container showcase">
+
+        <h1>
+            Feeding the world for cheap
+        </h1>
+        <div class="showcase-middleground"></div>
+        <div class="showcase-background"></div>
+    </div>
+{% endblock showcase %}
+{% block maintitle %}
+<div class="main-title">
+    <div class="title">
+        <!-- <h1>{#% block page_heading %}{% endblock %#}</h1> -->
+        <h1>UniQue Corn - Issue Tracker</h1>
+    </div>
+</div>
+{% endblock maintitle %}
 
 {% block content %}
+    <div class="main-content col-xs-12">
+        <!-- <div class="title">
+                <h1>
+                    Title
+                </h1>
+            </div> -->
+        <div id="features-bugs">Features & Bugs</div>
+        <div class="picture-links-container">
+            <h2>
+                Buttons
+            </h2>
+            picture links
+            <div class="picture-links">
+                <div class="panel">Product</div>
+                <div class="panel">Issue Tracker</div>
+                <div class="panel">Blog</div>
+            </div>
+        </div>
+        <div id="events">Events</div>
+    </div>
+
+
+
+
+<!-- 
 <p>This is the home page and this is some random text.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quo nam asperiores ea deleniti facilis, perferendis voluptates odit! Inventore, obcaecati. Aliquid vero doloremque similique. Qui aut minus porro nulla libero?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quo nam asperiores ea deleniti facilis, perferendis voluptates odit! Inventore, obcaecati. Aliquid vero doloremque similique. Qui aut minus porro nulla libero?</p> -->
 {% endblock %}
 
 

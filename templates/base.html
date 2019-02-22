@@ -34,31 +34,56 @@
     {% block head_js %}
     {% endblock head_js %}
     <style>
+        body, html { overflow-x:hidden; }
+
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
         /* NAVS */
         .top-nav-navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
+            z-index: 99;
+            margin: 0;
         }
-    
+        .top-nav-navbar .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(57, 125, 255, 0.15);
+        }
+        
         .top-nav-header {
             position: relative;
         }
-    
+        
         .collapse-btn {
             position: absolute;
             top: 0;
             left: 0;
         }
-    
+        
         .navbar-brand {
             position: absolute;
             top: 0;
             left: 50px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.2em;
             /* left: 0px; */
+            /* background-color: rgba(57, 125, 255, 0.5); */
         }
-    
+        
+        .navbar-default .navbar-brand {
+            color: #B28218;
+        }
+
         @media screen and (min-width: 768px) {
             .navbar-brand {
                 position: static;
@@ -66,7 +91,7 @@
         }
         @media screen and (max-width: 400px) {
             .navbar-brand {
-                left: 33px;
+                left: 50px;
             }
         }
     
@@ -90,28 +115,34 @@
     
         #navbar-main.navbar-main {
             position: sticky;
-            top: 50px;
+            top: 49px;
             min-height: 0px;
             background-color: transparent;
             border-color: transparent;
             margin-bottom: 0;
+            z-index: 999;
         }
-    
+        /* .navbar-brand .container-fluid #collapse-1 .nav {
+            
+        } */
+        
         #navbar-main.navbar-main .container-fluid {
             padding: 0;
         }
-    
+        
         .navbar-main-collapse {
             border-top: none;
             padding: 0;
             /* position: relative; */
         }
-    
+        
+        .navbar-main-collapse#collapse-1 .navbar-main-ul {
+            background-color: rgba(57, 125, 255, 0.1);
+        }
         .navbar-main-collapse .navbar-main-ul {
             position: fixed;
             top: 42px;
             left: 15px;
-            background-color: rgba(11, 11, 11, 0.85);
             width: calc(100vw + 4px);
             height: 100vh;
             padding-left: 20px;
@@ -149,12 +180,115 @@
         /* SHOWCASE */
         .showcase {
             margin-top: 50px;
-            background-color: blueviolet;
+            /* background-color: blueviolet; */
+            /* background-image: url('/static/img/corn-1382102-small-min.jpg'); */
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-size: 100vw 300px;
+            /* background: url('{{ STATIC_URL }}my_app/example.jpg' */
             height: 300px;
             border-top: 1px solid black;
             border-bottom: 1px solid black;
             text-align: center;
+            position: relative;
+            /* -webkit-filter: opacity(80%);
+                    filter: opacity(80%); */
+            z-index: 0;
         }
+        .showcase-middleground {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('/static/img/corn-1382102-small-min.jpg');
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-size: 100vw 500px;
+            height: 300px;
+            width: 100%;
+            z-index: -5;
+            overflow: hidden;
+        }
+        .showcase-background {
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            width:  100vw;
+            height: 300px;
+            background-image: url('/static/img/corn-1382102-small-min.jpg');
+            transform: translate(-50%, -50%);
+            background-size: 100vw 500px;
+            z-index: -999;
+            /* filter:url('#smear'); */
+            -webkit-filter: url('#smear') grayscale(0.3) opacity(70%);
+                    filter: url('#smear') grayscale(0.3) opacity(70%);
+        }
+        /* .showcase::before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            width:  100vw;
+            height: 300px;
+            background-image: url('/static/img/agriculture-cereal-corn-1382102.jpg'); */
+                                        /* filter:(url('/static/img/agriculture-cereal-corn-1382102.jpg'), blur(10px)); */
+            /* transform: translate(-50%, -50%); */
+                                        /* filter:url('#smear'); */
+            /* z-index: -999;
+            background-size: 100vw 500px;
+            -webkit-filter: grayscale(0.7) opacity(70%);
+                    filter: grayscale(0.7) opacity(70%); */
+                                        /* -webkit-filter: opacity(70%);
+                                                filter: opacity(70%); */
+                                        /* -webkit-filter: blur(2px);
+                                                filter: blur(2px); */
+                    
+        /* } */
+        .showcase h1 {
+            /* color: white; */
+            color: #FFC953;
+            background-color: rgba(150, 150, 150, 0.7);
+            background-color: rgba(4, 64, 178, 0.8);
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 90%;
+            padding: 20px 0;
+            border-radius: 20px;
+            font-size: 6vw;
+        }
+        @media screen and (min-width: 768px) {
+            /* .showcase {
+                background-size: 768px 500px;
+            } */
+            .showcase h1 {
+                font-size: 4.5vw;
+            }
+        }
+        @media screen and (min-width: 992px) {
+            /* .showcase {
+                background-size: 992px 500px;
+            } */
+            .showcase h1 {
+                font-size: 4vw;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+            /* .showcase {
+                background-size: 1200px 500px;
+            } */
+            .showcase h1 {
+                font-size: 3.5vw;
+            }
+        }
+        @media screen and (min-width: 2200px) {
+            .showcase h1 {
+                font-size: 2.8vw;
+            }
+        }
+
         /* END SHOWCASE */
         /* MAIN TITLE */
         .main-title {
@@ -166,11 +300,20 @@
         .title {
             text-align: center;
             line-height: 4em;
-            background-color: chartreuse;
+            /* background-color: chartreuse; */
+            /* background-color: #0440B2; */
+            background-color: #397DFF;
             /* padding: 15px 0; */
             width: 100vw;
         }
         .title h1 {
+            /* color: #B28218; */
+            /* color: #FFC953; */
+            color: #FFC139;
+            
+        
+        
+
             font-size: 4em;
             line-height: 4em;
             padding: 0;
@@ -179,9 +322,54 @@
 
         /* MAIN TITLE */
 
+        /* MAIN CONTENT */
+        .main-content {
+            /* width: 100vw; */
+            min-height: 50vh;
+            background-color: aquamarine;
+            z-index: 0;
+            padding-bottom: 30px;
+        }
+
+
+        .picture-links {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+        }
+        .panel {
+            flex: 200 200 30%;
+            height: 200px;
+            min-width: 200px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            margin: 0 5px;
+        }
+        @media screen and (min-width: 768px) {
+            .picture-links {
+                flex-direction: row;
+            }
+        }
+
+        #events {
+            border: 1px solid red;
+            min-height: 100px;
+        }
+
+        #features-bugs {
+            border: 1px solid blue;
+            min-height: 100px;
+        }
+        /* END MAIN CONTENT */
+
+
+
+
+
+
         .filler-block {
             width: 10vw;
-            height: 500px;
+            height: 00px;
             background-color: aliceblue;
         }
         /* END MAIN TITLE */
@@ -220,64 +408,89 @@
             padding: 0 5px 10px 5px;
         }
         /* FOOTER END */
+        svg {
+            width: 0;
+            height: 0;
+        }
+        /* darker corn
+        B28218
+        178 130 24
+
+        lighter corn
+        FFC953
+        255 201 83
+
+        Corn color
+        FFC139
+        255 193 57
+
+        Dark blue
+        0440B2
+        4 64 178
+
+        Light Blue
+        397DFF
+        57 125 255 */
+
+
     </style>
 </head>
 <body>
-
     <!-- TOP NAV -->
     <nav class="navbar navbar-default top-nav-navbar">
-        <!-- <div class="container-fluid"> -->
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header top-nav-header">
-                <button type="button" class="navbar-toggle collapsed collapse-btn" data-toggle="collapse"
-                    data-target="#collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">UQC</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="" id="no-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li> -->
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i> Log Out</a></li>
-                    <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
-                    {% else %}
-                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-in-alt"></i> Login</a></li>
-                    <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
-                    {% endif %}
-                    <li id="cart-link">
-                        <a href="{% url 'view_cart' %}">
-                            <i {% if product_count < 1 %} class="fa fa-shopping-cart empty-cart" {% else%} class="fa fa-shopping-cart"
-                                {% endif %}>
-                            </i>
-                            Cart
-                            {% if product_count > 0 %}
-                            <label class="badge badge-warning">{{ product_count }}</label>
-                            {% endif %}
-                        </a>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+        <div class="nav-background">
+            <!-- <div class="container-fluid"> -->
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header top-nav-header">
+                    <button type="button" class="navbar-toggle collapsed collapse-btn" data-toggle="collapse"
+                        data-target="#collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">UQC</a>
+                </div>
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="" id="no-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li> -->
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i> Log Out</a></li>
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
+                        {% endif %}
+                        <li id="cart-link">
+                            <a href="{% url 'view_cart' %}">
+                                <i {% if product_count < 1 %} class="fa fa-shopping-cart empty-cart" {% else%} class="fa fa-shopping-cart"
+                                    {% endif %}>
+                                </i>
+                                Cart
+                                {% if product_count > 0 %}
+                                <label class="badge badge-warning">{{ product_count }}</label>
+                                {% endif %}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
     </nav>
     <!-- END TOP NAV -->
     
     <!-- SHOWCASE -->
-    <div class="container showcase">
-        <!-- <div class="container-fluid showcase"> -->
-        <!-- <div class="container"> -->
+    {% block showcase %}
+    {% endblock showcase %}
+    <!-- <div class="container showcase">
         <h1>
             Showcase
         </h1>
-        <!-- </div> -->
-    </div>
+    </div> -->
     <!-- END SHOWCASE -->
     <!-- MAIN NAV -->
     <nav class="navbar navbar-default navbar-main" id="navbar-main">
@@ -305,11 +518,13 @@
     </nav>
     <!-- END MAIN NAV -->
     <!-- MAIN TITLE -->
-    <div class="main-title">
+    {% block maintitle %}
+    <!-- <div class="main-title">
         <div class="title">
-            <h1>{% block page_heading %}{% endblock %}</h1>
+            <h1>{#% block page_heading %}{% endblock %#}</h1>
         </div>
-    </div>
+    </div> -->
+    {% endblock maintitle %}
     <!-- END MAIN TITLE -->
     <!-- CONTENT -->
     <div class="container">
@@ -324,7 +539,7 @@
             </div>
             {% endif %}
             
-            <div class="container">
+            <!-- <div class="container"> -->
                 <div class="display search">
                     <form action="{% url 'search' %}" method="get">
                         <input type="text" name="q">
@@ -332,11 +547,18 @@
                     </form>
                 </div>
                 <div class="clearfix"></div>
+                <div>Up to here in base.html</div>
                 {% block content %} {% endblock %}
-            </div>
+            <!-- </div> -->
         </div>
     </div>
     <!-- END CONTENT -->
+
+
+
+
+
+
 
 
 
@@ -466,6 +688,19 @@
                 <p>To add copyright notice and some other stuff.</p>
             </div>
         </footer> -->
+        <svg>
+            <defs>
+                <filter id="smear">
+                    <!-- blur filter -->
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                    <!-- <feColorMatrix in="blur" result="colormatrix" type="matrix" values="1 0 0 0 0
+                                                        0 1 0 0 0
+                                                        0 0 1 0 0
+                                                        0 0 0 18 -6" /> -->
+                    <!-- <feBlend in="SourceGraphic" in2="colormatrix" /> -->
+                </filter>
+            </defs>
+        </svg>
     </div>
 </body>
 </html>

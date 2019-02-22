@@ -1,5 +1,5 @@
 body {
-    background-color: #bebeff;
+    /* background-color: #bebeff; */
     font-family: Arial;
     /* padding-top: 100px; */
 
@@ -19,6 +19,9 @@ body {
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
     border-radius: 9px;
+    background-color: #0440B2;
+    color: #FFC953;
+    font-size: 1em;
 }
 
 .label-warning[href],
@@ -47,7 +50,7 @@ form {
     /* background-color: #75cdcd; */
     /* background-color: #5e9a9a; */
     background-image: -webkit-linear-gradient(top,#5e9a9a 0,#75cdcd 100%);
-    background-image: -o-linear-gradient(top,#5e9a9a 0,##75cdcd 100%);
+    background-image: -o-linear-gradient(top,#5e9a9a 0, #75cdcd 100%);
     background-image: -webkit-gradient(linear,left top,left bottom,from(#5e9a9a),to(#75cdcd));
     background-image: linear-gradient(to bottom,#5e9a9a 0,#75cdcd 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
@@ -99,6 +102,14 @@ form {
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
+    justify-content: flex-start;
+}
+
+.row.row-flex .panel {
+    flex: 1 1 auto;
+    height: 360px;
+    margin-bottom: 15px;
+    min-width: 100px;
 }
 
 .panel-default {
