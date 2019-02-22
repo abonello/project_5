@@ -34,11 +34,14 @@
     {% block head_js %}
     {% endblock head_js %}
     <style>
-        body, html { overflow-x:hidden; }
+        /* This will stop position sticky from working */
+        /* Use it on either body or html, not both. */
+        /* body, html { overflow-x:hidden; } */
 
         body {
             margin: 0;
             padding: 0;
+            overflow-x:hidden;
 
         }
         /* NAVS */
@@ -115,6 +118,7 @@
     
         #navbar-main.navbar-main {
             position: sticky;
+            position: -webkit-sticky;
             top: 49px;
             min-height: 0px;
             background-color: transparent;
@@ -292,9 +296,10 @@
         /* END SHOWCASE */
         /* MAIN TITLE */
         .main-title {
+            position: relative;
             width: 100vw;
             /* height: 200vh; */
-            background-color: cadetblue;
+            /* background-color: cadetblue; */
         }
 
         .title {
@@ -303,6 +308,12 @@
             /* background-color: chartreuse; */
             /* background-color: #0440B2; */
             background-color: #397DFF;
+            /* background-color: #397DFF, url('/static/img/corn-leaves-canvas-small.jpg'); */
+            /* background-image: url('/static/img/corn-leaves-canvas-small.jpg'); */
+            /* background-repeat: no-repeat; */
+            
+            /* -webkit-filter: hue-rotate(180deg) grayscale(0.1) opacity(70%);
+                    filter: hue-rotate(180deg) grayscale(0.1) opacity(70%); */
             /* padding: 15px 0; */
             width: 100vw;
         }
@@ -310,14 +321,24 @@
             /* color: #B28218; */
             /* color: #FFC953; */
             color: #FFC139;
-            
-        
-        
-
             font-size: 4em;
             line-height: 4em;
             padding: 0;
             margin: 0;
+            z-index: 50;
+        }
+        .main-title .color-cover {
+            /* background-color: rgba(57, 125, 255, 1); */
+            /* background-color: #397DFF; */
+            background-image: url('/static/img/corn-leaves-canvas-small.jpg');
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            -webkit-filter: opacity(10%);
+                    filter: opacity(10%);
         }
 
         /* MAIN TITLE */
