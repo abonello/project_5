@@ -37,15 +37,15 @@ def issuetracker(request):
 def issues(request):
     allIssues = Issue.objects.all()
     print(allIssues[0])
-    issues = [
-        {
-            'id': '5',
-            'title': "Test Feature Request",
-            'description': "This is a Test",
-            'posted_by': "Test User",
-            'votes': "500"
-        },
-    ]
+    # issues = [
+    #     {
+    #         'id': '5',
+    #         'title': "Test Feature Request",
+    #         'description': "This is a Test",
+    #         'posted_by': "Test User",
+    #         'votes': "500"
+    #     },
+    # ]
 
     # print(issues.values)
     return render(request, "issue_tracker.html", {'issues': allIssues})
