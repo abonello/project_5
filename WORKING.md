@@ -1425,7 +1425,11 @@ Another possibility is the change in the name of the file, although I cannot exp
 
 -------
 
-
+104. Create Issue Tracker app
+```bash
+python manage.py startapp issuetracker
+```
+Add app to settings.
 
 
 
