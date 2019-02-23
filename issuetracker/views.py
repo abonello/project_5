@@ -28,8 +28,6 @@ def issuetracker(request):
         }
 
     ]
-    for each in issues:
-        print(each)
 
     # print(issues.values)
     return render(request, "issue_tracker.html", {'issues': issues})
