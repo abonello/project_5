@@ -19,4 +19,14 @@ UniQueCorn Products
 
     This is issue tracker
 
+    {% for each in issues %}
+        <div style="border: 1px solid black">
+                <p> {{ each.id }}</p>
+                <h3> {{ each.title }}</h3>
+                <p> {{ each.description }}</p>
+                <hr>
+                <p> Posted by: {{ each.posted_by }} | Votes: {{ each.votes }} </p>
+        </div>
+    {% endfor %}
+
     {% endblock %}
