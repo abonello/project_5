@@ -42,8 +42,8 @@
             margin: 0;
             padding: 0;
             overflow-x:hidden;
-
         }
+
         /* NAVS */
         .top-nav-navbar {
             position: fixed;
@@ -61,17 +61,14 @@
             height: 100%;
             background: rgba(57, 125, 255, 0.15);
         }
-        
         .top-nav-header {
             position: relative;
         }
-        
         .collapse-btn {
             position: absolute;
             top: 0;
             left: 0;
         }
-        
         .navbar-brand {
             position: absolute;
             top: 0;
@@ -82,11 +79,9 @@
             /* left: 0px; */
             /* background-color: rgba(57, 125, 255, 0.5); */
         }
-        
         .navbar-default .navbar-brand {
             color: #B28218;
         }
-
         @media screen and (min-width: 768px) {
             .navbar-brand {
                 position: static;
@@ -97,13 +92,11 @@
                 left: 50px;
             }
         }
-    
         #no-collapse {
             position: absolute;
             top: 0;
             right: 10px;
         }
-    
         @media screen and (min-width: 768px) {
             #no-collapse {
                 /* right: 55px; */
@@ -111,11 +104,9 @@
                 position: static;
             }
         }
-    
         #no-collapse ul li {
             display: inline-block;
         }
-    
         #navbar-main.navbar-main {
             position: sticky;
             position: -webkit-sticky;
@@ -126,20 +117,14 @@
             margin-bottom: 0;
             z-index: 999;
         }
-        /* .navbar-brand .container-fluid #collapse-1 .nav {
-            
-        } */
-        
         #navbar-main.navbar-main .container-fluid {
             padding: 0;
         }
-        
         .navbar-main-collapse {
             border-top: none;
             padding: 0;
             /* position: relative; */
         }
-        
         .navbar-main-collapse#collapse-1 .navbar-main-ul {
             background-color: rgba(57, 125, 255, 0.1);
         }
@@ -151,12 +136,10 @@
             height: 100vh;
             padding-left: 20px;
         }
-    
         .navbar-main-collapse .navbar-main-ul li>a {
             font-weight: 600;
             color: white;
         }
-
         @media screen and (min-width: 768px) {
             .navbar-main-collapse .navbar-main-ul {
                 position: static;
@@ -182,8 +165,10 @@
         /* END NAVS */
 
         /* SHOWCASE */
-        .showcase {
+        .showcase-outer {
             margin-top: 50px;
+        }
+        .showcase {
             /* background-color: blueviolet; */
             /* background-image: url('/static/img/corn-1382102-small-min.jpg'); */
             background-size: auto;
@@ -292,8 +277,8 @@
                 font-size: 2.8vw;
             }
         }
-
         /* END SHOWCASE */
+
         /* MAIN TITLE */
         .main-title {
             position: relative;
@@ -301,7 +286,6 @@
             /* height: 200vh; */
             /* background-color: cadetblue; */
         }
-
         .title {
             text-align: center;
             line-height: 4em;
@@ -340,7 +324,6 @@
             -webkit-filter: opacity(10%);
                     filter: opacity(10%);
         }
-
         /* MAIN TITLE */
 
         /* MAIN CONTENT */
@@ -505,8 +488,10 @@
     <!-- END TOP NAV -->
     
     <!-- SHOWCASE -->
-    {% block showcase %}
-    {% endblock showcase %}
+    <div class="showcase-outer">
+            {% block showcase %}
+            {% endblock showcase %}
+    </div>
     <!-- <div class="container showcase">
         <h1>
             Showcase

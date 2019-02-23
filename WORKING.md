@@ -1431,7 +1431,10 @@ python manage.py startapp issuetracker
 ```
 Add app to settings.
 
+105. Added simple view, template, url and nav links
 
+106. Added simple model to test. At the moment I am using the admin to add issues.
+I will add other views to add items to the database, etc.
 
 
 
