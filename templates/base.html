@@ -327,42 +327,89 @@
         /* MAIN TITLE */
 
         /* MAIN CONTENT */
+        .main-content-outer {
+            background-color: rgba(210, 189, 153, 0.3);
+        }
         .main-content {
             /* width: 100vw; */
             min-height: 50vh;
-            background-color: aquamarine;
+            /* background-color: aquamarine; */
             z-index: 0;
             padding-bottom: 30px;
         }
-
-
+        .picture-links-container {
+            padding: 20px 0px;
+        }
         .picture-links {
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
             align-items: center;
         }
+        .picture-links a {
+            flex: 200 200 30%;
+        }
         .panel {
+            position: relative;
             flex: 200 200 30%;
             height: 200px;
             min-width: 200px;
             border: 1px solid rgba(0, 0, 0, 0.3);
-            margin: 0 5px;
+            /* margin: 0 5px; */
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            background-size: 100% 100%;
+        }
+        .panel:hover {
+            cursor: pointer;
+        }
+        .panel span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0,0,0,0.5);
+            padding: 10px;
+        }
+        @media screen and (min-width: 768px) {
+            .panel {
+                font-size: 40px;
+            }
+        }
+        .panel.product-bg {
+            background: #f6a4ca;
+            background-image: url('/static/img/Crowned-Corn-xs-min.png');
+            background-size: 100% 100%;
+        }
+        .panel.issue-tracker-bg {
+            background-image: url('/static/img/question-mark-maze-small-min.jpg');
+        }
+        .panel.blog-bg {
+            background-image: url('/static/img/analog-binder-small-min.jpg');
         }
         @media screen and (min-width: 768px) {
             .picture-links {
                 flex-direction: row;
             }
+            .panel {
+                margin: 0 5px;
+            }
+            .panel:first-of-type {
+                margin-left: 0;
+            }
+            .panel:last-of-type {
+                margin-right: 0;
+            }
         }
-
         #events {
             border: 1px solid red;
             min-height: 100px;
         }
-
         #features-bugs {
             border: 1px solid blue;
             min-height: 100px;
+            text-align: center;
         }
         /* END MAIN CONTENT */
 
@@ -380,7 +427,8 @@
 
         /* FOOTER */
         footer {
-            background-color: #888;
+            /* background-color: #888; */
+            background-color: rgba(68, 64, 64, 0.85);
             width: 100vw;
             display: flex;
             flex-direction: column;
@@ -536,7 +584,7 @@
     <!-- END MAIN TITLE -->
     <!-- CONTENT -->
     <div class="container">
-        <div class="main-content col-xs-12">
+        <div class="main-content-outer col-xs-12">
             {% if messages %}
             <div class="alert alert-success">
                 <div class="messages">
@@ -555,7 +603,6 @@
                     </form>
                 </div>
                 <div class="clearfix"></div>
-                <div>Up to here in base.html</div>
                 {% block content %} {% endblock %}
             <!-- </div> -->
         </div>

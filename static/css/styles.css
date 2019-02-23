@@ -2,7 +2,6 @@ body {
     /* background-color: #bebeff; */
     font-family: Arial;
     /* padding-top: 100px; */
-
 }
 
 #toggle-btn {
@@ -128,8 +127,9 @@ form {
 }
 
 footer {
+    margin: 0;
     margin-top: 40px;
     padding: 20px 0;
     border-top: 1px solid #e3e3e3;
-    color: #5020a5;
+    color: white;
 }
