@@ -46,14 +46,16 @@ UniQueCorn Products
     {% else %}
         {% for each in issues reversed %}
             {% if each.is_feature %}
-                <div style="border: 1px solid black">
+                <div class="issue-item">
                     <p> {{ each.id }} 
                     </p>
                     <h3> {{ each.title }}</h3>
                     <p> {{ each.description }}</p>
                     <hr class="hr-light">
-                    <p> Posted by: <strong>{{ each.posted_by }}</strong>
-                         at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong> </p>
+                    <p> 
+                    Posted by: <strong>{{ each.posted_by }}</strong>
+                        at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong>
+                    </p>
                 </div>
             {% endif %}
         {% endfor %}        
@@ -69,7 +71,7 @@ UniQueCorn Products
     {% else %}
         {% for each in issues reversed %}
             {% if not each.is_feature %}
-                <div style="border: 1px solid black">
+                <div class="issue-item">
                     <p> {{ each.id }} 
                     </p>
                     <h3> {{ each.title }}</h3>
