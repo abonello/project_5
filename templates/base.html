@@ -494,7 +494,43 @@
         /* END MAIN CONTENT */
 
 
+        a#link-add-issue {
+            width: 80%;
+            height: 50px;
+            background-color: blue;
+            padding: 10px 20px;
+            color: gold;
+            text-decoration: none;
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 20px;
+            line-height: 20px;
+            letter-spacing: 1px;
+        }
+        @media screen and (min-width: 768px) {
+            a#link-add-issue {
+                width: 40%;
+                height: 50px;
+                padding: 10px 20px;
+                top: 45px;
+                left: 200px;
+                font-size: 20px;
+                line-height: 20px;
+                letter-spacing: 1px;
+            }
+        }
 
+        a#link-add-issue:hover,
+        a#link-add-issue:active,
+        a#link-add-issue:focus {
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 2px 3px 1px rgba(145, 116, 49, 0.55);
+
+        }
 
 
 
