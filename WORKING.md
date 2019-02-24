@@ -1444,6 +1444,42 @@ I will add other views to add items to the database, etc.
 &nbsp;  
 &nbsp;  
 
+Working with User model in python shell:
+
+* Start python shell
+```bash
+python manage.py shell
+```
+
+* Import User
+```bash
+from django.contrib.auth.models import User
+```
+This will give an error if I do not start python shell from the manage.py.
+
+
+* Get User  
+user = User.objects.get(username='<admin_user_name>')
+```bash
+user = User.objects.get(username='test-admin')
+```
+
+* Query User  
+```
+user
+print(user)
+user.first_name
+user.last_name
+user.id
+```
+For more about users:  
+https://docs.djangoproject.com/en/1.11/ref/contrib/auth/
+
+Extending User Model:  
+https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html  
+https://wsvincent.com/django-custom-user-model-tutorial/  
+
+
 ---
 
 .  
@@ -1501,3 +1537,9 @@ Help us to develop this product further by suggesting new features to this app a
 
 Main colors to use will be taken from corn color as well as various levels of grey, black and white.
 
+
+
+.top-nav-navbar #no-collapse ul li a {
+            color: #1b1919;
+            font-weight: 800;
+        }

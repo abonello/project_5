@@ -70,6 +70,7 @@
             left: 0;
         }
         .navbar-brand {
+            font-family: 'Coiny', cursive;
             position: absolute;
             top: 0;
             left: 50px;
@@ -107,6 +108,10 @@
         #no-collapse ul li {
             display: inline-block;
         }
+        .top-nav-navbar #no-collapse ul li a {
+            color: #1b1919;
+            font-weight: 800;
+        }
         #navbar-main.navbar-main {
             position: sticky;
             position: -webkit-sticky;
@@ -126,7 +131,12 @@
             /* position: relative; */
         }
         .navbar-main-collapse#collapse-1 .navbar-main-ul {
-            background-color: rgba(57, 125, 255, 0.1);
+            background-color: rgba(0,0,0,0.9);
+        }
+        @media screen and (min-width: 768px) {
+            .navbar-main-collapse#collapse-1 .navbar-main-ul {
+                background-color: rgba(57, 125, 255, 0.1);
+            }
         }
         .navbar-main-collapse .navbar-main-ul {
             position: fixed;
@@ -151,7 +161,8 @@
                 justify-content: center;
             }
             .navbar-main-collapse .navbar-main-ul li>a {
-                color: #777;
+                color: #1b1919;
+                font-weight: 800;
             }
         }
         @media screen and (max-width: 400px) {
@@ -301,12 +312,20 @@
             /* padding: 15px 0; */
             width: 100vw;
         }
+        .prominent-letter {
+            font-family: 'Coiny', cursive;
+            font-size: 1.2em;
+            padding: 0;
+            letter-spacing: 0;
+        }
         .title h1 {
             /* color: #B28218; */
             /* color: #FFC953; */
             color: #FFC139;
             font-size: 4em;
+            font-family: 'Acme', sans-serif;
             line-height: 4em;
+            letter-spacing: 3px;
             padding: 0;
             margin: 0;
             z-index: 50;
@@ -366,6 +385,7 @@
         }
         .panel span {
             position: absolute;
+            font-family: 'Acme', sans-serif;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -403,13 +423,61 @@
             }
         }
         #events {
-            border: 1px solid red;
+            margin-top: 50px;
+            /* border: 1px solid red; */
             min-height: 100px;
         }
+        #events h2 {
+            text-align: center;
+            font-family: 'Acme', sans-serif;
+            color: #0440B2;
+            font-size: 3em;
+            font-weight: 500;
+            letter-spacing: 3px;
+            padding: 20px 0 30px 0;
+            background-color: #FFC953;
+        }
+        #events .general-info {
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.05em;
+            letter-spacing: 1px;
+            padding-left: 3px;
+        }
+        .event-item {
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            padding: 0 30px 10px 30px;
+            margin-bottom: 5px;
+        }
+        .event-item .description {
+            padding: 0 15px 10px 15px;
+        }
+        .event-details {
+            /* display: flex; */
+            /* justify-content: space-between; */
+        }
+        .event-details p {
+
+        }
+        .event-data {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 1.02em;
+        }
+
         #features-bugs {
-            border: 1px solid blue;
+            border: 1px solid transparent;
             min-height: 100px;
             text-align: center;
+            background-color: #FFC953;
+            margin-bottom: 50px;
+        }
+        #features-bugs h2{
+            color: #0440B2;
+            font-family: 'Acme', sans-serif;
+            font-size: 3em;
+            font-weight: 500;
+            letter-spacing: 3px;
         }
         /* END MAIN CONTENT */
 
@@ -435,6 +503,7 @@
             align-items: stretch;
         }
         footer .logo {
+            font-family: 'Coiny', cursive;
             color: goldenrod;
             font-size: 38px;
             text-align: center;
@@ -705,7 +774,19 @@
         <div class="filler-block"></div>
 
 
-
+        <svg>
+            <defs>
+                <filter id="smear">
+                    <!-- blur filter -->
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                    <!-- <feColorMatrix in="blur" result="colormatrix" type="matrix" values="1 0 0 0 0
+                                                                0 1 0 0 0
+                                                                0 0 1 0 0
+                                                                0 0 0 18 -6" /> -->
+                    <!-- <feBlend in="SourceGraphic" in2="colormatrix" /> -->
+                </filter>
+            </defs>
+        </svg>
 
         <!-- FOOTER -->
         <footer>
@@ -725,7 +806,7 @@
                     <strong id="tel">
                         T. 0800 123456
                     </strong><br>
-                    This is some info about the company. <br>Company registration number ##########. <br>Company registered
+                    Company registration number ##########. <br>Company registered
                     address: <br>123 the street, the village, <br>the County, PST c073
                     <br> Country
                 </p>
@@ -743,19 +824,7 @@
                 <p>To add copyright notice and some other stuff.</p>
             </div>
         </footer> -->
-        <svg>
-            <defs>
-                <filter id="smear">
-                    <!-- blur filter -->
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-                    <!-- <feColorMatrix in="blur" result="colormatrix" type="matrix" values="1 0 0 0 0
-                                                        0 1 0 0 0
-                                                        0 0 1 0 0
-                                                        0 0 0 18 -6" /> -->
-                    <!-- <feBlend in="SourceGraphic" in2="colormatrix" /> -->
-                </filter>
-            </defs>
-        </svg>
+
     </div>
 </body>
 </html>
