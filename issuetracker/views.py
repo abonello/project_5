@@ -1,10 +1,14 @@
-from django.shortcuts import render
+# import datetime
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .forms import IssueItem
 from .models import Issue
 
 # Create your views here.
 @login_required()
 def issuetracker(request):
+    """ Hard Coded Data """
     issues = [
         {
             'id': '1',
@@ -35,8 +39,9 @@ def issuetracker(request):
 
 @login_required()
 def issues(request):
+    """ Gets Data form database """
     allIssues = Issue.objects.all()
-    print(allIssues[0])
+    # print(allIssues[0])
     # issues = [
     #     {
     #         'id': '5',
@@ -48,5 +53,49 @@ def issues(request):
     # ]
 
     # print(issues.values)
-    return render(request, "issue_tracker.html", {'issues': allIssues})
+    feature_count = 0
+    bug_count = 0
+    for each in allIssues:
+        if each.is_feature:
+            feature_count += 1
+        else:
+            bug_count += 1
+    return render(request, "issue_tracker.html", {'issues': allIssues, 'feature_count': feature_count, "bug_count": bug_count})
+
+
+@login_required
+def create_an_issue(request):
+    if request.method == "POST":
+        form = IssueItem(request.POST, request.FILES)
+  
+        # if request.user.is_authenticated():
+        #     print("User is authenticated")
+
+        if form.is_valid():
+   
+            
+            thisForm = form.save()
+            thisForm.posted_by = request.user.username
+            
+
+            thisForm.save()
+
+
+           
+
+        # widgets = {"date_time":
+
+
+            return redirect(issues)
+    else:  # Return an empty form
+        form = IssueItem()
+        # form.posted_by = request.user.username
+
+    return render(request, 'add_issue.html', {'form': form})
+
+    # if request.method == "POST":
+    #     new_item = Item()  # instance of the Item model
+    #     new_item.name = request.POST.get('name')
+    #     new_item.done = 'done' in request.POST
+    #     new_item.save()
 
