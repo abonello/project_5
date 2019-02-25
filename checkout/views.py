@@ -68,6 +68,12 @@ def checkout(request):
                     messages.error(request, "You have successfully paid.")
                     # Empty cart
                     request.session['cart'] = {}
+                    print(quantity)
+                    # print(coins)
+                    # print(quantity * coins)
+
+
+
                     return redirect(reverse('products'))
                 else: 
                     messages.error(request, "Unable to take payment.")
