@@ -51,6 +51,19 @@ UniQueCorn Products
                     </p>
                     <h3> {{ each.title }}</h3>
                     <p> {{ each.description }}</p>
+                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
+                    <div class="comments-list">
+                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
+                    
+                        {% for item in each.comment.all %}
+                        <div class="comment-item">
+                            <h4>Comment {{ forloop.counter }}</h4>
+                            <p class="comment-subject"><strong>{{item.subject}}</strong></p>
+                            <p><small>Posted by: <strong>{{ item.posted_by }}</strong> at <strong>{{ item.date_time}}</strong></small></p>
+                            <p>{{item.comment}}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
                     <hr class="hr-light">
                     <p> 
                     Posted by: <strong>{{ each.posted_by }}</strong>
@@ -72,10 +85,25 @@ UniQueCorn Products
         {% for each in issues reversed %}
             {% if not each.is_feature %}
                 <div class="issue-item">
-                    <p> {{ each.id }} 
+                    <p>Bug id: {{ each.id }} 
                     </p>
                     <h3> {{ each.title }}</h3>
                     <p> {{ each.description }}</p>
+                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
+                    <!-- <p> {#{ each.subject.all}#}</p> -->
+                    <div class="comments-list">
+                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
+
+                        {% for item in each.comment.all %}
+                            <div class="comment-item">
+                                <h4>Comment {{ forloop.counter }}</h4>
+                                <p class="comment-subject"><strong>{{item.subject}}</strong></p>
+                                <p><small>Posted by: <strong>{{ item.posted_by }}</strong> at <strong>{{ item.date_time}}</strong></small></p>
+                                <p>{{item.comment}}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
                     <hr class="hr-light">
                     <p> Posted by: <strong>{{ each.posted_by }}</strong> at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong> </p>
                 </div>

@@ -2,8 +2,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import IssueItem
-from .models import Issue
+from .forms import IssueItem, Comment
+from .models import Issue, IssueComment
 
 # Create your views here.
 @login_required()
@@ -40,26 +40,21 @@ def issuetracker(request):
 @login_required()
 def issues(request):
     """ Gets Data form database """
+    # allIssues = Issue.objects.all().prefetch_related('relatedissue')
     allIssues = Issue.objects.all()
-    # print(allIssues[0])
-    # issues = [
-    #     {
-    #         'id': '5',
-    #         'title': "Test Feature Request",
-    #         'description': "This is a Test",
-    #         'posted_by': "Test User",
-    #         'votes': "500"
-    #     },
-    # ]
-
-    # print(issues.values)
+    # print(Issue.objects.get(id=1).comment.all())
     feature_count = 0
     bug_count = 0
+
     for each in allIssues:
+        # I can do this differently by requesting data from db where is_feature is true or false
         if each.is_feature:
             feature_count += 1
         else:
             bug_count += 1
+    
+
+
     return render(request, "issue_tracker.html", {'issues': allIssues, 'feature_count': feature_count, "bug_count": bug_count})
 
 
@@ -67,35 +62,28 @@ def issues(request):
 def create_an_issue(request):
     if request.method == "POST":
         form = IssueItem(request.POST, request.FILES)
-  
         # if request.user.is_authenticated():
         #     print("User is authenticated")
-
-        if form.is_valid():
-   
-            
+        if form.is_valid() and request.user.is_authenticated():
             thisForm = form.save()
             thisForm.posted_by = request.user.username
-            
-
             thisForm.save()
-
-
-           
-
-        # widgets = {"date_time":
-
-
             return redirect(issues)
     else:  # Return an empty form
         form = IssueItem()
-        # form.posted_by = request.user.username
 
     return render(request, 'add_issue.html', {'form': form})
 
-    # if request.method == "POST":
-    #     new_item = Item()  # instance of the Item model
-    #     new_item.name = request.POST.get('name')
-    #     new_item.done = 'done' in request.POST
-    #     new_item.save()
 
+@login_required
+def create_a_comment(request):
+    if request.method == "POST":
+        form = Comment(request.POST, request.FILES)
+        if form.is_valid() and request.user.is_authenticated():
+            thisForm = form.save()
+            thisForm.posted_by = request.user.username
+            thisForm.save()
+            return redirect(issues)
+    else:  # Return an empty form
+        form = Comment()
+    return render(request, 'add_comment.html', {'form': form})

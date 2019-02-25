@@ -1,5 +1,5 @@
 from django import forms
-from .models import Issue
+from .models import Issue, IssueComment
 
 
 class IssueItem(forms.ModelForm):
@@ -23,3 +23,11 @@ class IssueItem(forms.ModelForm):
 #             "is_feature": "Suggestion Type",
 #             "delay_submission": "Delay Submission Till Next Voting Cycle<br> If you're worried that you won't be able to catch up with the current leaders"
 #         }
+class Comment(forms.ModelForm):
+    class Meta:
+        model = IssueComment
+        # fields = ('title', 'description', 'posted_by')
+        fields = ('issue', 'subject', 'comment')
+        # widgets = {"user": forms.HiddenInput()}  # value set in views
+        widgets = {"posted_by": forms.HiddenInput()}  # value set in views
+        widgets = {"date_time": forms.HiddenInput()}  # value set in views

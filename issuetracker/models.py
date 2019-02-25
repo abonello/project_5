@@ -10,31 +10,45 @@ class Issue(models.Model):
     title = models.CharField(max_length=100, blank=False)
     description = models.TextField()
     posted_by = models.CharField(max_length=50)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     # posted_by = models.ForeignKey(User, null=False, on_delete=models.PROTECT)
     votes = models.IntegerField(default=0)
     date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "{}: {} | posted by {} @ {} | Feature: {} | Votes: {}".format(self.title, self.description, self.posted_by, self.date_time, self.is_feature, self.votes)
+        return self.title
+        # return "{}: {} | posted by {} @ {} | Feature: {} | Votes: {}".format(self.title, self.description, self.posted_by, self.date_time, self.is_feature, self.votes)
 
     class Meta:
         verbose_name_plural = "Issues"
 
-
-class IssueAdminPage(models.Model):
-    status_choices = ((0, "not scheduled"), (1, "scheduled"), (2, "in progress"), (3, "completed"))
-    priority_choices = ((0, "low"), (1, 'normal'), (2, 'high'))
-
-    issue = models.ForeignKey(Issue, null=False, on_delete=models.CASCADE)
-    status = models.PositiveSmallIntegerField(choices=status_choices, default=0)
-    date_started = models.DateField(null=True, blank=True)
-    date_completed = models.DateField(null=True, blank=True)
-    in_current_voting_cycle = models.BooleanField(blank=False, default=True)
-    was_successful = models.NullBooleanField(blank=True, null=True)
-                        # current_winner = models.BooleanField(blank=False, default=False)
+class IssueComment(models.Model):
+    issue = models.ForeignKey(Issue, on_delete=models.CASCADE, related_name='comment')
+    subject = models.CharField(max_length=100, blank=False)
+    comment = models.TextField()
+    posted_by = models.CharField(max_length=50)
+    # user = models.ForeignKey(
+    #     User, on_delete=models.CASCADE, related_name='relateduser')
+    date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.issue.title
+        return self.subject
+        # return "{} posted by {} about issue: {}".format(self.subject, self.user, self.issue)
+
+# class IssueAdminPage(models.Model):
+#     status_choices = ((0, "not scheduled"), (1, "scheduled"), (2, "in progress"), (3, "completed"))
+#     priority_choices = ((0, "low"), (1, 'normal'), (2, 'high'))
+
+#     issue = models.ForeignKey(Issue, null=False, on_delete=models.CASCADE)
+#     status = models.PositiveSmallIntegerField(choices=status_choices, default=0)
+#     date_started = models.DateField(null=True, blank=True)
+#     date_completed = models.DateField(null=True, blank=True)
+#     in_current_voting_cycle = models.BooleanField(blank=False, default=True)
+#     was_successful = models.NullBooleanField(blank=True, null=True)
+#                         # current_winner = models.BooleanField(blank=False, default=False)
+
+#     def __str__(self):
+#         return self.issue.title
 
     # Code for turning other current_winner values
     # to False once a new value saved as a True
