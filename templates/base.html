@@ -382,7 +382,7 @@
         .picture-links a {
             flex: 200 200 30%;
         }
-        .panel {
+        .front-panel {
             position: relative;
             flex: 200 200 30%;
             height: 200px;
@@ -394,10 +394,10 @@
             text-align: center;
             background-size: 100% 100%;
         }
-        .panel:hover {
+        .front-panel:hover {
             cursor: pointer;
         }
-        .panel span {
+        .front-panel span {
             position: absolute;
             font-family: 'Acme', sans-serif;
             top: 50%;
@@ -407,32 +407,32 @@
             padding: 10px;
         }
         @media screen and (min-width: 768px) {
-            .panel {
+            .front-panel {
                 font-size: 40px;
             }
         }
-        .panel.product-bg {
+        .front-panel.product-bg {
             background: #f6a4ca;
             background-image: url('/static/img/Crowned-Corn-xs-min.png');
             background-size: 100% 100%;
         }
-        .panel.issue-tracker-bg {
+        .front-panel.issue-tracker-bg {
             background-image: url('/static/img/question-mark-maze-small-min.jpg');
         }
-        .panel.blog-bg {
+        .front-panel.blog-bg {
             background-image: url('/static/img/analog-binder-small-min.jpg');
         }
         @media screen and (min-width: 768px) {
             .picture-links {
                 flex-direction: row;
             }
-            .panel {
+            .front-panel {
                 margin: 0 5px;
             }
-            .panel:first-of-type {
+            .front-panel:first-of-type {
                 margin-left: 0;
             }
-            .panel:last-of-type {
+            .front-panel:last-of-type {
                 margin-right: 0;
             }
         }
