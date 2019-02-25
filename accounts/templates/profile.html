@@ -14,6 +14,11 @@ Accounts - {{ user }}'s Profile
 <p>First Name: {{ profile.first_name }}</p>
 <p>Last Name: {{ profile.last_name }}</p>
 <p>Groups: {{ profile.groups }}</p>
+
+{% for coins in profile.relateduser.all %}
+<p><strong>Coins</strong>: {{ coins.coin_amount }}</p>
+{% endfor %}
+
 <p>Permissions: {{ profile.permissions }}</p>
 {% if profile.is_staff %}
     <p>This user is STAFF</p>
