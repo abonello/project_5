@@ -68,7 +68,7 @@ UniQueCorn Products
                     <p> 
                     Posted by: <strong>{{ each.posted_by }}</strong>
                         at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong> 
-                        <a class="vote-link" href="{% url 'vote' %}">Promote this Feature</a> (Note: It will cost you €100)
+                        <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you €100)
                     </p>
                 </div>
             {% endif %}
