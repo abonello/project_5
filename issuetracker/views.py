@@ -1,5 +1,5 @@
 # import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import IssueItem, Comment
@@ -87,3 +87,31 @@ def create_a_comment(request):
     else:  # Return an empty form
         form = Comment()
     return render(request, 'add_comment.html', {'form': form})
+
+@login_required
+def vote(request, issue_id):
+    print("Vote Received")
+    issue=get_object_or_404(Issue, pk = issue_id)
+    issue.votes = issue.votes + 1
+    issue.save()
+    # try:
+    #     issue=get_object_or_404(Issue, pk = issue_id)
+
+    #     issue.vote = issue.vote + 1
+
+    #     issue.save()
+       
+        # if request.method == 'POST':
+        #     form = Issue(request.POST, instance=item)
+        #     if form.is_valid():
+        #         form.save()
+        #         return redirect(test_todo_list)
+        # else:
+        #     form = ItemForm(instance=item)
+    # except: 
+    #     pass
+
+    # return render(request, 'add_item_django-form.html', {'form': form})
+    return redirect(issues)
+    # return render(request, "issue_tracker.html", {'issues': allIssues, 'feature_count': feature_count, "bug_count": bug_count})
+
