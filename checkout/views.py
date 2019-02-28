@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
+from accounts.models import UserCoins
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
@@ -55,6 +56,13 @@ def checkout(request):
 
                 try: 
                     # stripe works with cents or pence
+                    try:
+                        print("Try getting user ID")
+                        user_id = request.user.id
+                        print("Getting user ID successful. ID: {}".format(user_id))
+                    except:
+                        print("Getting user ID FAILED.")
+
                     customer = stripe.Charge.create(
                         amount = int(total * 100),
                         currency = "EUR",
@@ -69,6 +77,35 @@ def checkout(request):
                     # Empty cart
                     request.session['cart'] = {}
                     print(quantity)
+                    print("This is the user making the payment:")
+                    try:
+                        # print(request.user.username)
+                        # print(user_id)
+                        # print(UserCoins.objects.get(pk = 1))
+                        # user_coins = request.user.relateduser.all
+                        # print(user_coins)
+                        coin_user = request.user.relateduser.all
+
+                        user_coins = get_object_or_404(UserCoins, user=request.user.id)
+                        print(user_coins)
+                        print(user_coins.coin_amount)
+                        print("Add 144")
+
+                        user_coins.coin_amount += 144
+                        user_coins.save()
+                        print(user_coins.coin_amount)
+
+
+
+                        # print(user_coins.coin_amounts)
+                        # print(request.user.coin_amount)
+                        # user = User.objects.get(email=request.user.email)
+                        # { % for coins in user.relateduser.all % }
+                        # <p > <strong > Coins < /strong > : {{coins.coin_amount }} < /p >
+                        # { % endfor % }
+                    except:
+                        print("Cannot find USER")
+                        # print("Cannot find COIN_AMOUNT")
                     # print(coins)
                     # print(quantity * coins)
 

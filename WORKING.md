@@ -1437,6 +1437,27 @@ Add app to settings.
 I will add other views to add items to the database, etc.
 
 
+26/2/19
+I was thinking of doing calculations to calculate the amount of coins bought from different packages, a calculation based on the quantity of each package like:
+```
+3 of package A: 100 * 3 = 300 +  
+1 of pacakge B: 200 * 1 = 200  
+-----------------------------
+                          500
+```
+Considering the logic and the addition to the database tables, and the time restrictions I have, I will simplify this. There will only be one coin package to buy. This will have a fixed known amount of coins and the user can select how many of this package they want to buy.
+This will also simplify amandments in the cart.
+
+I will try to implement the logic in the checkout and will add the coins to the user once the transaction has been successful, before redirecting.
+
+Added the code to add a fixed amount of coins when a user buys a packet of coins. 
+Just offer one size of package.
+
+
+
+
+
+
 
 
 &nbsp;  
