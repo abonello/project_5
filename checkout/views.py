@@ -89,11 +89,12 @@ def checkout(request):
                         user_coins = get_object_or_404(UserCoins, user=request.user.id)
                         print(user_coins)
                         print(user_coins.coin_amount)
-                        print("Add 144")
-
-                        user_coins.coin_amount += 144
+                        coins_to_add = 500 * quantity
+                        user_coins.coin_amount += coins_to_add
+                        print("Add Coins to user: {}".format(coins_to_add))
+                        print("Now {} has {} coins.".format(request.user.username, user_coins.coin_amount))
                         user_coins.save()
-                        print(user_coins.coin_amount)
+                        # print(user_coins.coin_amount)
 
 
 
