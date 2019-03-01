@@ -4,39 +4,94 @@
 Django Auth | {{ user }}'s Profile
 {% endblock %}
 
-{% block page_heading %}
-Accounts - {{ user }}'s Profile
-{% endblock %}
+
+{% block showcase %}
+<div class="main-title">
+    <div class="color-cover"></div>
+    <div class="title">
+        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
+        <h1>UniQueCorn - {{ user }}'s Profile</h1>
+    </div>
+</div>
+{% endblock showcase %}
+
+<!-- {#% block page_heading %#}
+Accounts - {#{ user }#}'s Profile
+{#% endblock %#} -->
+
 
 {% block content %}
-<p>Email: {{ profile.email }}</p>
-<p>Username: {{ profile.username }}</p>
-<p>First Name: {{ profile.first_name }}</p>
-<p>Last Name: {{ profile.last_name }}</p>
-<p>Groups: {{ profile.groups }}</p>
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Panel heading without title</div>
+    <div class="panel-body">
+        Panel content
+    </div>
+</div> -->
 
-{% for coins in profile.relateduser.all %}
-<p><strong>Coins</strong>: {{ coins.coin_amount }}</p>
-{% endfor %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <!-- <h3 class="panel-title profile-username-heading">your profile</h3> -->
+        <h3 class="panel-title">your profile</h3>
+    </div>
+    <div class="panel-body">
+        <p class="profile-item">Username: <span>{{ profile.username }}</span></p>
+        <p class="profile-item">Email: <span class="small">{{ profile.email }}</span></p>
+        {% for coins in profile.relateduser.all %}
+        <p class="profile-item">Coins: <span class="small">{{ coins.coin_amount }}</span></p>
+        {% endfor %}
 
-<p>Permissions: {{ profile.permissions }}</p>
-{% if profile.is_staff %}
+        <div class="profile-user-type">
+            {% if profile.is_staff %}
+            <p>This user is <strong class="profile-user-type_info">STAFF</strong>.</p>
+            {% else %}
+            <p>This user is <strong class="profile-user-type_info">NOT staff</strong>.</p>
+            {% endif %}
+            {% if profile.is_active %}
+            <p>This user is <strong class="profile-user-type_info">ACTIVE</strong>.</p>
+            {% else %}
+            <p>This user is <strong class="profile-user-type_info">NOT active</strong>.</p>
+            {% endif %}
+            {% if profile.is_superuser %}
+            <p>This user is <strong class="profile-user-type_info">SUPERUSER</strong>.</p>
+            {% else %}
+            <p>This user is <strong class="profile-user-type_info">NOT superuser</strong>.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+<hr>
+<!-- <p class="profile-username">Username: <span>{#{ profile.username }#}</span></p>
+<p class="profile-email">Email: <span class="small">{#{ profile.email }#}</span></p> -->
+<!-- <p>First Name: {#{ profile.first_name }#}</p>
+<p>Last Name: {#{ profile.last_name }#}</p> -->
+<!-- <p>Groups: {#{ profile.groups }#}</p> -->
+
+<!-- {#% for coins in profile.relateduser.all %#}
+<p class="profile-coins"><strong>Coins</strong>: {#{ coins.coin_amount }#}</p>
+{#% endfor %#} -->
+
+<!-- <p>Permissions: {#{ profile.permissions }#}</p> -->
+<!-- {#% if profile.is_staff %#}
     <p>This user is STAFF</p>
-{% else %}
+{#% else %#}
     <p>This user is NOT staff.</p>
-{% endif %}
-{% if profile.is_active %}
+{#% endif %#}
+{#% if profile.is_active %#}
     <p>This user is ACTIVE</p>
-{% else %}
+{#% else %#}
     <p>This user is NOT active.</p>
-{% endif %}
-{% if profile.is_superuser %}
+{#% endif %#}
+{#% if profile.is_superuser %#}
     <p>This user is SUPERUSER</p>
-{% else %}
+{#% else %#}
     <p>This user is NOT superuser.</p>
-{% endif %}
-
-<p>Last login: {{ profile.last_login }}</p>
-<p>Date joined: {{ profile.date_joined }}</p>
+{#% endif %#} -->
+<div class="profile logins">
+    <p>Last login: <strong>{{ profile.last_login }}</strong></p>
+    <p>Date joined: <strong>{{ profile.date_joined }}</strong></p>
+</div>
 
 {% endblock %}
