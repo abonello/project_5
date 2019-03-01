@@ -739,24 +739,68 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-main-collapse" id="collapse-1">
                 <ul class="nav navbar-nav navbar-main-ul">
+                    {% url 'index' as index %}
+                    {% url 'about' as about %}
+                    {% url 'issues1' as features %}
+                    {% url 'products' as coins %}
                     <!-- <li class="active"><a href="#">Link 11 <span class="sr-only">(current)</span></a></li> -->
                     <!-- <li><a href="#">Link 12</a></li>
                     <li><a href="#">Link 13</a></li> -->
-                    <li class="active"><a href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></li>
+                    <!-- <li class="active"><a href="{#% url 'index' %#}">Home <span class="sr-only">(current)</span></a></li> -->
+                    <li {% if request.path == index %}class="active"{% endif %}><a href="{{ index }}">Home <span class="sr-only">(current)</span></a></li>
                     <!-- <li><a href="{#% url 'issues' %#}">Issues</a></li> -->
                     <!-- <li><a href="{#% url 'test' %#}">Test</a></li> -->
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'issues1' %}">Features & Bugs</a></li>
-                    <li><a href="{% url 'products' %}">Coins</a></li>
+                    <!-- <li><a href="{#% url 'issues1' %#}">Features & Bugs</a></li>
+                    <li><a href="{#% url 'products' %#}">Coins</a></li> -->
+                    <li {% if request.path == features %}class="active"{% endif %}><a href="{{ features }}">Features & Bugs</a></li>
+                    <li {% if request.path == coins %}class="active"{% endif %}><a href="{{ coins }}">Coins</a></li>
                     <!-- <li><a href="{#% url 'todo' %#}">Todo List</a></li>
                         <li><a href="{#% url 'add' %#}">Add Item</a></li> -->
                         {% else %}
                     {% endif %}
-                    <li><a href="{% url 'about' %}">About</a></li>
+                    <!-- <li><a href="{#% url 'about' %#}">About</a></li> -->
+                    <li {% if request.path == about %}class="active"{% endif %}><a href="{{ about }}">About</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+    <script>
+        // $('a').click(function() {
+        //     $('a').css('background', 'none');
+        //     $(this).css('background', 'red');
+        // });
+        // $(".nav").on("click", function() {
+        //         // $(".nav").find(".active").removeClass("active");
+        //         console.log($('this').parent().parent());
+        //         // $('this').parent().addClass("active");
+        //     });
+
+        // $('.nav').click(function(event) {
+        //     console.log($('this').parent());
+        //     console.log(event);
+        // });
+
+        // $(document).ready(function () {
+        //     $('li').bind('click', function(event) {
+        //         event.preventDefault();
+        //         var clickedItem = $(this);
+        //         console.log(clickedItem);
+        //         clickedItem.siblings().removeClass("active");
+        //         clickedItem.addClass("active");
+        //         // event.run();
+        //         clickedItem.trigger('click');
+        //     });
+            // $(".mr-auto .nav-item").bind("click", function (event) {
+            //     event.preventDefault();
+            //     var clickedItem = $(this);
+            //     $(".mr-auto .nav-item").each(function () {
+            //         $(this).removeClass("active");
+            //     });
+            //     clickedItem.addClass("active");
+            // });
+        // });
+    </script>
     <!-- END MAIN NAV -->
     <!-- MAIN TITLE -->
     {% block maintitle %}
@@ -943,5 +987,6 @@
         </footer> -->
 
     </div>
+    
 </body>
 </html>
