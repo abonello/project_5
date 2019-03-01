@@ -747,20 +747,23 @@
                     <!-- <li><a href="#">Link 12</a></li>
                     <li><a href="#">Link 13</a></li> -->
                     <!-- <li class="active"><a href="{#% url 'index' %#}">Home <span class="sr-only">(current)</span></a></li> -->
-                    <li {% if request.path == index %}class="active"{% endif %}><a href="{{ index }}">Home <span class="sr-only">(current)</span></a></li>
+                    <!-- <li {#% if request.path == index %#}class="active"{#% endif %#}><a href="{#{ index }#}">Home <span class="sr-only">(current)</span></a></li> -->
+                    <li {% if request.path == index %}class="active"{% endif %}><a href="{{ index }}">Home 
+                        {% if request.path == index %}<span class="sr-only">(current)</span>{% endif %}
+                        </a></li>
                     <!-- <li><a href="{#% url 'issues' %#}">Issues</a></li> -->
                     <!-- <li><a href="{#% url 'test' %#}">Test</a></li> -->
                     {% if user.is_authenticated %}
                     <!-- <li><a href="{#% url 'issues1' %#}">Features & Bugs</a></li>
                     <li><a href="{#% url 'products' %#}">Coins</a></li> -->
-                    <li {% if request.path == features %}class="active"{% endif %}><a href="{{ features }}">Features & Bugs</a></li>
-                    <li {% if request.path == coins %}class="active"{% endif %}><a href="{{ coins }}">Coins</a></li>
+                    <li {% if request.path == features %}class="active"{% endif %}><a href="{{ features }}">Features & Bugs {% if request.path == features %}<span class="sr-only">(current)</span>{% endif %}</a></li>
+                    <li {% if request.path == coins %}class="active"{% endif %}><a href="{{ coins }}">Coins {% if request.path == coins %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <!-- <li><a href="{#% url 'todo' %#}">Todo List</a></li>
                         <li><a href="{#% url 'add' %#}">Add Item</a></li> -->
                         {% else %}
                     {% endif %}
                     <!-- <li><a href="{#% url 'about' %#}">About</a></li> -->
-                    <li {% if request.path == about %}class="active"{% endif %}><a href="{{ about }}">About</a></li>
+                    <li {% if request.path == about %}class="active"{% endif %}><a href="{{ about }}">About {% if request.path == about %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
