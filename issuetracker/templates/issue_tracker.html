@@ -36,6 +36,117 @@ UniQueCorn Issue Tracker
         </div>
     {#% endfor %#} -->
     <!-- <hr> -->
+    <!-- <div class="container">
+        <h2>Example tab 2 (using standard nav-tabs)</h2>
+    </div> -->
+    
+    <div id="exTab2" class="container">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#1" data-toggle="tab">Features</a>
+            </li>
+            <li><a href="#2" data-toggle="tab">Bugs</a>
+            </li>
+        </ul>
+    
+        <div class="tab-content ">
+            <div class="tab-pane active" id="1">
+                {% if feature_count == 1 %}
+                <h2> FEATURE REQUEST </h2>
+                {% else %}
+                <h2> FEATURE REQUESTS </h2>
+                {% endif %}
+                {% if feature_count == 0 %}
+                <p>No features to display</p>
+                {% else %}
+                {% for each in issues reversed %}
+                {% if each.is_feature %}
+                <div class="issue-item">
+                    <p> {{ each.id }}
+                    </p>
+                    <h3> {{ each.title }}</h3>
+                    <p> {{ each.description }}</p>
+                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
+                    <div class="comments-list">
+                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
+                
+                        {% for item in each.comment.all %}
+                        <div class="comment-item">
+                            <h4>Comment {{ forloop.counter }}</h4>
+                            <p class="comment-subject"><strong>{{item.subject}}</strong></p>
+                            <p><small>Posted by: <strong>{{ item.posted_by }}</strong> at <strong>{{ item.date_time}}</strong></small>
+                            </p>
+                            <p>{{item.comment}}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <hr class="hr-light">
+                    <p>
+                        Posted by: <strong>{{ each.posted_by }}</strong>
+                        at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong>
+                        <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you
+                        €100)
+                    </p>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="tab-pane" id="2">
+                {% if bug_count == 1 %}
+                <h2> BUG </h2>
+                {% else %}
+                <h2> BUGS </h2>
+                {% endif %}
+                {% if bug_count == 0 %}
+                <p>No bugs to display</p>
+                {% else %}
+                {% for each in issues reversed %}
+                {% if not each.is_feature %}
+                <div class="issue-item">
+                    <p>Bug id: {{ each.id }}
+                    </p>
+                    <h3> {{ each.title }}</h3>
+                    <p> {{ each.description }}</p>
+                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
+                    <!-- <p> {#{ each.subject.all}#}</p> -->
+                    <div class="comments-list">
+                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
+                
+                        {% for item in each.comment.all %}
+                        <div class="comment-item">
+                            <h4>Comment {{ forloop.counter }}</h4>
+                            <p class="comment-subject"><strong>{{item.subject}}</strong></p>
+                            <p><small>Posted by: <strong>{{ item.posted_by }}</strong> at <strong>{{ item.date_time}}</strong></small>
+                            </p>
+                            <p>{{item.comment}}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                
+                    <hr class="hr-light">
+                    <p> Posted by: <strong>{{ each.posted_by }}</strong> at <strong>{{ each.date_time}}</strong> | Votes:
+                        <strong>{{ each.votes }}</strong> <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this
+                            Feature</a> (Note: It will cost you €100)</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                </div>
+                </div>
+            </div>
+            <!-- <div class="tab-pane" id="3">
+                <h3>add clearfix to tab-content (see the css)</h3>
+            </div> -->
+            
+
+
+
+
+
+    <!-- ========================= -->
+
+
     {% if feature_count == 1 %}
     <h2> FEATURE REQUEST </h2>
     {% else %}
