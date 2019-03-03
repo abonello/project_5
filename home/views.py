@@ -9,3 +9,7 @@ def about(request):
     """Display the about page."""
     return render(request, "about.html")
     # return HttpResponse("This is the ABOUT page.")
+
+def blog(request):
+    """Display the blog page."""
+    return render(request, "blog.html")
