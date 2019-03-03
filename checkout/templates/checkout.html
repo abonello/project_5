@@ -15,6 +15,22 @@
     <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
+
+{% block page_title %}
+UniQueCorn Issue Tracker | Checkout
+{% endblock %}
+
+{% block showcase %}
+<div class="main-title">
+    <div class="color-cover"></div>
+    <div class="title">
+        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
+        <h1>UniQueCorn - IssueTracker - Checkout</h1>
+    </div>
+</div>
+{% endblock showcase %}
+
+
 {% block content %}
 <div class="row row-flex">
     {% for item in cart_items %}
@@ -33,12 +49,19 @@
 </div>
 
 <!-- Total Cost -->
-<div class="row">
+<!-- <div class="row">
     <p>Total</p>
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+</div> -->
+<div class="row">
+    <div class="col-xs-12">
+        <p class="total">Total</p>
+        <p>You are going to buy {{ coin_total }} coins.</p>
+        <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+    </div>
 </div>
 
-<form role="form" id="payment-form" action="{% url 'checkout' %}" method="post">
+<form class="checkout-form" role="form" id="payment-form" action="{% url 'checkout' %}" method="post">
     <legend>Payment Details</legend>
     <div id="credit-card-errors" style="display:none">
         <div class="alert-message block-message error" id="stripe-error-message"></div>
