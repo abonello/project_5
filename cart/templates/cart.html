@@ -28,7 +28,7 @@ UniQueCorn Issue Tracker | Cart
         <div class="caption">
             <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
-            <p>{{ item.product.price }}</p>
+            <p>€{{ item.product.price }}</p>
             <p>
                 <form class="form-inline" action="{% url 'adjust_cart' item.id %}" method="post">
                     {% csrf_token %}
