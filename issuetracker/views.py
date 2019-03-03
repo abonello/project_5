@@ -2,8 +2,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 from .forms import IssueItem, Comment
 from accounts.models import UserCoins
+from products.views import all_products
 from .models import Issue, IssueComment
 
 # Create your views here.
@@ -61,13 +63,94 @@ def issues(request):
 def create_an_issue(request):
     if request.method == "POST":
         form = IssueItem(request.POST, request.FILES)
-        # if request.user.is_authenticated():
-        #     print("User is authenticated")
-        if form.is_valid() and request.user.is_authenticated():
-            thisForm = form.save()
-            thisForm.posted_by = request.user.username
-            thisForm.save()
-            return redirect(issues)
+        if form.is_valid():
+            print(form.cleaned_data.get('title'))
+            print(form.cleaned_data.get('is_feature'))
+
+            if form.cleaned_data.get('is_feature'):
+                # This is a feature - PAY if you have money
+
+                # Do you have enough money?
+                coin_user = request.user.relateduser.all
+                user_coins = get_object_or_404(
+                    UserCoins, user=request.user.id)
+                print(user_coins)
+                print(user_coins.coin_amount)
+
+                if user_coins.coin_amount >= 300:
+                    print("You are rich.")
+                    user_coins.coin_amount -= 300
+                    user_coins.save()
+                    print(user_coins.coin_amount)
+
+                    print("You can add the feature.")
+                    if form.is_valid() and request.user.is_authenticated():
+                        thisForm = form.save()
+                        thisForm.posted_by = request.user.username
+                        thisForm.save()
+                        messages.error(
+                            request, "Your new feature has been added.")
+                        return redirect(issues)
+                else:
+                    print("You are very poor. You cannot add a feature.")
+                    messages.error(request, "You do not have enough coins. Buy some more if you would like to create a new feature request.")
+                    return redirect(all_products)
+
+            else:
+                print('pass')
+                # This is a bug we will allow you to submit for for free this time.
+                
+                if form.is_valid() and request.user.is_authenticated():
+                    thisForm = form.save()
+                    thisForm.posted_by = request.user.username
+                    thisForm.save()
+                    messages.error(
+                        request, "Your new bug has been added.")
+                    return redirect(issues)
+
+
+
+
+
+
+
+
+
+        # try:
+        #     print("PASS")
+            # coin_user = request.user.relateduser.all
+            # user_coins = get_object_or_404(
+            #     UserCoins, user=request.user.id)
+            # print(user_coins)
+            # print(user_coins.coin_amount)
+
+            # Check coin amount more than 100
+            # if user_coins.coin_amount >= 300:
+            #     print("You are rich.")
+            #     user_coins.coin_amount -= 300
+            #     user_coins.save()
+            #     print(user_coins.coin_amount)
+
+            #     print("You can add the feature.")
+            #     if form.is_valid() and request.user.is_authenticated():
+            #         thisForm = form.save()
+            #         thisForm.posted_by = request.user.username
+            #         thisForm.save()
+            #         return redirect(issues)
+            # else:
+            #     print("You are very poor. You cannot add a feature.")
+        # except:
+        #     print("Cannot find USER")
+
+
+
+
+
+        # if form.is_valid() and request.user.is_authenticated():
+        #     thisForm = form.save()
+        #     thisForm.posted_by = request.user.username
+        #     thisForm.save()
+        #     return redirect(issues)
     else:  # Return an empty form
         form = IssueItem()
 
@@ -90,11 +173,6 @@ def create_a_comment(request):
 @login_required
 def vote(request, issue_id):
     print("Vote Received")
-    '''
-    Check if user has 100 coins or more.
-    If yes deduct 100 coins and proceed to adding a vote
-    If no alert the user and prompt to buy coins.
-    '''
     try:
         # print(request.user.username)
 
@@ -122,6 +200,9 @@ def vote(request, issue_id):
 
         else:
             print("You are very poor.")
+            messages.error(
+                request, "You do not have enough coins. Buy some more if you would like to vote for features or bugs.")
+            return redirect(all_products)
 
         
     except:

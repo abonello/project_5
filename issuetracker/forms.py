@@ -7,6 +7,10 @@ class IssueItem(forms.ModelForm):
         model = Issue
         # fields = ('title', 'description', 'posted_by')
         fields = ('is_feature', 'title', 'description')
+        labels = {
+            'is_feature': ('Feature or Bug?'),
+        }
+        # self.fields['is_feature'].label = "Feature or Bug?"
         # widgets = {"user": forms.HiddenInput()}  # value set in views
         widgets = {"posted_by": forms.HiddenInput()}  # value set in views
         widgets = {"votes": forms.HiddenInput()}  # value set in views
