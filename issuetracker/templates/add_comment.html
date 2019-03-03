@@ -6,9 +6,15 @@
 UniQueCorn - Test | Add Comment
 {% endblock %}
 
-{% block page_heading %}
-UniQueCorn - Test - Add Comment
-{% endblock %}
+{% block showcase %}
+<div class="main-title">
+    <div class="color-cover"></div>
+    <div class="title">
+        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
+        <h1>UniQueCorn - IssueTracker - Add Comment</h1>
+    </div>
+</div>
+{% endblock showcase %}
 
 {% block content %}
 <h2>The following form uses django form.</h2>
@@ -16,7 +22,7 @@ UniQueCorn - Test - Add Comment
     {% csrf_token %}
     {{ form | as_bootstrap_horizontal }}
     <br>
-    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-success btn-add-comment">Save</button>
 </form>
 {% endblock %}
 
