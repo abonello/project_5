@@ -98,9 +98,14 @@ form {
     margin: 0 auto;
 }
 
-.caption p {
+/* .caption p { */
+.cart-panel-caption {
+    height: 300px;
+}
+.cart-panel-caption p {
     word-wrap: break-word;
 }
+
 
 .row.row-flex {
     display: flex;
@@ -111,7 +116,7 @@ form {
 
 .row.row-flex .panel {
     flex: 1 1 auto;
-    height: 360px;
+    height: 415px;
     margin-bottom: 15px;
     min-width: 100px;
 }
@@ -128,7 +133,6 @@ form {
 
 .product-description {
     min-height: 40px;
-
 }
 
 footer {
