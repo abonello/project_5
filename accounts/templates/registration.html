@@ -3,12 +3,18 @@
 {% load bootstrap_tags %}
 
 {% block page_title %}
-Django Auth - Registration
+UniQueCorn - Login
 {% endblock %}
 
-{% block page_heading %}
-Accounts - User Registration
-{% endblock %}
+{% block showcase %}
+<div class="main-title">
+    <div class="color-cover"></div>
+    <div class="title">
+        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
+        <h1>UniQueCorn - User Registration</h1>
+    </div>
+</div>
+{% endblock showcase %}
 
 {% block content %}
     <p>If you already have an account, you can <a href="{% url 'login' %}">sign in</a>.</p>
@@ -17,6 +23,6 @@ Accounts - User Registration
         {#{ registration_form.as_p }#}
         {{ registration_form | as_bootstrap }}
         <!-- <button type="submit">Register</button> -->
-        <button type="submit" class="btn btn-default">Register</button>
+        <button type="submit" class="btn btn-default btn-register">Register</button>
     </form>
 {% endblock %}
