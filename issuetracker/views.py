@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import IssueItem, Comment
+from accounts.models import UserCoins
 from .models import Issue, IssueComment
 
 # Create your views here.
@@ -91,9 +92,49 @@ def create_a_comment(request):
 @login_required
 def vote(request, issue_id):
     print("Vote Received")
-    issue=get_object_or_404(Issue, pk = issue_id)
-    issue.votes = issue.votes + 1
-    issue.save()
+    '''
+    Check if user has 100 coins or more.
+    If yes deduct 100 coins and proceed to adding a vote
+    If no alert the user and prompt to buy coins.
+    '''
+    try:
+        # print(request.user.username)
+
+        coin_user = request.user.relateduser.all
+
+        user_coins = get_object_or_404(
+            UserCoins, user=request.user.id)
+        print(user_coins)
+
+
+        print(user_coins.coin_amount)
+
+        # Check coin amount more than 100
+        if user_coins.coin_amount >= 100:
+            print("You are rich.")
+            user_coins.coin_amount -= 100
+            user_coins.save()
+            print(user_coins.coin_amount)
+
+            issue = get_object_or_404(Issue, pk=issue_id)
+            issue.votes = issue.votes + 1
+            issue.save()
+
+
+
+        else:
+            print("You are very poor.")
+
+        
+    except:
+        print("Cannot find USER")
+        # print("Cannot find COIN_AMOUNT")
+        # print(coins)
+        # print(quantity * coins)
+
+
+
+
     # try:
     #     issue=get_object_or_404(Issue, pk = issue_id)
 
