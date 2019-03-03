@@ -2,6 +2,22 @@
 <!-- {#% load static from staticfiles %#} -->
 {% load bootstrap_tags %}
 
+{% block page_title %}
+UniQueCorn Issue Tracker | Cart
+{% endblock %}
+
+{% block showcase %}
+<div class="main-title">
+    <div class="color-cover"></div>
+    <div class="title">
+        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
+        <h1>UniQueCorn - IssueTracker - Cart</h1>
+    </div>
+</div>
+{% endblock showcase %}
+
+
+
 {% block content %}
 <div class="row row-flex">
     {% for item in cart_items %}
