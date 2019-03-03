@@ -36,7 +36,7 @@ UniQueCorn - COINS
                     <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
                     <h3>{{ product.name }}</h3>
                     <p class="product-description">{{ product.description }}</p>
-                    <p>{{ product.price }}</p>
+                    <p>€{{ product.price }}</p>
 
                     <form action="{% url 'add_to_cart' product.id %}" method="post">
                         {% csrf_token %}

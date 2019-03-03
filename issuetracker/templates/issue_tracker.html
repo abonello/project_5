@@ -18,6 +18,11 @@ UniQueCorn Issue Tracker
 
     <a id="link-add-issue" href="{% url 'add-issue' %}">Add a Feature or Bug</a>
 
+    <p class="issue-promotion">If you like a feature and would like to promote it to make it happen sooner, vote for it. The more votes a feature has, the higher the probability that it will be scheduled for development.<br>
+        <br>
+    Voting for bug fixes work in a similar fashion.<br>
+    Bugs which are considered critical will be scheduled for fixes irrespective of vote counts. The government will decide which bugs are critical and their decision is final, no meaningful vote will be offered and do not expect any public vote either.</p>
+
     <!-- This is issue tracker
 
     {#% for each in issues reversed %#}
@@ -134,8 +139,8 @@ UniQueCorn Issue Tracker
                 {% endfor %}
                 {% endif %}
                 </div>
-                </div>
             </div>
+        </div>
             
             
             

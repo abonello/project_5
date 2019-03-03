@@ -54,8 +54,6 @@ def issues(request):
         else:
             bug_count += 1
     
-
-
     return render(request, "issue_tracker.html", {'issues': allIssues, 'feature_count': feature_count, "bug_count": bug_count})
 
 
