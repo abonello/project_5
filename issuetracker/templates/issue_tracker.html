@@ -40,17 +40,19 @@ UniQueCorn Issue Tracker
         <h2>Example tab 2 (using standard nav-tabs)</h2>
     </div> -->
     
-    <div id="exTab2" class="container">
+    <!-- <div id="exTab2" class="container"> -->
+    <div id="features-bugs-tabs">
+        <!-- <ul class="nav nav-tabs nav-justified"> -->
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="#1" data-toggle="tab">Features</a>
+                <a href="#features-pane" data-toggle="tab">Features</a>
             </li>
-            <li><a href="#2" data-toggle="tab">Bugs</a>
+            <li><a href="#bugs-pane" data-toggle="tab">Bugs</a>
             </li>
         </ul>
     
         <div class="tab-content ">
-            <div class="tab-pane active" id="1">
+            <div class="tab-pane active" id="features-pane">
                 {% if feature_count == 1 %}
                 <h2> FEATURE REQUEST </h2>
                 {% else %}
@@ -62,11 +64,11 @@ UniQueCorn Issue Tracker
                 {% for each in issues reversed %}
                 {% if each.is_feature %}
                 <div class="issue-item">
-                    <p> {{ each.id }}
+                    <p>Feature id: {{ each.id }}
                     </p>
                     <h3> {{ each.title }}</h3>
-                    <p> {{ each.description }}</p>
-                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
+                    <p class="feature-description"> {{ each.description }}</p>
+                                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
                     <div class="comments-list">
                         <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
                 
@@ -84,15 +86,14 @@ UniQueCorn Issue Tracker
                     <p>
                         Posted by: <strong>{{ each.posted_by }}</strong>
                         at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong>
-                        <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you
-                        €100)
+                        <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you 100 coins.)
                     </p>
                 </div>
                 {% endif %}
                 {% endfor %}
                 {% endif %}
             </div>
-            <div class="tab-pane" id="2">
+            <div class="tab-pane" id="bugs-pane">
                 {% if bug_count == 1 %}
                 <h2> BUG </h2>
                 {% else %}
@@ -107,9 +108,9 @@ UniQueCorn Issue Tracker
                     <p>Bug id: {{ each.id }}
                     </p>
                     <h3> {{ each.title }}</h3>
-                    <p> {{ each.description }}</p>
-                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
-                    <!-- <p> {#{ each.subject.all}#}</p> -->
+                    <p class="bug-description"> {{ each.description }}</p>
+                                        <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
+                                        <!-- <p> {#{ each.subject.all}#}</p> -->
                     <div class="comments-list">
                         <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
                 
@@ -127,7 +128,7 @@ UniQueCorn Issue Tracker
                     <hr class="hr-light">
                     <p> Posted by: <strong>{{ each.posted_by }}</strong> at <strong>{{ each.date_time}}</strong> | Votes:
                         <strong>{{ each.votes }}</strong> <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this
-                            Feature</a> (Note: It will cost you €100)</p>
+                            Feature</a> (Note: It will cost you 100 coins.)</p>
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -135,9 +136,8 @@ UniQueCorn Issue Tracker
                 </div>
                 </div>
             </div>
-            <!-- <div class="tab-pane" id="3">
-                <h3>add clearfix to tab-content (see the css)</h3>
-            </div> -->
+            
+            
             
 
 
@@ -145,6 +145,8 @@ UniQueCorn Issue Tracker
 
 
     <!-- ========================= -->
+
+    <!-- <h1>The following will be removed</h1>
 
 
     {% if feature_count == 1 %}
@@ -161,9 +163,9 @@ UniQueCorn Issue Tracker
                     <p> {{ each.id }} 
                     </p>
                     <h3> {{ each.title }}</h3>
-                    <p> {{ each.description }}</p>
+                    <p> {{ each.description }}</p> -->
                     <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
-                    <div class="comments-list">
+                    <!-- <div class="comments-list">
                         <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
                     
                         {% for item in each.comment.all %}
@@ -182,11 +184,11 @@ UniQueCorn Issue Tracker
                         <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you €100)
                     </p>
                 </div>
-            {% endif %}
-        {% endfor %}        
+            {% endif %} -->
+        <!-- {% endfor %}        
     {% endif %}
-    <hr>
-    {% if bug_count == 1 %}
+    <hr> -->
+    <!-- {% if bug_count == 1 %}
         <h2> BUG </h2>
     {% else %}
         <h2> BUGS </h2>
@@ -200,10 +202,10 @@ UniQueCorn Issue Tracker
                     <p>Bug id: {{ each.id }} 
                     </p>
                     <h3> {{ each.title }}</h3>
-                    <p> {{ each.description }}</p>
+                    <p> {{ each.description }}</p> -->
                     <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
                     <!-- <p> {#{ each.subject.all}#}</p> -->
-                    <div class="comments-list">
+                    <!-- <div class="comments-list">
                         <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
 
                         {% for item in each.comment.all %}
@@ -214,13 +216,13 @@ UniQueCorn Issue Tracker
                                 <p>{{item.comment}}</p>
                             </div>
                         {% endfor %}
-                    </div>
+                    </div> -->
 
-                    <hr class="hr-light">
+                    <!-- <hr class="hr-light">
                     <p> Posted by: <strong>{{ each.posted_by }}</strong> at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong> <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you €100)</p>
                 </div>
             {% endif %}
         {% endfor %}
-    {% endif %}
+    {% endif %} -->
         
     {% endblock %}
