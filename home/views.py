@@ -13,3 +13,7 @@ def about(request):
 def blog(request):
     """Display the blog page."""
     return render(request, "blog.html")
+
+def uqc_app(request):
+    """Display the UniQue Corn App page."""
+    return render(request, "uqc-app.html")

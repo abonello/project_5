@@ -389,6 +389,7 @@
         .picture-links a {
             flex: 200 200 30%;
         }
+        
         .front-panel {
             position: relative;
             flex: 200 200 30%;
@@ -404,7 +405,7 @@
         .front-panel:hover {
             cursor: pointer;
         }
-        .front-panel span {
+        .front-panel>span {
             position: absolute;
             font-family: 'Acme', sans-serif;
             top: 50%;
@@ -413,6 +414,14 @@
             background-color: rgba(0,0,0,0.5);
             padding: 10px;
         }
+        .longer-title {
+            display: none;
+        }
+        @media screen and (min-width: 992px) {
+            .longer-title {
+                display: inline-block;
+            }
+         }
         @media screen and (min-width: 768px) {
             .front-panel {
                 font-size: 40px;
@@ -831,6 +840,19 @@
         .about-text:last-of-type {
             padding-bottom: 100px;
         }
+        .about-product-link {
+            color: black;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 4px;
+            background-color: transparent;
+        }
+        .about-product-link:hover {
+            color: #FFC953;
+            background-color: #467fed ;
+            text-decoration: none;
+            box-shadow: 0 2px 5px #3d6dcc;
+        }
 
         /* Blog */
         .blog-date {
@@ -1005,6 +1027,7 @@
                     {% url 'index' as index %}
                     {% url 'about' as about %}
                     {% url 'blog' as blog %}
+                    {% url 'uqc_app' as uqc_app %}
                     {% url 'issues1' as features %}
                     {% url 'products' as coins %}
                     <!-- <li class="active"><a href="#">Link 11 <span class="sr-only">(current)</span></a></li> -->
@@ -1027,7 +1050,8 @@
                         {% else %}
                     {% endif %}
                     <!-- <li><a href="{#% url 'about' %#}">About</a></li> -->
-                    <li {% if request.path == blog %}class="active"{% endif %}><a href="{{ blog }}">Blog {% if request.path == about %}<span class="sr-only">(current)</span>{% endif %}</a></li>
+                    <li {% if request.path == uqc_app %}class="active"{% endif %}><a href="{{ uqc_app }}">UQC App {% if request.path == uqc_app %}<span class="sr-only">(current)</span>{% endif %}</a></li>
+                    <li {% if request.path == blog %}class="active"{% endif %}><a href="{{ blog }}">Blog {% if request.path == blog %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <li {% if request.path == about %}class="active"{% endif %}><a href="{{ about }}">About {% if request.path == about %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

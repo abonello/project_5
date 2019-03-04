@@ -1,8 +1,9 @@
 from django.conf.urls import url
-from .views import index, about, blog
+from .views import index, about, blog, uqc_app
 
 urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^about/$', about, name="about"),
-    url(r'^blog/$', blog, name="blog")
+    url(r'^blog/$', blog, name="blog"),
+    url(r'^uqc_app/$', uqc_app, name="uqc_app")
 ]
