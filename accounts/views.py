@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from .models import UserCoins
 
 def index(request):
     """Return the index.html file"""
@@ -58,6 +59,11 @@ def registration(request):
             )
 
             if user:
+                print(user)
+                coins = UserCoins()
+                coins.user = user
+                coins.save()
+                print(coins)
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered.")
                 # return redirect(reverse('todo'))
