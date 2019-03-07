@@ -158,17 +158,68 @@ def create_an_issue(request):
 
 
 @login_required
-def create_a_comment(request):
+def create_a_comment(request, issue_id):
+    
     if request.method == "POST":
+        print("This is POST")
+        print(issue_id)
+        # this_issue = get_object_or_404(
+        #     Issue, id=issue_id)
+        # print(this_issue)
         form = Comment(request.POST, request.FILES)
-        if form.is_valid() and request.user.is_authenticated():
-            thisForm = form.save()
-            thisForm.posted_by = request.user.username
-            thisForm.save()
-            return redirect(issues)
+        try: 
+            if form.is_valid() and request.user.is_authenticated():
+                print("Form is Valid")
+                # thisForm.issue = issue_id
+                # print(form)
+                # print(form['subject'].value())
+                # print(form['comment'].value())
+                # for each in form:
+                    # id = each.auto_id
+                    # value = each.value()
+
+                # aComment = IssueComment()
+                # print("Printing Comment")
+                # print(aComment)
+                # aComment.subject = form['subject'].value()
+                # aComment.comment = form['comment'].value()
+                # aComment.posted_by = request.user.username
+
+
+                # print("Printing Comment again")
+                # print(aComment.subject)
+                # print(aComment.comment)
+                # print(aComment.posted_by)
+                # this_issue = get_object_or_404(Issue, id=issue_id)
+                # print("get issue")
+
+                # this_issue.comment = IssueComment()
+                # this_issue.comment = aComment
+                # print("create new comment")
+                # this_issue.comment.subject = form['subject'].value()
+                # this_issue.comment.comment = form['comment'].value()
+                # this_issue.comment.posted_by = request.user.username
+                # print("Attached comment but not saved")
+
+                # this_issue.save()
+                
+
+                # messages.success(request, "You have successfully registered.")
+
+                thisForm = form.save()
+                # print("form is saved")
+                thisForm.posted_by = request.user.username
+                thisForm.save()
+                return redirect(issues)
+        except:
+            print("Form is not valid")
     else:  # Return an empty form
+        print("This is GET")
+        this_issue = get_object_or_404(
+            Issue, id=issue_id)
+        print(this_issue)
         form = Comment()
-    return render(request, 'add_comment.html', {'form': form})
+    return render(request, 'add_comment.html', {'form': form, 'id_issue': issue_id, 'issue_subject': this_issue })
 
 @login_required
 def vote(request, issue_id):

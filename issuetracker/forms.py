@@ -30,8 +30,7 @@ class IssueItem(forms.ModelForm):
 class Comment(forms.ModelForm):
     class Meta:
         model = IssueComment
-        # fields = ('title', 'description', 'posted_by')
         fields = ('issue', 'subject', 'comment')
-        # widgets = {"user": forms.HiddenInput()}  # value set in views
         widgets = {"posted_by": forms.HiddenInput()}  # value set in views
         widgets = {"date_time": forms.HiddenInput()}  # value set in views
+        # widgets = {"issue": forms.HiddenInput()}  # value set in views
