@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+
+<!-- Javascript required by Stripe -->
+<!-- Set Stripe's publishable key -->
+{% block head_js %}
+
+<!-- Charts.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script type="text/javascript" src="{% static 'js/my_charts.js' %}"></script>
+{% endblock %}
+
+
+{% block page_title %}
+UniQueCorn Issue Tracker | Checkout
+{% endblock %}
+
+{% block showcase %}
+<div class="main-title">
+    <div class="color-cover"></div>
+    <div class="title">
+        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
+        <h1>UniQueCorn - IssueTracker - Charts</h1>
+    </div>
+</div>
+{% endblock showcase %}
+
+
+{% block content %}
+<div class="row row-flex">
+    Charts will be shown here
+</div>
+
+
+
+{% endblock %}

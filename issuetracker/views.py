@@ -286,3 +286,5 @@ def vote(request, issue_id):
     return redirect(issues)
     # return render(request, "issue_tracker.html", {'issues': allIssues, 'feature_count': feature_count, "bug_count": bug_count})
 
+def charts(request):
+    return render(request, 'issue_charts.html', {})
