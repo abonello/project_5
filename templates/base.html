@@ -1125,6 +1125,7 @@
                     {% url 'blog' as blog %}
                     {% url 'uqc_app' as uqc_app %}
                     {% url 'issues1' as features %}
+                    {% url 'charts' as charts %}
                     {% url 'products' as coins %}
                     <!-- <li class="active"><a href="#">Link 11 <span class="sr-only">(current)</span></a></li> -->
                     <!-- <li><a href="#">Link 12</a></li>
@@ -1140,6 +1141,7 @@
                     <!-- <li><a href="{#% url 'issues1' %#}">Features & Bugs</a></li>
                     <li><a href="{#% url 'products' %#}">Coins</a></li> -->
                     <li {% if request.path == features %}class="active"{% endif %}><a href="{{ features }}">Features & Bugs {% if request.path == features %}<span class="sr-only">(current)</span>{% endif %}</a></li>
+                    <li {% if request.path == charts %}class="active"{% endif %}><a href="{{ charts }}">Charts {% if request.path == charts %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <li {% if request.path == coins %}class="active"{% endif %}><a href="{{ coins }}">Coins {% if request.path == coins %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <!-- <li><a href="{#% url 'todo' %#}">Todo List</a></li>
                         <li><a href="{#% url 'add' %#}">Add Item</a></li> -->
