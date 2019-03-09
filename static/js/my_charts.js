@@ -276,8 +276,8 @@ $.ajax({
             }
         });
 
-        let bug_commentss_Ctx = $('#bug-comments-chart')[0].getContext('2d');
-        let bugCommentsChart = new Chart(bug_commentss_Ctx, {
+        let bug_comments_Ctx = $('#bug-comments-chart')[0].getContext('2d');
+        let bugCommentsChart = new Chart(bug_comments_Ctx, {
             type: 'horizontalBar',
             data: {
                 labels: bugs_title,
@@ -362,14 +362,14 @@ $.ajax({
     }
 });
 
-function resize() {
-    // $(".canvas").outerHeight($(window).height() - $(".canvas").offset().top - Math.abs($(".canvas").outerHeight(true) - $(".canvas").outerHeight()));
-    $('.canvas').height = $('.canvas').width() * 2;
+// function resize() {
+                    // $(".canvas").outerHeight($(window).height() - $(".canvas").offset().top - Math.abs($(".canvas").outerHeight(true) - $(".canvas").outerHeight()));
+//     $('.canvas').height = $('.canvas').width() * 2;
 
-}
-$(document).ready(function () {
-    resize();
-    $(window).on("resize", function () {
-        resize();
-    });
-});
+// }
+// $(document).ready(function () {
+//     resize();
+//     $(window).on("resize", function () {
+//         resize();
+//     });
+// });
