@@ -1,5 +1,5 @@
 # import datetime
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -7,6 +7,8 @@ from .forms import IssueItem, Comment
 from accounts.models import UserCoins
 from products.views import all_products
 from .models import Issue, IssueComment
+import json
+# import JsonResponse
 
 # Create your views here.
 @login_required()
@@ -288,3 +290,23 @@ def vote(request, issue_id):
 
 def charts(request):
     return render(request, 'issue_charts.html', {})
+
+
+def get_chart_data(request):
+    print("Reached the get_chart_data function")
+    data = {
+            "Malta": 32,
+            "England": 24,
+            "France": 28,
+            "Italy": 29
+        }
+    response_data = {}
+    try:
+        response_data['result'] = 'Success'
+        # response_data['message'] = "data to pass to front end"
+        response_data['message'] = data
+    except:
+        response_data['result'] = 'Error'
+        response_data['message'] = 'Something went wrong'
+    # return render(request, 'issue_charts.html', {'data': data})
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
