@@ -16,18 +16,18 @@ $.ajax({
             features_votes.push(content.votes)
             features_comments.push(content.comments)
         });
-        console.log(features_title);
-        console.log(features_votes);
-        console.log(features_comments);
+        // console.log(features_title);
+        // console.log(features_votes);
+        // console.log(features_comments);
 
         $.each(data.message.bugs, function(i, content) {
             bugs_title.push(content.title)
             bugs_votes.push(content.votes)
             bugs_comments.push(content.comments)
         });
-        console.log(bugs_title);
-        console.log(bugs_votes);
-        console.log(bugs_comments);
+        // console.log(bugs_title);
+        // console.log(bugs_votes);
+        // console.log(bugs_comments);
 
         let feature_votes_Ctx = $('#feature-votes-chart')[0].getContext('2d');
 
@@ -78,7 +78,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: 'Votes per feature',
+                    text: "Feature's Votes",
                     fontSize: 25,
                 },
                 legend: {
@@ -88,14 +88,14 @@ $.ajax({
                         fontColor: '#000'
                     }
                 },
-                layout: {
-                    padding: {
-                        left: 20,
-                        right: 20,
-                        bottom: 0,
-                        top: 0
-                    }
-                },
+                // layout: {
+                //     padding: {
+                //         left: 20,
+                //         right: 20,
+                //         bottom: 0,
+                //         top: 0
+                //     }
+                // },
                 tooltips: {
                     enabled: true, // true, false
                 },
@@ -158,7 +158,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: 'Comments per feature',
+                    text: "Feature's Comments",
                     fontSize: 25,
                 },
                 legend: {
@@ -168,14 +168,14 @@ $.ajax({
                         fontColor: '#000'
                     }
                 },
-                layout: {
-                    padding: {
-                        left: 20,
-                        right: 20,
-                        bottom: 0,
-                        top: 0
-                    }
-                },
+                // layout: {
+                //     padding: {
+                //         left: 20,
+                //         right: 20,
+                //         bottom: 0,
+                //         top: 0
+                //     }
+                // },
                 tooltips: {
                     enabled: true, // true, false
                 },
@@ -238,7 +238,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: 'Votes per bug',
+                    text: "Bug's Votes",
                     fontSize: 25,
                 },
                 legend: {
@@ -311,14 +311,13 @@ $.ajax({
                     hoverBorderWidth: 3,
                     hoverBorderColor: '#000',
                 },
-
                 ]
             },
             options: {
                 // responsive: false,
                 title: {
                     display: true,
-                    text: 'Comments per bug',
+                    text: "Bug's Comments",
                     fontSize: 25,
                 },
                 legend: {
@@ -361,4 +360,16 @@ $.ajax({
 
 
     }
+});
+
+function resize() {
+    // $(".canvas").outerHeight($(window).height() - $(".canvas").offset().top - Math.abs($(".canvas").outerHeight(true) - $(".canvas").outerHeight()));
+    $('.canvas').height = $('.canvas').width() * 2;
+
+}
+$(document).ready(function () {
+    resize();
+    $(window).on("resize", function () {
+        resize();
+    });
 });

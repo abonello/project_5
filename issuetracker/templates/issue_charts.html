@@ -29,28 +29,32 @@ UniQueCorn Issue Tracker | Checkout
 
 
 {% block content %}
-<h2>Transparency Charts</h2>
-<p>The more popular features and bugs are, the higher the likelihood that they will be worked on. This is shown by higher number of votes and comments.
+<h2 class="charts-sub-heading">Transparency Charts</h2>
+<p class="charts-text">The more popular features and bugs are, the higher the likelihood that they will be worked on. This is shown by higher number of votes and comments.
     <strong>
         Show your support by voting up your preferred feature or bug.
     </strong>
 </p>
 <div class="row row-flex">
-    <div class="col-sm-6">
+    <div class="col-xs-12 col-sm-6">
         <!-- <h2>Feature Voting</h2> -->
-        <canvas id="feature-votes-chart" width="800" height="800"></canvas>
+        <!-- <canvas id="feature-votes-chart" class="chart" width="800" height="800"></canvas> -->
+        <canvas id="feature-votes-chart" class="canvas chart" width="300" height="200"></canvas>
     </div>
-    <div class="col-sm-6">
+    <div class="col-xs-12 col-sm-6">
         <!-- <h2>Feature Comments</h2> -->
-        <canvas id="feature-comments-chart" width="800" height="800"></canvas>
+        <!-- <canvas id="feature-comments-chart" class="chart" width="800" height="800"></canvas> -->
+        <canvas id="feature-comments-chart" class="canvas chart"  width="300" height="200"></canvas>
     </div>
-    <div class="col-sm-6">
+    <div class="col-xs-12 col-sm-6">
         <!-- <h2>Bug Voting</h2> -->
-        <canvas id="bug-votes-chart" width="800" height="800"></canvas>
+        <!-- <canvas id="bug-votes-chart" class="canvas chart" width="800" height="800"></canvas> -->
+        <canvas id="bug-votes-chart" class="canvas chart"  width="300" height="200"></canvas>
     </div>
-    <div class="col-sm-6">
+    <div class="col-xs-12 col-sm-6">
         <!-- <h2>Bug Comments</h2> -->
-        <canvas id="bug-comments-chart" width="800" height="800"></canvas>
+        <!-- <canvas id="bug-comments-chart" class="canvas chart" width="800" height="800"></canvas> -->
+        <canvas id="bug-comments-chart" class="canvas chart"  width="300" height="200"></canvas>
     </div>
     
 </div>
