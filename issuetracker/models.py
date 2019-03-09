@@ -13,6 +13,7 @@ class Issue(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     # posted_by = models.ForeignKey(User, null=False, on_delete=models.PROTECT)
     votes = models.IntegerField(default=0)
+    comments_count = models.IntegerField(default=0)
     date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

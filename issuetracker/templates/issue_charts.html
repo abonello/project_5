@@ -29,22 +29,30 @@ UniQueCorn Issue Tracker | Checkout
 
 
 {% block content %}
+<h2>Transparency Charts</h2>
+<p>The more popular features and bugs are, the higher the likelihood that they will be worked on. This is shown by higher number of votes and comments.
+    <strong>
+        Show your support by voting up your preferred feature or bug.
+    </strong>
+</p>
 <div class="row row-flex">
-    Charts will be shown here
     <div class="col-sm-6">
-        <h1>Charts.js Practice</h1>
-        First chart placement
-        <canvas id="myChart" width="200" height="200"></canvas>
+        <!-- <h2>Feature Voting</h2> -->
+        <canvas id="feature-votes-chart" width="800" height="800"></canvas>
     </div>
     <div class="col-sm-6">
-        this is the second placement for a chart
-        <canvas id="barChart" width="800" height="800"></canvas>
+        <!-- <h2>Feature Comments</h2> -->
+        <canvas id="feature-comments-chart" width="800" height="800"></canvas>
     </div>
-    <div class="row">
-        Third cart placement
-        <canvas id="loadChart"></canvas>
+    <div class="col-sm-6">
+        <!-- <h2>Bug Voting</h2> -->
+        <canvas id="bug-votes-chart" width="800" height="800"></canvas>
     </div>
-    <div id="output"></div>
+    <div class="col-sm-6">
+        <!-- <h2>Bug Comments</h2> -->
+        <canvas id="bug-comments-chart" width="800" height="800"></canvas>
+    </div>
+    
 </div>
 
 

@@ -117,7 +117,7 @@ UniQueCorn Issue Tracker
                                         <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
                                         <!-- <p> {#{ each.subject.all}#}</p> -->
                     <div class="comments-list">
-                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
+                        <a id="link-add-comment" href="{% url 'add-comment' issue_id=each.id %}">Add a Comment</a>
                 
                         {% for item in each.comment.all %}
                         <div class="comment-item">

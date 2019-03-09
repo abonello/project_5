@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Count
 from django.contrib import messages
 from .forms import IssueItem, Comment
 from accounts.models import UserCoins
@@ -212,6 +213,10 @@ def create_a_comment(request, issue_id):
                 # print("form is saved")
                 thisForm.posted_by = request.user.username
                 thisForm.save()
+                this_issue = get_object_or_404(
+                    Issue, id=issue_id)
+                this_issue.comments_count = this_issue.comments_count + 1
+                this_issue.save()
                 return redirect(issues)
         except:
             print("Form is not valid")
@@ -294,17 +299,51 @@ def charts(request):
 
 def get_chart_data(request):
     print("Reached the get_chart_data function")
+    allIssues = Issue.objects.all()
+    
+    feature_count = 0
+    bug_count = 0
+
+    features = []
+    bugs = []
+
+    for each in allIssues:
+        # I can do this differently by requesting data from db where is_feature is true or false
+        if each.is_feature:
+            feature_count += 1
+            item = {}
+            item['title'] = each.title
+            item['votes'] = each.votes
+            item['comments'] = each.comments_count
+            features.append(item)
+        else:
+            bug_count += 1
+            item = {}
+            item['title'] = each.title
+            item['votes'] = each.votes
+            item['comments'] = each.comments_count
+            bugs.append(item)
+
+    print("These are the features")
+    print(features)
+    print("These are the bugs")
+    print(bugs)
+
     data = {
             "Malta": 32,
             "England": 24,
             "France": 28,
             "Italy": 29
         }
+    data1 = {}
+    data1['features'] = features
+    data1['bugs'] = bugs
+    print(data1)
     response_data = {}
     try:
         response_data['result'] = 'Success'
         # response_data['message'] = "data to pass to front end"
-        response_data['message'] = data
+        response_data['message'] = data1
     except:
         response_data['result'] = 'Error'
         response_data['message'] = 'Something went wrong'
