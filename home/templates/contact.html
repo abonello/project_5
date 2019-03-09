@@ -17,4 +17,63 @@ UniQueCorn - Issue Tracker | Contact
 
 {% block content %}
 This is the contact us page
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="section-title text-center">
+            <h2>Contact Us</h2>
+            <p>Do you have ideas or suggestions to improve this app? <br>
+                Would you like to use this app on your website? <br>
+                Would you like me to develop another app for your website?<br>
+                If you answered yes for any of the above or for any other reason,<br>
+                I would like to hear from you. </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 contact-form-container">
+        <!-- <form action='/contact' method='POST'>
+                <input name='name'>
+                <input name='email'>
+                <input name='subject'>
+                <input name='message'>
+                <input type='submit'>
+            </form> -->
+        <!-- <form action='/contact' method="POST" id="contactForm" data-toggle="validator" role="form"> -->
+        <form method="POST" id="contactForm" data-toggle="validator" role="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name" id="nameLabel">Name:</label>
+                <input type="text" class="form-control" id="id_name" name="name" placeholder="Your Name here" required />
+            </div>
+            <div class="form-group">
+                <label for="id_email" id="emailLabel">Email:</label>
+                <input type="email" class="form-control" id="id_email" name="email" placeholder="example@example.com"
+                    required />
+            </div>
+            <div class="form-group">
+                <label for="id_subject" id="subjectLabel">Subject:</label>
+                <input type="text" class="form-control" id="id_subject" name="subject" placeholder="Subject here" required />
+            </div>
+            <div class="form-group">
+                <label for="id_message" id="is_messageLabel">Message:</label>
+                <textarea class="form-control" name="message" id="id_message" cols="30" rows="10"
+                    placeholder="please write your message here" required minlength="3"></textarea>
+            </div>
+            <div class="padding">
+                <button type="submit" class="btn center-block section dusty" id="btn-submit">Submit</button>
+            </div>
+    
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
 {% endblock %}

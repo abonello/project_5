@@ -973,8 +973,16 @@
              }
         }
 
-
-
+        /* CONTACT */
+        .contact-form-container {
+            padding: 0 calc(10px + 3vw) 50px calc(10px + 3vw);
+        }
+        
+        @media screen and (min-width: 768px) {
+            .contact-form-container {
+                padding: 0 50px 50px 50px;
+            }
+        }
 
 
         /* END MAIN CONTENT */
@@ -1152,7 +1160,6 @@
                     <li {% if request.path == uqc_app %}class="active"{% endif %}><a href="{{ uqc_app }}">UQC App {% if request.path == uqc_app %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <li {% if request.path == blog %}class="active"{% endif %}><a href="{{ blog }}">Blog {% if request.path == blog %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <li {% if request.path == about %}class="active"{% endif %}><a href="{{ about }}">About {% if request.path == about %}<span class="sr-only">(current)</span>{% endif %}</a></li>
-
                     <li {% if request.path == contact %}class="active"{% endif %}><a href="{{ contact }}">Contact Us {% if request.path == contact %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

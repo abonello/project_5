@@ -210,6 +210,7 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # Using my email to send emails.
 EMAIL_USE_SSL = True  # email encryption used by gmail
+#EMAIL_USE_TLS =  # True or False
 EMAIL_HOST = os.environ.get("EMAIL_HOST_WEBADMIN")
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS_WEBADMIN")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD_WEBADMIN")
