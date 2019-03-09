@@ -1127,6 +1127,7 @@
                     {% url 'issues1' as features %}
                     {% url 'charts' as charts %}
                     {% url 'products' as coins %}
+                    {% url 'contact_us' as contact %}
                     <!-- <li class="active"><a href="#">Link 11 <span class="sr-only">(current)</span></a></li> -->
                     <!-- <li><a href="#">Link 12</a></li>
                     <li><a href="#">Link 13</a></li> -->
@@ -1151,6 +1152,8 @@
                     <li {% if request.path == uqc_app %}class="active"{% endif %}><a href="{{ uqc_app }}">UQC App {% if request.path == uqc_app %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <li {% if request.path == blog %}class="active"{% endif %}><a href="{{ blog }}">Blog {% if request.path == blog %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                     <li {% if request.path == about %}class="active"{% endif %}><a href="{{ about }}">About {% if request.path == about %}<span class="sr-only">(current)</span>{% endif %}</a></li>
+
+                    <li {% if request.path == contact %}class="active"{% endif %}><a href="{{ contact }}">Contact Us {% if request.path == contact %}<span class="sr-only">(current)</span>{% endif %}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -1345,7 +1348,7 @@
                 <ul>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <!-- <li>About</li> -->
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
                 </ul>
             </nav>
             <div class="info">

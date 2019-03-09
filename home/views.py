@@ -17,3 +17,7 @@ def blog(request):
 def uqc_app(request):
     """Display the UniQue Corn App page."""
     return render(request, "uqc-app.html")
+
+def contact(request):
+    """Display the contact us page."""
+    return render(request, "contact.html")
