@@ -7,7 +7,6 @@ $.ajax({
     success: function(data) {
         $('#output').html(data.message);
         console.log(data.message);
-        // data(data.message);
 
         var countries = [];
         var temperature = [];
