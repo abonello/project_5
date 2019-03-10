@@ -984,6 +984,61 @@
             }
         }
 
+        .contact-title {
+            margin-top: -30px;
+        }
+        .contact-text {
+            text-align: justify;
+            font-size: 1.2em;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            padding: 0 20px;
+            padding-bottom: 20px;
+        }
+        .contact-text.small {
+            /* font-size: 0.9em; */
+            font-weight: 900;
+            letter-spacing: 1.3px;
+            color: #670505;
+            text-shadow: 0 0 1px #670505;
+        }
+        @media screen and (min-width: 768px) {
+            .contact-text.small {
+                font-size: 0.9em;
+            }
+        }
+        .contact-unordered-list {
+            /* list-style-type: circle; */
+            list-style-type: none;
+            text-align: left;
+            padding-left: 45px;
+        }
+        @media screen and (min-width: 768px) {
+            .contact-unordered-list {
+                padding-left: 70px;
+            }
+         }
+        .contact-list-item {
+            position: relative;
+            text-align: justify;
+            font-size: 1.2em;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            padding: 2px calc(5px + 10vw) 10px 5px;
+        }
+        .contact-list-item::before {
+            position: absolute;
+            top: 0;
+            left: -15px;
+            width: 20px;
+            height: 20px;
+            content: '>';
+            color: red;
+        }
+        .contact-list-item:last-of-type {
+            padding-bottom: 50px;
+        }
+
 
         /* END MAIN CONTENT */
 
