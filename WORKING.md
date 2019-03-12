@@ -1455,6 +1455,35 @@ Just offer one size of package.
 
 
 
+## 11/3/19
+
+Did loads more development.  
+Now I have:
+* Home page (static)
+* About page (static)
+* Blog page (static)
+* App page (static)
+* Features and Bugs (dynamic) - including adding comments and voting
+* Charts Page (dynamic)
+* Coins page - to buy coins
+* Cart and Checkout are implemented
+* Contact Us page - implemented and functional.
+
+Now I started building up tests  
+commands needed:
+```bash
+python manage.py test
+coverage run --source=home manage.py test
+coverage report
+coverage html
+```
+
+Everytime I add tests I run
+```
+coverage run --source=home manage.py test
+coverage html
+```
+
 
 
 
@@ -1512,11 +1541,11 @@ https://wsvincent.com/django-custom-user-model-tutorial/
 
 Apply Caseinsensitive Backend Auth from ecommerce tutorial. See project on Cloud9.
 
-Build Blog App
+~~Build Blog App~~
 
 Connect the other password reset templates
 
-Solve Heroku CSS problem.
+~~Solve Heroku CSS problem.~~
 
 
 
