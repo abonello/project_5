@@ -33,7 +33,7 @@ UniQueCorn Issue Tracker | Cart
                 <form class="form-inline" action="{% url 'adjust_cart' item.id %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                        <label for="inputAmount" class="sr-only">New Qty</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 Qty
