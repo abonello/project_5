@@ -338,16 +338,48 @@ The functionality of this app has undergone extensive manual testing and some au
 
 * [Back to TOP](#uniquecorn-issue-tracker)
 
+_Github Repository_  
+[project_5](https://github.com/abonello/project_5)
+
+_Deployment_  
 Name of app: **unique-corn**  
 URI: [https://unique-corn.herokuapp.com/](https://unique-corn.herokuapp.com/)
 
+The following documents the steps needed to deploy this app on Heroku. Other deployments may defer in detail but main steps will broadly be the same.  
 
+If you would like to install this app follow the following steps:
 
+1. Download the app from this [github repository](https://github.com/abonello/project_5)
 
+2. Set it up to work on your local machine.
 
+3. Create a superuser
+    ```bash
+     python manage.py createsuperuser
+     ```
+4. For deploying on the net, create a new app on heroku and push this repository there.
 
+5. A requirements.txt will list all the required installs.
 
+6. You will need to set up a database. This app currently uses a PostgreSQL database. No changes will be necessary if you are using PostgreSQL but if you decide to use a different database you will need to make corresponding changes in `settings.py`.
 
+7. you need to migrate the models to your newly setup database. You can use sqlite3 locally to rund the migrates and then switch to your chosen database. Alternatively, make sure you have environment variables set up locally. See below for the list of variables needed.
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+8. You will need to set up some environment variables. Follow the instructions for your chosen deployment platform.
+    * DATABASE_URL - your database url
+    * EMAIL_ADDRESS_WEBADMIN - your admin email address
+    * EMAIL_HOST_WEBADMIN - your email host
+    * EMAIL_PASSWORD_WEBADMIN - your email password
+    * EMAIL_PORT_WEBADMIN - your email port
+    * HOSTNAME - the host name where you deployed this app
+    * SECRET_KEY - the Django secret key. For instructions to generate a new one go [here](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key).
+    * STRIPE_PUBLISHABLE - I am using stripe to take care of card payment. You will need to create a Stripe account. This will be the publishable key.
+    * STRIPE_SECRET - This is the Stripe secret key.
+
+   
 
 
 &nbsp;   
