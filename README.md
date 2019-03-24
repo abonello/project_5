@@ -341,7 +341,8 @@ few warnings:
 **Validating CSS** using [The W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator)  
 No errors found.
 
-
+Checked **js syntax** using [Esprima](http://esprima.org/demo/validate.html)  
+Code is suntactically valid.
 
 
 ## Deploy to Heroku
