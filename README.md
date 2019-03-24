@@ -249,7 +249,38 @@ The reason for having two menus is two fold. It gives more room for navigation a
 
 The account related menu displays links depending on whether the user is loggin in or not. It displays `Login` and `Register` while the user is logged out and `Log Out` and `Profile` while the user is logged in. The cart will display in both cases but when the user is logged out the cart link is disabled.
 
-The main menu will also differ depending on log in status of the user.
+The main menu will also differ depending on log in status of the user.  
+While the user is logged out it will show the following links:
+* Home
+* UQC App
+* Blog
+* About
+* Contact Us
+
+When the user logs in, the following links will be added:
+* Features & Bugs
+* Charts
+* Coins
+
+On the Home page there are three quick links to the most important pages. These are image links. There is also a list of events.
+
+At the bottom there is a footer which has the About and Contact Us links.
+
+Pages:`**
+* **`Home`** - has three quick links to the most important pages. These are image links. There is also a list of events.
+* **`Features and Bugs`** - At the top there is a button to add a new feature or bug. This page has two tabs, one for features and another one for bugs. Each tab is divided into sections, one for each feature or bug. Each section will have the information about each issue as well as comments. There are links to add comment for that issue and to vote that issue up.
+* **`Add Feature or Bug`** - This can be reached from the Features and Bugs page.
+* **`Charts`** - This page has for dynamic charts that shows the amount of votes per feature, the amount of comments per feature and similarly for bugs.
+* **`Coins`** - 
+* **`UQC App`** - 
+* **`Blog`** - 
+* **`About`** - 
+* **`Contact Us`** - 
+* **`Cart`** - 
+* **`Checkout`** - 
+* **`Log in`** - 
+* **`Register`** - 
+* **`Profile`** - 
 
 
 
