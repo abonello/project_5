@@ -78,7 +78,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: "Feature's Votes",
+                    text: "Features' Votes",
                     fontSize: 25,
                 },
                 legend: {
@@ -158,7 +158,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: "Feature's Comments",
+                    text: "Features' Comments",
                     fontSize: 25,
                 },
                 legend: {
@@ -238,7 +238,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: "Bug's Votes",
+                    text: "Bugs' Votes",
                     fontSize: 25,
                 },
                 legend: {
@@ -317,7 +317,7 @@ $.ajax({
                 // responsive: false,
                 title: {
                     display: true,
-                    text: "Bug's Comments",
+                    text: "Bugs' Comments",
                     fontSize: 25,
                 },
                 legend: {

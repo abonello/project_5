@@ -24,8 +24,7 @@ This submission is part of the Fullstack Software Development diploma course off
 * [TECHNOLOGIES USED](#technologies-used)
 * [TESTING](#testing)
 * [DEPLOYMENT](#deploy-to-heroku)
-* [FURTHER NOTES](#further-notes)
-* [DATABASE](#database)
+
 ---
   
 ## INTRODUCTION
@@ -271,45 +270,16 @@ Pages:`**
 * **`Features and Bugs`** - At the top there is a button to add a new feature or bug. This page has two tabs, one for features and another one for bugs. Each tab is divided into sections, one for each feature or bug. Each section will have the information about each issue as well as comments. There are links to add comment for that issue and to vote that issue up.
 * **`Add Feature or Bug`** - This can be reached from the Features and Bugs page.
 * **`Charts`** - This page has for dynamic charts that shows the amount of votes per feature, the amount of comments per feature and similarly for bugs.
-* **`Coins`** - 
-* **`UQC App`** - 
-* **`Blog`** - 
-* **`About`** - 
-* **`Contact Us`** - 
-* **`Cart`** - 
-* **`Checkout`** - 
-* **`Log in`** - 
-* **`Register`** - 
-* **`Profile`** - 
-
-
-
-
-
-
-
-
-There are two ways of viewing the food items.
-
-1. **The accordion view**  
-    
-    Here, each item is in an accordion panel. Opening a panel will display a card. I chose to display the info on a card which can rotate and show extra information at the back of the card. At the back, the user will also find buttons to edit or delete that particular food item.
-
-    Apart from the button saying: "More info and Controls at the back", the curved arrow at the top right corner of the card is a visual indication pointing to the back of the card.  
-
-2. **Dashboard**  
-    In the dashboard view, the user is able to filter items based on categories, and a number of paramter combinations. At the bottom of the page there is a table which initially will show all products, currently up to 1000, but will be reduced depending on the filters applied. The name of the food item in the table is a button.
-
-    Clicking a food item in the table will open a modal which will display the data related to that food item.
-
-    I experimented with styling the modal to make it appear as if it is a piece of paper on a desk. As soon as the user hovers over the modal, the paper-like background changes as if pressure or weight has been applied to it. I tried to achieve an organic effect.
-
-    The user can close the modal in a number of ways.
-    * Clicking on the close button.
-    * Clicking on the X at the top right corner of the modal.
-    * Clicking on the desk (the white border) around the modal.
-    * Pressing the esc button on the computer keyboard.
-
+* **`Coins`** - Here the user can buy one or more packets of coins. The packets will be placed in the cart.
+* **`UQC App`** - Information about the fictitious app.
+* **`Blog`** - A static page that displays blog-like text. This can be upgraded later on to be dynamic, allowing the addition of new blog stories from the front end by specifically authorised users.
+* **`About`** - Info about this project.
+* **`Contact Us`** - A form that allows user to contact the developer's team.
+* **`Cart`** - Coins that the user wants to buy will be placed here. The user can cancel a buy by setting the quantity to 0, or increase the number of coin packets to buy by setting the quantity as required and Amend the cart. When there are items in the cart, the fav icon (in the nav bar) changes color to full red (it was dimmed before) and a badge showing the quantity of packets in the cart is displayed next to the cart link in the nav bar.
+* **`Checkout`** - When users are ready to pay for the coins, they can click on the `Checkout` button in the cart page. This will take them to the checkout page where they can enter the necessary information to pay for the items by card.
+* **`Log in`** - A simple form that allows the user to log in. There is also the functionality to allow the user to ask for a new password.
+* **`Register`** - A simple form that allows a new user to register and set up a new account.
+* **`Profile`** - A user can see information about his/her account including the amount of coins they currently hold.
 
 
 * [wireframe](#wireframes) - follow this link for further reading
@@ -362,6 +332,9 @@ If you would like to access the whole wireframe folder, please use [this link](h
 - [Font Awesome v4.7.0](https://fontawesome.com/v4.7.0/) - used to display the GitHub and Linkedin Icons.
 - [Google Fonts](https://fonts.google.com/) - Roboto and Coiny.
 - [Chart.js v2.7.3](https://www.chartjs.org/) - used to generate the dynamic charts.
+- [Stripe](https://stripe.com/gb) - used to enable card payment.
+
+I am using a `Postgres` database on Heroku.
 
 
 ## TESTING
@@ -375,90 +348,19 @@ The functionality of this app has undergone extensive manual testing and some au
 
 * [Back to TOP](#uniquecorn-issue-tracker)
 
-Name of app: **food-nutrition**  
-URI: [https://food-nutrition.herokuapp.com/](https://food-nutrition.herokuapp.com/)
+Name of app: **unique-corn**  
+URI: [https://unique-corn.herokuapp.com/](https://unique-corn.herokuapp.com/)
 
-I am using ***gunicorn*** server. I found that I will have to set less settings myself.  
-The differences include:
-1. I do NOT need to run ```heroku ps:scale web=1```
-2. I do NOT need to manually set the IP and PORT variables in *settings > Reveal Config Vars*.
-3. I do NOT need to *Restart all Dynos* from *More*.
 
-In all, using gunicorn makes deploying to Heroku much easier.
 
-The commands needed are: (using this app as example)
-1. Install gunicorn
-~~~~
-pip3 install gunicorn
-~~~~
 
-2. Create Procfile
-~~~~
-echo web: gunicorn run:app > Procfile
-~~~~
 
-3. Create/Update requirements.txt
-~~~~
-sudo pip3 freeze --local > requirements.txt
-~~~~
 
-4. Create the Heroku on the website (allows me to set Region to EU)
 
-5. Log in to heroku (locally, need email and password) and check the apps
-~~~~
-heroku login
-heroku apps
-~~~~
 
-6. Initialise git, if not already done and set a remote for heroku
-~~~~
-git init
-heroku git:remote -a food-nutrition
-~~~~
 
-7. Push to Heroku
-~~~~
-git push heroku master
-~~~~
-
-DONE. -- Open the app at [https://food-nutrition.herokuapp.com/]()
 
 &nbsp;   
 &nbsp;   
 
 ---
-
-## Further Notes
-* [Back to TOP](#uniquecorn-issue-tracker)
-
-To access the files on Heroku, 
-1. go to **More > Run console**.
-2. run the command 
-~~~~
-heroku run bash
-~~~~
-3. Use normal bash commands.
-
-
-## Database
-* [Back to TOP](#uniquecorn-issue-tracker)
-
-Create a MongoDB database on mLab.  
-Database name: **food**  
-MONGODB VERSION: **3.6.6 (MMAPv1)**
-
-* add user
-* add collection: **nutrition100**
-* created 3 documents with some data.
-
-
-I had to do some changes in the code I used in previous projects.  
-MONGO_DBNAME and MONGO_URI had to be used as app.config:
-~~~~
-app.config["MONGO_DBNAME"] = getDbName()
-app.config["MONGO_URI"] = getURI()
-~~~~
-The port argument complained about the int() method, so now it is:
-~~~~
-app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)
-~~~~
