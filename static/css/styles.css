@@ -261,26 +261,6 @@ hr.hr-light {
 /* END NAVS */
 
 
-
-
-
-
-
-
-
-/* =========== */
-/* TO REMOVE */
-/* Will not use search */
-.search {
-    background-color: rgba(128, 128, 128, 0.5);
-    padding: 5px;
-    position: sticky;
-    top: 55px;
-    z-index: 999;
-}
-/* ============== */
-
-
 /* SHOWCASE */
 .showcase-outer {
     margin-top: 50px;
@@ -756,6 +736,14 @@ a#link-add-issue:focus {
 .profile-user-type_info {
     font-size: 1.1em;
     letter-spacing: 1px;
+}
+.profile.logins {
+    padding-bottom: 50px;
+}
+
+/* Registration Form */
+.registration-form {
+    padding-bottom: 50px;
 }
 
 
