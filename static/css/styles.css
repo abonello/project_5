@@ -39,12 +39,6 @@ hr.hr-light {
     color: #8a8a8a;
 }
 
-/* .btn-list { */
-    /* padding-left: 30px;
-    padding-right: 10px; */
-    /* padding: 5px 0px 0 20px;
-} */
-
 .row.row-flex {
     display: flex;
     flex-wrap: wrap;
@@ -74,23 +68,6 @@ hr.hr-light {
 }
 
 /* End GENERIC */
-
-
-
-/* 
-#toggle-btn {
-    background-color: #ddffee;
-}
-
-#toggle-btn .icon-bar {
-    background-color: #5020a5;
-} */
-
-/* .btn-register {
-    margin-bottom: 50px;
-} */
-
-
 
 
 /* NAVS */
@@ -538,7 +515,6 @@ p.add-comment-note span.issue_subject {
     padding : 5px 15px;
 }
 
-
 #features-bugs-tabs {
     border-radius: 5px 10px 0 0 ;
 }
@@ -663,7 +639,7 @@ a#link-add-issue:focus {
     text-decoration: none;
 }
 
-#link-add-comment {
+.link-add-comment {
     color: #ad0000;
     font-weight: 600;
     font-size: 1.1em;
@@ -672,7 +648,7 @@ a#link-add-issue:focus {
     border-radius: 15px;
     margin: 0 5px;
 }
-#link-add-comment:hover {
+.link-add-comment:hover {
     color: black;
     text-decoration: none;
 }
@@ -689,9 +665,6 @@ a#link-add-issue:focus {
         top: 71px;
         left: -155px;
     }
-}
-.cart-panel {
-    height: 100%;
 }
 
 /* PROFILE */
@@ -756,11 +729,27 @@ a#link-add-issue:focus {
 .btn-checkout {
     margin-bottom: 50px;
 }
+.cart-panel {
+    height: 100%;
+}
 .cart-panel-caption {
     height: 300px;
 }
 .cart-panel-caption p {
     word-wrap: break-word;
+}
+
+/* Checkout */
+.checkout-payment-title {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 /* Add issue */

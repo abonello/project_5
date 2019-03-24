@@ -9,7 +9,7 @@
 
 <!-- Charts.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<script type="text/javascript" src="{% static 'js/my_charts.js' %}"></script>
+<script src="{% static 'js/my_charts.js' %}"></script>
 {% endblock %}
 
 
@@ -21,7 +21,6 @@ UniQueCorn Issue Tracker | Checkout
 <div class="main-title">
     <div class="color-cover"></div>
     <div class="title">
-        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
         <h1>UniQueCorn - IssueTracker - Charts</h1>
     </div>
 </div>
@@ -37,34 +36,16 @@ UniQueCorn Issue Tracker | Checkout
 </p>
 <div class="row row-flex">
     <div class="col-xs-12 col-sm-6">
-        <!-- <h2>Feature Voting</h2> -->
-        <!-- <canvas id="feature-votes-chart" class="chart" width="800" height="800"></canvas> -->
         <canvas id="feature-votes-chart" class="canvas chart" width="300" height="200"></canvas>
     </div>
     <div class="col-xs-12 col-sm-6">
-        <!-- <h2>Feature Comments</h2> -->
-        <!-- <canvas id="feature-comments-chart" class="chart" width="800" height="800"></canvas> -->
         <canvas id="feature-comments-chart" class="canvas chart"  width="300" height="200"></canvas>
     </div>
     <div class="col-xs-12 col-sm-6">
-        <!-- <h2>Bug Voting</h2> -->
-        <!-- <canvas id="bug-votes-chart" class="canvas chart" width="800" height="800"></canvas> -->
         <canvas id="bug-votes-chart" class="canvas chart"  width="300" height="200"></canvas>
     </div>
     <div class="col-xs-12 col-sm-6">
-        <!-- <h2>Bug Comments</h2> -->
-        <!-- <canvas id="bug-comments-chart" class="canvas chart" width="800" height="800"></canvas> -->
         <canvas id="bug-comments-chart" class="canvas chart"  width="300" height="200"></canvas>
     </div>
-    
 </div>
-
-
-
-
-
-
-
-
-
 {% endblock %}

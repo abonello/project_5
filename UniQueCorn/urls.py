@@ -17,7 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as accounts_urls
 from accounts.views import index
-# from accounts.views import index, logout, login, registration, user_profile
 from home import urls as home_urls
 from products import urls as products_urls
 from cart import urls as cart_urls
@@ -32,10 +31,6 @@ urlpatterns = [
     url(r'^', include(home_urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^index$', index, name="account_index"),
-    # url(r'^accounts/logout/$', logout, name="logout"),
-    # url(r'^accounts/login/$', login, name="login"),
-    # url(r'^accounts/register/$', registration, name="registration"),
-    # url(r'^accounts/profile/$', user_profile, name="profile")
     url(r'^accounts/', include(accounts_urls)),
     url(r'^products$', all_products, name="products"),
     url(r'^products/', include(products_urls)),

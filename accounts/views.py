@@ -32,7 +32,6 @@ def login(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully logged in.")
-                # return redirect(reverse('todo'))
                 return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect.")
@@ -44,7 +43,6 @@ def login(request):
 def registration(request):
     """Render the registration page"""
     if request.user.is_authenticated:
-        # return redirect(reverse('todo'))
         return redirect(reverse('index'))
 
     if request.method == 'POST':
@@ -59,14 +57,11 @@ def registration(request):
             )
 
             if user:
-                print(user)
                 coins = UserCoins()
                 coins.user = user
                 coins.save()
-                print(coins)
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered.")
-                # return redirect(reverse('todo'))
                 return redirect(reverse('index'))
             else:
                 messages.error(
@@ -81,4 +76,3 @@ def user_profile(request):
     """The user's profile page."""
     user = User.objects.get(email=request.user.email)
     return render(request, "profile.html", {"profile": user})
-

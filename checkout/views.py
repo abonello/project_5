@@ -11,29 +11,17 @@ import stripe
 import time
 
 
-# Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
-# stripe.api_key = settings.SECRET_KEY
-# print("From view: {}".format(stripe.api_key))
 
 @login_required()
 def checkout(request):
     if request.method == "POST":
-        print("View received a POST request")
         try:
             order_form = OrderForm(request.POST)
             payment_form = MakePaymentForm(request.POST)
         except:
-            print("Error occured")
-
-        if order_form.is_valid():
-            print("Order form is valid")
-        else:
-            print("Order form is NOT valid")
-        if payment_form.is_valid():
-            print("Payment form is valid")
-        else:
-            print("Payment form is NOT valid")
+            '''Error occured'''
+            pass
 
         try: 
             if order_form.is_valid() and payment_form.is_valid():
@@ -57,11 +45,10 @@ def checkout(request):
                 try: 
                     # stripe works with cents or pence
                     try:
-                        print("Try getting user ID")
                         user_id = request.user.id
-                        print("Getting user ID successful. ID: {}".format(user_id))
                     except:
-                        print("Getting user ID FAILED.")
+                        '''Getting user ID FAILED'''
+                        pass
 
                     customer = stripe.Charge.create(
                         amount = int(total * 100),
@@ -76,58 +63,26 @@ def checkout(request):
                     messages.error(request, "You have successfully paid.")
                     # Empty cart
                     request.session['cart'] = {}
-                    print(quantity)
-                    print("This is the user making the payment:")
                     try:
-                        # print(request.user.username)
-                        # print(user_id)
-                        # print(UserCoins.objects.get(pk = 1))
-                        # user_coins = request.user.relateduser.all
-                        # print(user_coins)
-                        coin_user = request.user.relateduser.all
-
                         user_coins = get_object_or_404(UserCoins, user=request.user.id)
-                        print(user_coins)
-                        print(user_coins.coin_amount)
                         coins_to_add = 500 * quantity
                         user_coins.coin_amount += coins_to_add
-                        print("Add Coins to user: {}".format(coins_to_add))
-                        print("Now {} has {} coins.".format(request.user.username, user_coins.coin_amount))
                         user_coins.save()
-                        # print(user_coins.coin_amount)
-
-
-
-                        # print(user_coins.coin_amounts)
-                        # print(request.user.coin_amount)
-                        # user = User.objects.get(email=request.user.email)
-                        # { % for coins in user.relateduser.all % }
-                        # <p > <strong > Coins < /strong > : {{coins.coin_amount }} < /p >
-                        # { % endfor % }
                     except:
-                        print("Cannot find USER")
-                        # print("Cannot find COIN_AMOUNT")
-                    # print(coins)
-                    # print(quantity * coins)
-
-
+                        '''Cannot find USER'''
+                        pass
 
                     return redirect(reverse('products'))
                 else: 
                     messages.error(request, "Unable to take payment.")
             else:
-                print(payment_form.errors)
                 messages.error(request, "We were unable to take a payment with that card!")
         except:
-            print("Is this where the error is?")
+            pass
         
     else:
         # Return a blank form
         payment_form = MakePaymentForm()
         order_form = OrderForm()
-    
-    
-    # time.sleep(25)
 
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
-

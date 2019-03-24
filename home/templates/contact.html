@@ -8,7 +8,6 @@ UniQueCorn - Issue Tracker | Contact
 <div class="main-title">
     <div class="color-cover"></div>
     <div class="title">
-        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
         <h1>Unique Corn - Issue Tracker - Contact Us</h1>
     </div>
 </div>
@@ -42,15 +41,7 @@ UniQueCorn - Issue Tracker | Contact
 </div>
 <div class="row">
     <div class="col-xs-12 contact-form-container">
-        <!-- <form action='/contact' method='POST'>
-                <input name='name'>
-                <input name='email'>
-                <input name='subject'>
-                <input name='message'>
-                <input type='submit'>
-            </form> -->
-        <!-- <form action='/contact' method="POST" id="contactForm" data-toggle="validator" role="form"> -->
-        <form method="POST" id="contactForm" data-toggle="validator" role="form">
+        <form method="POST" id="contactForm" data-toggle="validator">
             {% csrf_token %}
             <div class="form-group">
                 <label for="id_name" id="nameLabel">Name:</label>
@@ -73,17 +64,8 @@ UniQueCorn - Issue Tracker | Contact
             <div class="padding">
                 <button type="submit" class="btn center-block section dusty" id="btn-submit">Submit</button>
             </div>
-    
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 {% endblock %}

@@ -22,4 +22,3 @@ def cart_contents(request):
         cart_items.append({'id': id, 'quantity': quantity, 'product': product, 'coin_total': coin_total})
 
     return {'cart_items': cart_items, 'total': total, 'product_count': product_count, 'coin_total': coin_total}
-

@@ -1,11 +1,13 @@
 from django import forms
 from .models import Order
+import datetime
+
+now = datetime.datetime.now()
 
 
 class MakePaymentForm(forms.Form):
     MONTH_CHOICES = [(i, i) for i in range(1, 12+1)]
-    # The Years need to be maintained on an ongoing basis
-    YEAR_CHOICES = [(i, i) for i in range(2019, 2038)]
+    YEAR_CHOICES = [(i, i) for i in range(now.year, now.year + 20)]
 
     credit_card_number = forms.CharField(
         label="Credit card number", required=False)

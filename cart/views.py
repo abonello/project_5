@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse
 def view_cart(request):
     """A view that renders the cart contents page."""
 
-    # We do not need to pass a dictionary for the context because
+    # We do NOT need to pass a dictionary for the context because
     # the context is available everywhere in its own file.
     return render(request, "cart.html")
 
@@ -25,7 +25,7 @@ def adjust_cart(request, id):
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[id] = quantity # IS THIS CORRECT????????????
+        cart[id] = quantity
     else:
         cart.pop(id)
 

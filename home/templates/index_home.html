@@ -1,13 +1,8 @@
 {% extends "base.html" %}
 
-
 {% block page_title %}
 UniQueCorn - Issue Tracker | Home
 {% endblock %}
-
-<!-- {#% block page_heading %#}
-Unique Corn - Issue Tracker
-{#% endblock %#} -->
 
 {% block showcase %}
     <div class="container showcase">
@@ -22,7 +17,6 @@ Unique Corn - Issue Tracker
 <div class="main-title">
     <div class="color-cover"></div>
     <div class="title">
-        <!-- <h1>{#% block page_heading %}{% endblock %#}</h1> -->
         <h1>
             <span class="prominent-letter">U</span>ni<span class="prominent-letter">Q</span>ue 
             <span class="prominent-letter">C</span>orn
@@ -34,11 +28,6 @@ Unique Corn - Issue Tracker
 
 {% block content %}
     <div class="main-content col-xs-12">
-        <!-- <div class="title">
-                <h1>
-                    Title
-                </h1>
-            </div> -->
         <section id="features-bugs">
             <h2>
                 Features & Bugs
@@ -53,7 +42,7 @@ Unique Corn - Issue Tracker
                         </span>
                     </div>
                 </a>
-                <a href="{% url 'issues1' %}">
+                <a href="{% url 'issues' %}">
                     <div class="front-panel issue-tracker-bg">
                         <span>
                             Issue Tracker
@@ -116,28 +105,7 @@ Unique Corn - Issue Tracker
                         <p>As the railway takes you places, so we want to take our product. Join us to see what the future holds in store.</p>
                 </div>
             </div>
-
         </section>
     </div>
 
-
-
-
-<!-- 
-<p>This is the home page and this is some random text.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quo nam asperiores ea deleniti facilis, perferendis voluptates odit! Inventore, obcaecati. Aliquid vero doloremque similique. Qui aut minus porro nulla libero?</p> -->
 {% endblock %}
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-<body>
-    <h1>This is Home Page</h1>
-</body>
-</html> -->

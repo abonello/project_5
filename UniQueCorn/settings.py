@@ -28,11 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-# SECRET_KEY = '(f^tzbk_6&i^l(k6)-l(59_3r4v*shml^)0r)s(1kxl&0gq31i'
-# The default SECRET_KEY was replaced by environment variables (different for development and production).
 SECRET_KEY = os.environ.get('SECRET_KEY')
-# print("From Settings SECRETKEY: {0}".format(SECRET_KEY))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -42,17 +38,11 @@ ALLOWED_HOSTS = [
     # "localhost",
     # "0.0.0.0",
     # "127.0.0.1",
-    # "unique-corn.herokuapp.com",
     os.environ.get('HOSTNAME'),
     ]
 
-# host = os.environ.get('SITE_HOST')
-# if host:
-#     ALLOWED_HOSTS.append(host)
-
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,15 +118,6 @@ else:
         }
 
 
-
-# DATABASES = {
-#         'default': dj_database_url.parse("postgres://tcqoipytozvlke:0317ac04ecd88e9874ad3cb2c06d75ca417acec39c4b7a9a37d11ab023b3e761@ec2-46-137-170-51.eu-west-1.compute.amazonaws.com:5432/d4cl9o887a7f6b")
-#     }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -186,10 +167,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
-# print("=============")
-# print("Settings: {}".format(STRIPE_PUBLISHABLE))
-# print("Settings: {}".format(STRIPE_SECRET))
-# print("=============")
 
 
 # This is needed for working on cloud 9 due to a cookie bug
@@ -197,22 +174,12 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 # https://stackoverflow.com/a/34828308/493553
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
-# Print emails to console
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-# Sending an actual email
-# EMAIL_USE_TLS = True # email encryption used by gmail
-# EMAIL_HOST = 'smtp.gmail.com' # Protocol used to send emails
-# EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS_GMAIL")
-# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD_GMAIL")
-# EMAIL_PORT = 587
 
 # Using my email to send emails.
 EMAIL_USE_SSL = True  # email encryption used by gmail
-#EMAIL_USE_TLS =  # True or False
+#EMAIL_USE_TLS =  # True or False - I do not need to set this for my email.
 EMAIL_HOST = os.environ.get("EMAIL_HOST_WEBADMIN")
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS_WEBADMIN")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD_WEBADMIN")
 EMAIL_PORT = os.environ.get("EMAIL_PORT_WEBADMIN")
 DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_ADDRESS_WEBADMIN")
-

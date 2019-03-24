@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-<!-- {#% load static from staticfiles %#} -->
+
 {% load bootstrap_tags %}
 
 {% block page_title %}
@@ -10,13 +10,10 @@ UniQueCorn Issue Tracker | Cart
 <div class="main-title">
     <div class="color-cover"></div>
     <div class="title">
-        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
         <h1>UniQueCorn - IssueTracker - Cart</h1>
     </div>
 </div>
 {% endblock showcase %}
-
-
 
 {% block content %}
 <div class="row row-flex">
@@ -38,8 +35,8 @@ UniQueCorn Issue Tracker | Cart
                             <div class="input-group-addon">
                                 Qty
                             </div>
-<!-- Min number is 0 to be able to delete it from the cart.  -->
-                            <input name="quantity" type="number" min="0" max="999" class="form-control">
+                            <!-- Min number is 0 to be able to delete it from the cart.  -->
+                            <input id="inputAmount" name="quantity" type="number" min="0" max="999" class="form-control">
                             <div class="input-group-addon">
                                 {{ item.quantity }}
                             </div>
@@ -65,7 +62,7 @@ UniQueCorn Issue Tracker | Cart
         {% if total <= 0 %}
             <p>There is nothing to pay for.</p>
         {% else %}
-            <a href="{% url 'checkout' %}" class="btn btn-success btn-checkout" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+            <a href="{% url 'checkout' %}" class="btn btn-success btn-checkout" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
         {% endif %}
     </div>
 </div>

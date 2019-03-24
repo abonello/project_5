@@ -8,7 +8,6 @@ UniQueCorn Issue Tracker
 <div class="main-title">
     <div class="color-cover"></div>
     <div class="title">
-        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
         <h1>UniQueCorn - IssueTracker</h1>
     </div>
 </div>
@@ -23,31 +22,7 @@ UniQueCorn Issue Tracker
     Voting for bug fixes work in a similar fashion.<br>
     Bugs which are considered critical will be scheduled for fixes irrespective of vote counts. The government will decide which bugs are critical and their decision is final, no meaningful vote will be offered and do not expect any public vote either.</p>
 
-    <!-- This is issue tracker
-
-    {#% for each in issues reversed %#}
-        <div style="border: 1px solid black">
-                <p> {#{ each.id }#} 
-                {#% if each.is_feature %#}
-                    <span> FEATURE </span>
-                {#% else %#}
-                    <span> BUG </span>
-                {#% endif %#}
-                </p>
-                <h3> {#{ each.title }#}</h3>
-                <p> {#{ each.description }#}</p>
-                <hr>
-                <p> Posted by: {#{ each.posted_by }#} at {#{ each.date_time}#} | Votes: {#{ each.votes }#} </p>
-        </div>
-    {#% endfor %#} -->
-    <!-- <hr> -->
-    <!-- <div class="container">
-        <h2>Example tab 2 (using standard nav-tabs)</h2>
-    </div> -->
-    
-    <!-- <div id="exTab2" class="container"> -->
     <div id="features-bugs-tabs">
-        <!-- <ul class="nav nav-tabs nav-justified"> -->
         <ul class="nav nav-tabs">
             <li class="active">
                 <a href="#features-pane" data-toggle="tab">Features</a>
@@ -73,9 +48,8 @@ UniQueCorn Issue Tracker
                     </p>
                     <h3> {{ each.title }}</h3>
                     <p class="feature-description"> {{ each.description }}</p>
-                                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
                     <div class="comments-list">
-                        <a id="link-add-comment" href="{% url 'add-comment'  issue_id=each.id %}">Add a Comment</a>
+                        <a class="link-add-comment" href="{% url 'add-comment'  issue_id=each.id %}">Add a Comment</a>
                 
                         {% for item in each.comment.all %}
                         <div class="comment-item">
@@ -114,10 +88,8 @@ UniQueCorn Issue Tracker
                     </p>
                     <h3> {{ each.title }}</h3>
                     <p class="bug-description"> {{ each.description }}</p>
-                                        <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
-                                        <!-- <p> {#{ each.subject.all}#}</p> -->
                     <div class="comments-list">
-                        <a id="link-add-comment" href="{% url 'add-comment' issue_id=each.id %}">Add a Comment</a>
+                        <a class="link-add-comment" href="{% url 'add-comment' issue_id=each.id %}">Add a Comment</a>
                 
                         {% for item in each.comment.all %}
                         <div class="comment-item">
@@ -138,96 +110,8 @@ UniQueCorn Issue Tracker
                 {% endif %}
                 {% endfor %}
                 {% endif %}
-                </div>
             </div>
         </div>
-            
-            
-            
-
-
-
-
-
-    <!-- ========================= -->
-
-    <!-- <h1>The following will be removed</h1>
-
-
-    {% if feature_count == 1 %}
-    <h2> FEATURE REQUEST </h2>
-    {% else %}
-    <h2> FEATURE REQUESTS </h2>
-    {% endif %}
-    {% if feature_count == 0 %}
-        <p>No features to display</p>
-    {% else %}
-        {% for each in issues reversed %}
-            {% if each.is_feature %}
-                <div class="issue-item">
-                    <p> {{ each.id }} 
-                    </p>
-                    <h3> {{ each.title }}</h3>
-                    <p> {{ each.description }}</p> -->
-                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
-                    <!-- <div class="comments-list">
-                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
-                    
-                        {% for item in each.comment.all %}
-                        <div class="comment-item">
-                            <h4>Comment {{ forloop.counter }}</h4>
-                            <p class="comment-subject"><strong>{{item.subject}}</strong></p>
-                            <p><small>Posted by: <strong>{{ item.posted_by }}</strong> at <strong>{{ item.date_time}}</strong></small></p>
-                            <p>{{item.comment}}</p>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <hr class="hr-light">
-                    <p> 
-                    Posted by: <strong>{{ each.posted_by }}</strong>
-                        at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong> 
-                        <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you €100)
-                    </p>
-                </div>
-            {% endif %} -->
-        <!-- {% endfor %}        
-    {% endif %}
-    <hr> -->
-    <!-- {% if bug_count == 1 %}
-        <h2> BUG </h2>
-    {% else %}
-        <h2> BUGS </h2>
-    {% endif %}
-    {% if bug_count == 0 %}
-    <p>No bugs to display</p>
-    {% else %}
-        {% for each in issues reversed %}
-            {% if not each.is_feature %}
-                <div class="issue-item">
-                    <p>Bug id: {{ each.id }} 
-                    </p>
-                    <h3> {{ each.title }}</h3>
-                    <p> {{ each.description }}</p> -->
-                    <!-- <p> {#{ each.issuecomment_set.subject }#}</p> -->
-                    <!-- <p> {#{ each.subject.all}#}</p> -->
-                    <!-- <div class="comments-list">
-                        <a id="link-add-comment" href="{% url 'add-comment' %}">Add a Comment</a>
-
-                        {% for item in each.comment.all %}
-                            <div class="comment-item">
-                                <h4>Comment {{ forloop.counter }}</h4>
-                                <p class="comment-subject"><strong>{{item.subject}}</strong></p>
-                                <p><small>Posted by: <strong>{{ item.posted_by }}</strong> at <strong>{{ item.date_time}}</strong></small></p>
-                                <p>{{item.comment}}</p>
-                            </div>
-                        {% endfor %}
-                    </div> -->
-
-                    <!-- <hr class="hr-light">
-                    <p> Posted by: <strong>{{ each.posted_by }}</strong> at <strong>{{ each.date_time}}</strong> | Votes: <strong>{{ each.votes }}</strong> <a class="vote-link" href="{% url 'vote' issue_id=each.id %}">Promote this Feature</a> (Note: It will cost you €100)</p>
-                </div>
-            {% endif %}
-        {% endfor %}
-    {% endif %} -->
-        
-    {% endblock %}
+    </div>
+    
+{% endblock %}

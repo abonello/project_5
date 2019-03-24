@@ -10,48 +10,18 @@ UniQueCorn - Test | Add Comment
 <div class="main-title">
     <div class="color-cover"></div>
     <div class="title">
-        <!-- <h1>{#% block page_heading %#}{#% endblock %#}</h1> -->
         <h1>UniQueCorn - IssueTracker - Add Comment</h1>
     </div>
 </div>
 {% endblock showcase %}
 
 {% block content %}
-<!-- <h2>The following form uses django form.</h2> -->
-<!-- <p>Issue: {#{ id_issue }#}</p> -->
 <p class="add-comment-note">The issue you are commenting on is <br><span class="issue_subject">{{ issue_subject }}</span>.<br>
 Please select it from the list below </p>
 <form method="POST">
     {% csrf_token %}
-    <!-- <input type="hidden" name="issue_id" value="{#{ id_issue }#}" /> -->
     {{ form | as_bootstrap_horizontal }}
     <br>
     <button type="submit" class="btn btn-success btn-add-comment">Save</button>
 </form>
 {% endblock %}
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test | Add Item</title>
-</head>
-<body>
-    <h1>Test - Add an item</h1>
-
-    <h2>The following form uses django form.</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {#{ form }#}
-        {{ form.as_p }}
-        {#{ form.as_table }#}
-        {#{ form.as_ul }#}
-        <br>
-        <button type="submit">Save</button>
-    </form>
-</body>
-</html> -->
