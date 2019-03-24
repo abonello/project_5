@@ -35,6 +35,14 @@
     {% endblock head_js %}
 </head>
 <body>
+    {% url 'index' as index %}
+    {% url 'about' as about %}
+    {% url 'blog' as blog %}
+    {% url 'uqc_app' as uqc_app %}
+    {% url 'issues1' as features %}
+    {% url 'charts' as charts %}
+    {% url 'products' as coins %}
+    {% url 'contact_us' as contact %}
     <!-- TOP NAV -->
     <nav class="navbar navbar-default top-nav-navbar">
         <div class="nav-background">
@@ -49,7 +57,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">UQC</a>
+                    <a class="navbar-brand" href="{{ index }}">UQC</a>
                 </div>
     
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -118,14 +126,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-main-collapse" id="collapse-1">
                 <ul class="nav navbar-nav navbar-main-ul">
-                    {% url 'index' as index %}
-                    {% url 'about' as about %}
-                    {% url 'blog' as blog %}
-                    {% url 'uqc_app' as uqc_app %}
-                    {% url 'issues1' as features %}
-                    {% url 'charts' as charts %}
-                    {% url 'products' as coins %}
-                    {% url 'contact_us' as contact %}
+                    
+
+
+
                     <!-- <li class="active"><a href="#">Link 11 <span class="sr-only">(current)</span></a></li> -->
                     <!-- <li><a href="#">Link 12</a></li>
                     <li><a href="#">Link 13</a></li> -->
