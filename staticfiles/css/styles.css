@@ -36,7 +36,7 @@ hr.hr-light {
 }
 
 .disabled {
-    color: grey;
+    color: #aaa;
 }
 
 /* .btn-list { */
@@ -385,6 +385,7 @@ hr.hr-light {
 }
 .main-title .color-cover {
     background-image: url('/static/img/corn-leaves-canvas-small.jpg');
+    mix-blend-mode: luminosity;
     position: absolute;
     top: 0;
     left: 0;
