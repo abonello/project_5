@@ -9,31 +9,35 @@
 
 
 /* GENERIC */
-    body {
-        margin: 0;
-        padding: 0;
-        overflow-x:hidden;
-        font-family: 'Roboto', sans-serif;
-    }
-    
-    hr {
-        border: 0;
-        clear:both;
-        display:block;
-        width: 96%;
-        background-color:#6c4d06;
-        height: 1px;
-    }
-    hr.hr-light {
-        height: 2px;
-        background-color:rgba(227, 173, 48, 0.5);
-        width: 100%;
-        margin-bottom: 7px;
-    }
-    
-    .clearfix {
-        clear: both;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;
+    background-color:#6c4d06;
+    height: 1px;
+}
+hr.hr-light {
+    height: 2px;
+    background-color:rgba(227, 173, 48, 0.5);
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.disabled {
+    color: #8a8a8a;
+}
 
 /* .btn-list { */
     /* padding-left: 30px;
