@@ -332,6 +332,12 @@ I am using a `PostgreSQL` database on Heroku.
 
 The functionality of this app has undergone extensive manual testing and some automated testing using Django's testing capabilities.
 
+Validated HML using [Nu Html Checker (w3.org)](https://validator.w3.org/nu/#textarea)
+few warnings:
+* warning in issue-charts.html for code in Charts.min.js
+* Errors in checkout.html for code supplied by Stripe. Frameborder, allowtransparency and scrolling in the iframes are obsolete.
+* Warning in the home page for a section which does not have a header. I will leave this as is.
+
 
 
 ## Deploy to Heroku
