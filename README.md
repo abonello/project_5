@@ -278,7 +278,15 @@ There are two ways of viewing the food items.
 
 #### Typography
 
-The font Montserrat is used as the main font for this app. The font Merienda is used for the Logo.
+The font **Roboto** is used as the main font for this app.  
+
+The font **Coiny** is used for the Logo.  
+
+The font **Acme** is used for Headings.  Acme and Coiny are combined to produce the Main title on the home page.  
+
+ Variations on the Roboto font are achieved by using letter spacing and a variety of font weights and sizes. This helps break text and help create patterns that guide the eye where there are repeated sections, example the features and bugs tab with comments. This becomes more obvious when there are multiple comments.
+
+The colors are derived from the natural color of ripe corn (gold-like color) and a complementary color (Blues).
 
 ## WIREFRAMES
 * [Back to TOP](#uniquecorn-issue-tracker)  
@@ -300,17 +308,6 @@ If you would like to access the whole wireframe folder, please use [this link](h
 
 ### Desktop Charts Page
 [![](Wireframe/desktop_charts_page-Thumbnail.png)](Wireframe/desktop_charts_page.png)
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## TECHNOLOGIES USED

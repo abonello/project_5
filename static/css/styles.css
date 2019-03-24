@@ -381,6 +381,7 @@
 }
 .main-title .color-cover {
     background-image: url('/static/img/corn-leaves-canvas-small.jpg');
+    mix-blend-mode: luminosity;
     position: absolute;
     top: 0;
     left: 0;
