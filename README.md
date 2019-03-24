@@ -290,7 +290,7 @@ Please click on these thumbnails to see larger images. Please note that they wil
 If you would like to access the whole wireframe folder, please use [this link](https://github.com/abonello/project_5/tree/master/Wireframe).
 
 ### Mobile Home Page  
-[]([![Mobile Home Page](Wireframe/mobile_home_page-Thumbnail.png)](Wireframe/mobile_home_page.png))
+[!]([![Mobile Home Page](Wireframe/mobile_home_page-Thumbnail.png)](Wireframe/mobile_home_page.png))
 
 ### Desktop Home Page
 [![](Wireframe/desktop_home_page-Thumbnail.png)](Wireframe/desktop_home_page.png)
