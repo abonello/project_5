@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from testing.views import say_hello, render_test_template, test_todo_list, test_create_an_item, test_create_an_item_django_form, test_edit_an_item, test_toggle_status, test_delete_item
 from accounts import urls as accounts_urls
 from accounts.views import index
 # from accounts.views import index, logout, login, registration, user_profile
@@ -32,14 +31,6 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     url(r'^', include(home_urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^hello$', say_hello),
-    url(r'^test$', render_test_template, name="test"),
-    url(r'^todo$', test_todo_list, name="todo"),
-    url(r'^add$', test_create_an_item),
-    url(r'^add_django-form$', test_create_an_item_django_form, name="add"),
-    url(r'^edit/(?P<id>\d+)$', test_edit_an_item),
-    url(r'^toggle/(?P<id>\d+)$', test_toggle_status),
-    url(r'^delete/(?P<id>\d+)$', test_delete_item),
     url(r'^index$', index, name="account_index"),
     # url(r'^accounts/logout/$', logout, name="logout"),
     # url(r'^accounts/login/$', login, name="login"),
