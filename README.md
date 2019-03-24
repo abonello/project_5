@@ -223,16 +223,6 @@ Some of the menu items in the main menu will only be displayed when the user is 
 -----------
 
 
-
-
-
-
-
-
-
-
-
-
 ### Skeleton
 * [Back to TOP](#uniquecorn-issue-tracker)
 
@@ -267,24 +257,24 @@ At the bottom there is a footer which has the About and Contact Us links.
 
 Pages:`**
 * **`Home`** - has three quick links to the most important pages. These are image links. There is also a list of events.
-* **`Features and Bugs`** - At the top there is a button to add a new feature or bug. This page has two tabs, one for features and another one for bugs. Each tab is divided into sections, one for each feature or bug. Each section will have the information about each issue as well as comments. There are links to add comment for that issue and to vote that issue up.
-* **`Add Feature or Bug`** - This can be reached from the Features and Bugs page.
-* **`Charts`** - This page has for dynamic charts that shows the amount of votes per feature, the amount of comments per feature and similarly for bugs.
-* **`Coins`** - Here the user can buy one or more packets of coins. The packets will be placed in the cart.
+* **`Features and Bugs`** - Requires login. At the top there is a button to add a new feature or bug. This page has two tabs, one for features and another one for bugs. Each tab is divided into sections, one for each feature or bug. Each section will have the information about each issue as well as comments. There are links to add comment for that issue and to vote that issue up.
+* **`Add Feature or Bug`** - Requires login. This can be reached from the Features and Bugs page.
+* **`Charts`** - Requires login. This page has for dynamic charts that shows the amount of votes per feature, the amount of comments per feature and similarly for bugs.
+* **`Coins`** - Requires login. Here the user can buy one or more packets of coins. The packets will be placed in the cart.
 * **`UQC App`** - Information about the fictitious app.
 * **`Blog`** - A static page that displays blog-like text. This can be upgraded later on to be dynamic, allowing the addition of new blog stories from the front end by specifically authorised users.
 * **`About`** - Info about this project.
 * **`Contact Us`** - A form that allows user to contact the developer's team.
-* **`Cart`** - Coins that the user wants to buy will be placed here. The user can cancel a buy by setting the quantity to 0, or increase the number of coin packets to buy by setting the quantity as required and Amend the cart. When there are items in the cart, the fav icon (in the nav bar) changes color to full red (it was dimmed before) and a badge showing the quantity of packets in the cart is displayed next to the cart link in the nav bar.
-* **`Checkout`** - When users are ready to pay for the coins, they can click on the `Checkout` button in the cart page. This will take them to the checkout page where they can enter the necessary information to pay for the items by card.
+* **`Cart`** - Requires login. Coins that the user wants to buy will be placed here. The user can cancel a buy by setting the quantity to 0, or increase the number of coin packets to buy by setting the quantity as required and Amend the cart. When there are items in the cart, the fav icon (in the nav bar) changes color to full red (it was dimmed before) and a badge showing the quantity of packets in the cart is displayed next to the cart link in the nav bar.
+* **`Checkout`** - Requires login. When users are ready to pay for the coins, they can click on the `Checkout` button in the cart page. This will take them to the checkout page where they can enter the necessary information to pay for the items by card.
 * **`Log in`** - A simple form that allows the user to log in. There is also the functionality to allow the user to ask for a new password.
 * **`Register`** - A simple form that allows a new user to register and set up a new account.
-* **`Profile`** - A user can see information about his/her account including the amount of coins they currently hold.
+* **`Profile`** - Requires login. A user can see information about his/her account including the amount of coins they currently hold.
 
 
 * [wireframe](#wireframes) - follow this link for further reading
----
 ------
+
 ### Surface
 * [Back to TOP](#uniquecorn-issue-tracker)
 
