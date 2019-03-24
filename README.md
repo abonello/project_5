@@ -237,8 +237,19 @@ Some of the menu items in the main menu will only be displayed when the user is 
 ### Skeleton
 * [Back to TOP](#uniquecorn-issue-tracker)
 
+Navigation
 
+Two menus
+In mobile view, the menu related to the user account and cart is visible in the nav bar while the menu for the web-app navigation is collapsed to a button on the right of the nav bar.
+In desktop view , the menu related to the user account and cart remains in the top nav bar while the menu for the web-app navigation takes its own nav bar.
 
+A banner with a headline sits between the menus on home page, while the main title sits below the second menu. The banner is removed from internal pages and the title takes place between the menus. The lower menu is sticky and it sits below the top menu when scrolling. 
+
+The reason for having two menus is two fold. It gives more room for navigation and separates the context of the links within these menus.
+
+The account related menu displays links depending on whether the user is loggin in or not. It displays `Login` and `Register` while the user is logged out and `Log Out` and `Profile` while the user is logged in. The cart will display in both cases but when the user is logged out the cart link is disabled.
+
+The main menu will also differ depending on log in status of the user.
 
 
 
@@ -278,11 +289,11 @@ There are two ways of viewing the food items.
 
 #### Typography
 
-The font **Roboto** is used as the main font for this app.  
+The font **`Roboto`** is used as the main font for this app.  
 
-The font **Coiny** is used for the Logo.  
+The font **`Coiny`** is used for the Logo.  
 
-The font **Acme** is used for Headings.  Acme and Coiny are combined to produce the Main title on the home page.  
+The font **`Acme`** is used for Headings.  Acme and Coiny are combined to produce the Main title on the home page.  
 
  Variations on the Roboto font are achieved by using letter spacing and a variety of font weights and sizes. This helps break text and help create patterns that guide the eye where there are repeated sections, example the features and bugs tab with comments. This becomes more obvious when there are multiple comments.
 

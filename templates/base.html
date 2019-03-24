@@ -60,11 +60,28 @@
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i> Log Out</a></li>
                         <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                        <li id="cart-link">
+                            <a href="{% url 'view_cart' %}">
+                                <i {% if product_count < 1 %} class="fa fa-shopping-cart empty-cart" {% else%} class="fa fa-shopping-cart"
+                                    {% endif %}>
+                                </i>
+                                Cart
+                                {% if product_count > 0 %}
+                                    <label class="badge badge-warning">{{ product_count }}</label>
+                                {% endif %}
+                            </a>
+                        </li>
                         {% else %}
                         <li><a href="{% url 'login' %}"><i class="fa fa-sign-in-alt"></i> Login</a></li>
                         <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
-                        {% endif %}
                         <li id="cart-link">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart empty-cart"></i>
+                                <span class="disabled">Cart</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <!-- <li id="cart-link">
                             <a href="{% url 'view_cart' %}">
                                 <i {% if product_count < 1 %} class="fa fa-shopping-cart empty-cart" {% else%} class="fa fa-shopping-cart"
                                     {% endif %}>
@@ -74,7 +91,7 @@
                                 <label class="badge badge-warning">{{ product_count }}</label>
                                 {% endif %}
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
