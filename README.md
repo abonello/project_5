@@ -299,10 +299,7 @@ If you would like to access the whole wireframe folder, please use [this link](h
 [![](Wireframe/desktop_features_and_bugs_page-Thumbnail.png)](Wireframe/desktop_features_and_bugs_page.png)
 
 ### Desktop Charts Page
-![](Wireframe/desktop_charts_page-Thumbnail.png)
-
-
-](Wireframe/desktop_charts_page.png)
+[![](Wireframe/desktop_charts_page-Thumbnail.png)](Wireframe/desktop_charts_page.png)
 
 
 
