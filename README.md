@@ -324,7 +324,7 @@ If you would like to access the whole wireframe folder, please use [this link](h
 - [Chart.js v2.7.3](https://www.chartjs.org/) - used to generate the dynamic charts.
 - [Stripe](https://stripe.com/gb) - used to enable card payment.
 
-I am using a `Postgres` database on Heroku.
+I am using a `PostgreSQL` database on Heroku.
 
 
 ## TESTING
