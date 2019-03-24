@@ -284,12 +284,10 @@ The font Montserrat is used as the main font for this app. The font Merienda is 
 * [Back to TOP](#uniquecorn-issue-tracker)  
 * [Back to Skeleton](#skeleton)
 
-Click [here](https://abonello.github.io/project-5/Wireframe/) to see the wireframe.
-
-The files for the wireframe are stored in this [repository](https://abonello.github.io/project-5/Wireframe/).
+If you would like to see larger images for the following thumbnails please use [this link](https://github.com/abonello/project_5/tree/master/Wireframe).
 
 ### Mobile Home Page  
-![](Wireframe/mobile_home_page-Thumbnail.png) 
+![Mobile Home Page](Wireframe/mobile_home_page-Thumbnail.png) 
 
 ### Desktop Home Page
 ![](Wireframe/desktop_home_page-Thumbnail.png)
