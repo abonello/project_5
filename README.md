@@ -284,21 +284,22 @@ The font Montserrat is used as the main font for this app. The font Merienda is 
 * [Back to TOP](#uniquecorn-issue-tracker)  
 * [Back to Skeleton](#skeleton)
 
-If you would like to see larger images for the following thumbnails please use [this link](https://github.com/abonello/project_5/tree/master/Wireframe).
+
+Please click on these thumbnails to see larger images. Please note that they will open in the same window so you will have to use the back button to come back here. To avoid this, right click on the thumbnail and select `Open Link in New Tab`.
+
+If you would like to access the whole wireframe folder, please use [this link](https://github.com/abonello/project_5/tree/master/Wireframe).
 
 ### Mobile Home Page  
-[![Mobile Home Page](Wireframe/mobile_home_page-Thumbnail.png)](Wireframe/mobile_home_page.png) 
+[]([![Mobile Home Page](Wireframe/mobile_home_page-Thumbnail.png)](Wireframe/mobile_home_page.png))
 
 ### Desktop Home Page
-![](Wireframe/desktop_home_page-Thumbnail.png)
+[![](Wireframe/desktop_home_page-Thumbnail.png)](Wireframe/desktop_home_page.png)
 
 ### Desktop Features and Bugs page
-![](Wireframe/desktop_features_and_bugs_page-Thumbnail.png)
+[![](Wireframe/desktop_features_and_bugs_page-Thumbnail.png)](Wireframe/desktop_features_and_bugs_page.png)
 
 ### Desktop Charts Page
-![](Wireframe/desktop_charts_page-Thumbnail.png)
-
-![](Wireframe/.png)
+[![](Wireframe/desktop_charts_page-Thumbnail.png)](Wireframe/desktop_charts_page.png)
 
 
 
