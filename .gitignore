@@ -7,9 +7,11 @@ __pycache__
 UniQueCorn/__pycache__/*
 fontawesome-free-5.7.1-web.zip
 env.py
+WORKING.md
 WORKING.pdf
 *.pyc 
 credentials.csv
 To Remove/
 AllItemsInstalled.txt
 ItemsThatShouldBeInstalled.txt
+requirements2.txt
