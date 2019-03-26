@@ -61,14 +61,12 @@ Users can read about the UniQueCorn App. If they register, they can request new 
 ### **Scope** 
 * [Back to TOP](#uniquecorn-issue-tracker)
 
-#### Features to implement
+#### Features
 
 The app should allow the user to fullfill the following tasks:
 
-* Users can navigate through the site using a navigation system which is functional using typical menu system for both mobile and desktop platforms.  
 * The site is fully responsive.  
-   _
-
+* Users can navigate through the site using a navigation system which is functional using typical menu system for both mobile and desktop platforms.  
 * Users can register.  
 * Users can log in.    
 * Users can log out.  
@@ -80,7 +78,7 @@ The app should allow the user to fullfill the following tasks:
 * Users can read the blog.  
 * Users can read more information about us.  
 * Users can contact us using a form.  
-  _
+
 
 **The following pages/features require login.**  
 * Users can buy coins. This feature has cart functionality and checkout that will accept payment using a card, powered by Stripe.  
@@ -88,6 +86,7 @@ The app should allow the user to fullfill the following tasks:
 * Users can up-vote features and bugs (paid for by coins) increasing their likelihood to be worked on by the development team.  
 * Users can add comments to both bugs and features (free for both).  
 * Users can see information about how many comments and votes each feature and bug has in the form of dynamic charts. These read the information directly from the database upon rendering of the page.
+
 
 #### User stories
 
@@ -323,8 +322,13 @@ If you would like to access the whole wireframe folder, please use [this link](h
 - [Google Fonts](https://fonts.google.com/) - Roboto and Coiny.
 - [Chart.js v2.7.3](https://www.chartjs.org/) - used to generate the dynamic charts.
 - [Stripe](https://stripe.com/gb) - used to enable card payment.
-
-I am using a `PostgreSQL` database on Heroku.
+- [Django](https://www.djangoproject.com/) - This is a django project and has a number of apps that work together to build this web application.
+- [Python3](https://www.python.org/) - The main language for the backend.
+- [SQLite](https://www.sqlite.org/index.html) - used as a local database when in debug mode or if not in debug mode while a url for another database is not available.
+- [ProgreSQL](https://www.postgresql.org/) - The main database used for deployment.
+- [Travis CI](https://travis-ci.org/) - used for integrating continuous testing. The status of build tests is displayed at the top of this readme file on github.
+- [Heroku](https://www.heroku.com/) - used for deploying this application on the web.
+- [Github](https://github.com/) - used for version control.
 
 
 ## TESTING
@@ -370,6 +374,7 @@ If you would like to install this app follow the following steps:
     ```bash
      python manage.py createsuperuser
      ```
+
 4. For deploying on the net, create a new app on heroku and push this repository there.
 
 5. A requirements.txt will list all the required installs.
@@ -381,7 +386,9 @@ If you would like to install this app follow the following steps:
     python manage.py makemigrations
     python manage.py migrate
     ```
-8. You will need to set up some environment variables. Follow the instructions for your chosen deployment platform.
+8. Go to the admin panel and in the Products table create a product called 500 Coins. Write some text as description. Select an image (not important which as I have hard coded this from the static/img folder). Give it a price. I used €200.
+
+9. You will need to set up some environment variables. Follow the instructions for your chosen deployment platform.
     * DATABASE_URL - your database url
     * EMAIL_ADDRESS_WEBADMIN - your admin email address
     * EMAIL_HOST_WEBADMIN - your email host
@@ -392,7 +399,11 @@ If you would like to install this app follow the following steps:
     * STRIPE_PUBLISHABLE - I am using stripe to take care of card payment. You will need to create a Stripe account. This will be the publishable key.
     * STRIPE_SECRET - This is the Stripe secret key.
 
-   
+   If you are working locally you should set a variable called DEVELOPMENT. Set this equal to 1.
+   This will set debug to true and also starts using a local sqlite3 database.  
+   If you do not wish to use this default behaviour you will need to do some changes in settings.py. These changes will depend on what you would like to achieve.
+
+10. You will need to start adding a few features, bugs and comments. These will be displayed in the `Features & Bugs` page and will start populating the charts.
 
 
 &nbsp;   
