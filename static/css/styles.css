@@ -363,7 +363,8 @@ hr.hr-light {
 /* MAIN CONTENT */
 .main-content-outer {
     position: relative;
-    padding-top: 100px;
+    /* padding-top: 100px; */
+    padding-top: 40px;
     background-color: rgba(210, 189, 153, 0.3);
 }
 .main-content {
@@ -486,7 +487,7 @@ hr.hr-light {
     padding: 20px 5%;
     padding: 20px calc(5% + 10px);
     font-style: italic;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 50px;
     text-align: justify;
     letter-spacing: 2px;
@@ -668,6 +669,35 @@ a#link-add-issue:focus {
 }
 
 
+/* LOGIN */
+#loginForm .form-group {
+    height: 60px;
+}
+
+@media screen and (min-width: 992px) {
+    #loginForm .form-group {
+        height: 40px;
+    }
+}
+
+#loginForm .button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-login {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 30%;
+    min-width: 180px;
+}
+
+@media screen and (min-width: 992px) {
+    .btn-login {
+        margin-top: 0px;
+    }
+}
+/* End LOGIN */
 
 /* PROFILE */
 .panel {
@@ -837,6 +867,9 @@ a#link-add-issue:focus {
     font-weight: 600;
     font-size: 1.1em;
 }
+.about-intro:first-of-type {
+    padding-top: 40px;
+}
 .about-subtitle {
     font-weight: 600;
     font-size: 1.7em;
@@ -871,11 +904,12 @@ a#link-add-issue:focus {
 }
 
 /* UQC app */
-    .uqc-app-intro {
+.uqc-app-intro {
     font-size: 1.2em;
     font-weight: 500;
     letter-spacing: 2px;
     padding: 0 20px;
+    padding-top: 40px;
     padding-bottom: 20px;
     text-align: justify;
 }
@@ -990,7 +1024,7 @@ p.uqc-app-download-info {
 }
 
 .contact-title {
-    margin-top: -30px;
+    margin-top: 30px;
 }
 .contact-text {
     text-align: justify;
