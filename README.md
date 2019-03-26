@@ -360,6 +360,8 @@ The following documents the steps needed to deploy this app on Heroku. Other dep
 
 If you would like to install this app follow the following steps:
 
+# NEED TO CREATE COIN PRODUCT - how to select the image.
+
 1. Download the app from this [github repository](https://github.com/abonello/project_5)
 
 2. Set it up to work on your local machine.
