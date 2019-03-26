@@ -20,7 +20,8 @@ UniQueCorn Issue Tracker | Cart
     {% for item in cart_items %}
     <div class="col-xs-10 col-sm-6 col-md-4 display panel panel-display">
         
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+        <!-- <div class="product" style="background-image: url('{#{ MEDIA_URL }#}{#{ item.product.image }#}')"></div> -->
+        <div class="product" style="background-image: url('../static/img/bank-brass-business-71122.-small2.jpg')"></div>
 
         <div class="caption cart-panel-caption">
             <h3>{{ item.product.name }}</h3>
