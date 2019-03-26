@@ -1,5 +1,6 @@
 /venv/
 *.sqlite3
+db.sqlite3
 __pycache__
 /htmlcov/
 .vscode
@@ -10,3 +11,4 @@ WORKING.pdf
 *.pyc 
 credentials.csv
 To Remove/
+AllItemsInstalled.txt
