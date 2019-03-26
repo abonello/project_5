@@ -780,6 +780,10 @@ a#link-add-issue:focus {
     }
 }
 
+#addIssueForm textarea {
+    resize: none;
+}
+
 .button-container {
     display: flex;
     justify-content: center;

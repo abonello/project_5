@@ -770,38 +770,21 @@ a#link-add-issue:focus {
     background-color: rgba(0, 0, 0, 0.14);
 }
 
-
-
-
-
-
-#addIssueForm .form-group,
-#addIssueForm textarea {
-    /* padding-bottom: 0px;
-    border: 1px solid transparent; */
-    /* height: 40px; */
-}
-/* #addIssueForm .form-group:last-of-type {
-    padding-bottom: 40px;
-} */
-
 #addIssueForm .form-group {
-    /* padding-top: 20px; */
     height: 60px;
 }
 
 @media screen and (min-width: 992px) {
-    /* #addIssueForm .form-group,
-    #addIssueForm textarea { */
     #addIssueForm .form-group {
-        /* margin-bottom: 55px; */
-        /* border: 1px solid transparent; */
         height: 40px;
     }
 }
 
+#addIssueForm textarea {
+    resize: none;
+}
+
 .button-container {
-    /* clear: both; */
     display: flex;
     justify-content: center;
 }
@@ -818,11 +801,6 @@ a#link-add-issue:focus {
         margin-top: 0px;
     }
 }
-
-
-
-
-
 
 .product {
     background-size: contain;
