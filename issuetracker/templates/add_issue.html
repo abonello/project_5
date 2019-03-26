@@ -19,11 +19,28 @@ UniQueCorn - Test | Add Item
 {% block content %}
 <p class="new-issue-pay-notice">Please note adding a new feature request costs 300 coins. If you do not have enough coins you will be redirected to buy coins. <br><br>
 No coins are required to submit bugs.</p>
-<form method="POST">
-    {% csrf_token %}
-    {{ form | as_bootstrap_horizontal }}
+<div id="addIssueForm">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form | as_bootstrap_horizontal }}
+    
+        <br>
+        <div class="button-container">
+            <button type="submit" class="btn btn-success btn-save-new-issue">Save</button>
+        </div>
+    </form>
+</div>
 
-    <br>
-    <button type="submit" class="btn btn-success btn-save-new-issue">Save</button>
-</form>
+<script>
+
+    function setHeight() {
+        var textAreadHeight = $('textarea').height();
+        $('textarea').parent().parent().height(textAreadHeight);
+    }
+
+    setHeight();
+
+    // Change on screen resize
+    // Change textarea size - automatic in desktop.
+</script>
 {% endblock %}

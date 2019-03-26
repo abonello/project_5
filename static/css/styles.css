@@ -667,6 +667,8 @@ a#link-add-issue:focus {
     }
 }
 
+
+
 /* PROFILE */
 .panel {
     background-color: rgba(255, 255, 255, 0.32);
@@ -768,8 +770,32 @@ a#link-add-issue:focus {
     background-color: rgba(0, 0, 0, 0.14);
 }
 
+#addIssueForm .form-group {
+    height: 60px;
+}
+
+@media screen and (min-width: 992px) {
+    #addIssueForm .form-group {
+        height: 40px;
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
 .btn-save-new-issue {
+    margin-top: 40px;
     margin-bottom: 50px;
+    width: 30%;
+    min-width: 180px;
+}
+
+@media screen and (min-width: 992px) {
+    .btn-save-new-issue {
+        margin-top: 0px;
+    }
 }
 
 .product {

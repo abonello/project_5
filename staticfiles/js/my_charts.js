@@ -3,7 +3,7 @@ $.ajax({
     url: "get_chart_data",
     dataType: "json",
     astnc: true,
-    // data: { csrfmiddlewaretoken: '{#{ csrf_token }#}' },
+
     success: function(data) {
         var features_title = [];
         var features_votes= [];
@@ -12,29 +12,18 @@ $.ajax({
         var bugs_votes= [];
         var bugs_comments = [];
         $.each(data.message.features, function(i, content) {
-            features_title.push(content.title)
-            features_votes.push(content.votes)
-            features_comments.push(content.comments)
+            features_title.push(content.title);
+            features_votes.push(content.votes);
+            features_comments.push(content.comments);
         });
-        // console.log(features_title);
-        // console.log(features_votes);
-        // console.log(features_comments);
 
         $.each(data.message.bugs, function(i, content) {
-            bugs_title.push(content.title)
-            bugs_votes.push(content.votes)
-            bugs_comments.push(content.comments)
+            bugs_title.push(content.title);
+            bugs_votes.push(content.votes);
+            bugs_comments.push(content.comments);
         });
-        // console.log(bugs_title);
-        // console.log(bugs_votes);
-        // console.log(bugs_comments);
 
         let feature_votes_Ctx = $('#feature-votes-chart')[0].getContext('2d');
-
-        // Global Options
-        // Chart.defaults.global.defaultFontFamily = 'Lato';
-        // Chart.defaults.global.defaultFontSize = 18;
-        // Chart.defaults.global.defaultFontColor = '#777';
 
         let featureVotesChart = new Chart(feature_votes_Ctx, {
             type: 'horizontalBar',
@@ -75,7 +64,6 @@ $.ajax({
                 ]
             },
             options: {
-                // responsive: false,
                 title: {
                     display: true,
                     text: "Features' Votes",
@@ -88,14 +76,6 @@ $.ajax({
                         fontColor: '#000'
                     }
                 },
-                // layout: {
-                //     padding: {
-                //         left: 20,
-                //         right: 20,
-                //         bottom: 0,
-                //         top: 0
-                //     }
-                // },
                 tooltips: {
                     enabled: true, // true, false
                 },
@@ -155,7 +135,6 @@ $.ajax({
                 ]
             },
             options: {
-                // responsive: false,
                 title: {
                     display: true,
                     text: "Features' Comments",
@@ -168,14 +147,6 @@ $.ajax({
                         fontColor: '#000'
                     }
                 },
-                // layout: {
-                //     padding: {
-                //         left: 20,
-                //         right: 20,
-                //         bottom: 0,
-                //         top: 0
-                //     }
-                // },
                 tooltips: {
                     enabled: true, // true, false
                 },
@@ -235,7 +206,6 @@ $.ajax({
                 ]
             },
             options: {
-                // responsive: false,
                 title: {
                     display: true,
                     text: "Bugs' Votes",
@@ -314,7 +284,6 @@ $.ajax({
                 ]
             },
             options: {
-                // responsive: false,
                 title: {
                     display: true,
                     text: "Bugs' Comments",
@@ -354,22 +323,5 @@ $.ajax({
                 }
             }
         });
-
-
-
-
-
     }
 });
-
-// function resize() {
-                    // $(".canvas").outerHeight($(window).height() - $(".canvas").offset().top - Math.abs($(".canvas").outerHeight(true) - $(".canvas").outerHeight()));
-//     $('.canvas').height = $('.canvas').width() * 2;
-
-// }
-// $(document).ready(function () {
-//     resize();
-//     $(window).on("resize", function () {
-//         resize();
-//     });
-// });
